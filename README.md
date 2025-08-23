@@ -65,9 +65,9 @@ python -m pip install jupyterlab_rise
 ## Render 
 
 ```sh
-jupyter nbconvert presentation.ipynb --to slides --post serve # for html output
+jupyter nbconvert slides/presentation.ipynb --to slides --post serve # for html output
 
-jupyter nbconvert presentation.ipynb --to pdf # for pdf output
+jupyter nbconvert slides/presentation.ipynb --to pdf # for pdf output
 ```
 
 #### Other
