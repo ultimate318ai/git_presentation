@@ -7460,6 +7460,158 @@ main {
 </div>
 </div>
 </div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5a3ea240-20ad-4f4d-939c-a0e7aeeae1c3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">¶</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c820b688-7bd3-4a93-b174-9bed4cc0a493">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><span style="text-align:justified; color: red;">Un gestionnaire de
+version est un système qui enregistre l’évolution d’un fichier ou d’un ensemble de fichiers au cours
+du temps de manière à ce qu’on puisse rappeler une version antérieure d’un fichier à tout moment. </span></p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=94314bc6-82e0-4fbd-a8a5-038896d8ebb2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<img alt="Image d'introduction" src="../pictures/introduction.png"/>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=98d8f433-82e7-4868-92de-b5b613c92636">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Les-syst%C3%A8mes-de-gestion-de-version-locaux-(1/X)">Les systèmes de gestion de version locaux (1/X)<a class="anchor-link" href="#Les-syst%C3%A8mes-de-gestion-de-version-locaux-(1/X)">¶</a></h3><hr/>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6c3d477a-8f28-475a-afd5-9fe7875dad0c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="row" style="display:flex;justify-content: center; border: 3px solid #08182F; border-radius: 50px;margin-left: 10px; margin-right:10px">
+<div class="column" style="margin-left:30px">
+<img alt="Image gestion de version locale1" height="400px" src="../pictures/version-ppt.png" width="500px"/>
+</div>
+<div class="column" style="margin-left:70px">
+<img alt="Image gestion de version locale2" height="400px" src="../pictures/local-computer.png" width="500px"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1a718cd2-3b57-4487-a772-3fda13dc5cc3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Les-syst%C3%A8mes-de-gestion-de-version-locaux-(1/X)">Les systèmes de gestion de version locaux (1/X)<a class="anchor-link" href="#Les-syst%C3%A8mes-de-gestion-de-version-locaux-(1/X)">¶</a></h3><hr/>
+<p>Un des systèmes les plus populaires était <a href="https://www.gnu.org/software/rcs/">RCS</a>, qui est encore distribué avec de nombreux systèmes
+d’exploitation aujourd’hui.</p>
+<p>Cet outil fonctionne en conservant des ensembles de patchs</p>
+<div class="highlight"><pre><span></span><span class="gh">diff --git a/foo.c b/foo.c</span>
+<span class="gh">index 30cfd169..8de130c2 100644</span>
+<span class="gd">--- a/foo.c</span>
+<span class="gi">+++ b/foo.c</span>
+<span class="gu">@@ -1,5 +1,5 @@</span>
+<span class="w"> </span>#include &lt;string.h&gt;
+
+<span class="w"> </span>int check (char *string) {
+<span class="gd">-    return !strcmp(string, "ok");</span>
+<span class="gi">+    return (string != NULL) &amp;&amp; !strcmp(string, "ok");</span>
+}
+</pre></div>
+<p>Un patch est une representation compacte de différences entres deux fichiers. Cela décrit comment effectuer une tranformation afin de passer d'un fichier à un autre.</p>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=639ac4b6-c887-4cd8-8814-241621f8e825">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li><em>diff --git a/foo.c b/foo.c</em> represente les changements entre l'index et la version dans l'arbre de travail.</li>
+</ul>
+</div>
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5c9295e5-7a02-4fca-967b-692cbf2bbb5f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li><code>index 30cfd169..8de130c2 100644</code> represente le header. Dans notre contexte cela montre plus de détails sur notemment d'où proviennent les deux "version" de ce même fichier ainsi que son type (fichier dit régulier, executable ou non, lien symbolique...)</li>
+</ul>
+</div>
+</div>
+</div>
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2797ea6e-5a7f-4cbc-95bb-dc81bc457b69">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Les-syst%C3%A8mes-de-gestion-de-version-locaux-(1/X)">Les systèmes de gestion de version locaux (1/X)<a class="anchor-link" href="#Les-syst%C3%A8mes-de-gestion-de-version-locaux-(1/X)">¶</a></h3><hr/>
+<ul style="list-style: none;">
+<li><span style="color: green">+ On il peut restituer l’état de n’importe quel fichier à n’importe quel instant en ajoutant toutes les
+différences patch nécéssaires.</span></li>
+<li><span style="color: red">- Cela ne permet pas de gérer plusieurs utilisateurs sur plusieurs machines</span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=452388e0-7f05-47fc-bd0f-478fec47bc0f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Les-syst%C3%A8mes-de-gestion-de-version-centralis%C3%A9s-(1/X)">Les systèmes de gestion de version centralisés (1/X)<a class="anchor-link" href="#Les-syst%C3%A8mes-de-gestion-de-version-centralis%C3%A9s-(1/X)">¶</a></h3><hr/>
+<p>Pour traiter ce problème, les systèmes de gestion de version
+centralisés (CVCS en anglais) furent développés. Ces
+systèmes mettent en place un serveur central qui contient
+tous les fichiers sous gestion de version, et des clients qui peuvent extraire les fichiers de ce dépôt
+central.</p>
+<div style="display:flex;justify-content: center;">
+<img align="center" alt="VCS server" height="500px" src="../pictures/vcs-server.png" style="border: 3px solid #08182F; border-radius: 50px;margin-left: 10px; margin-right:10px" width="500px"/>
+</div>
+</div>
+</div>
+</div>
 </div></section></section>
 </div>
 </div>
