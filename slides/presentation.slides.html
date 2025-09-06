@@ -7531,7 +7531,7 @@ du temps de manière à ce qu’on puisse rappeler une version antérieure d’u
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Les-syst%C3%A8mes-de-gestion-de-version-locaux-(1/X)">Les systèmes de gestion de version locaux (1/X)<a class="anchor-link" href="#Les-syst%C3%A8mes-de-gestion-de-version-locaux-(1/X)">¶</a></h3><hr/>
+<h3 id="Les-syst%C3%A8mes-de-gestion-de-version-locaux-(2/X)">Les systèmes de gestion de version locaux (2/X)<a class="anchor-link" href="#Les-syst%C3%A8mes-de-gestion-de-version-locaux-(2/X)">¶</a></h3><hr/>
 <p>Un des systèmes les plus populaires était <a href="https://www.gnu.org/software/rcs/">RCS</a>, qui est encore distribué avec de nombreux systèmes
 d’exploitation aujourd’hui.</p>
 <p>Cet outil fonctionne en conservant des ensembles de patchs</p>
@@ -7584,16 +7584,17 @@ d’exploitation aujourd’hui.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Les-syst%C3%A8mes-de-gestion-de-version-locaux-(1/X)">Les systèmes de gestion de version locaux (1/X)<a class="anchor-link" href="#Les-syst%C3%A8mes-de-gestion-de-version-locaux-(1/X)">¶</a></h3><hr/>
+<h3 id="Les-syst%C3%A8mes-de-gestion-de-version-locaux-(3/X)">Les systèmes de gestion de version locaux (3/X)<a class="anchor-link" href="#Les-syst%C3%A8mes-de-gestion-de-version-locaux-(3/X)">¶</a></h3><hr/>
 <ul style="list-style: none;">
 <li><span style="color: green">+ On il peut restituer l’état de n’importe quel fichier à n’importe quel instant en ajoutant toutes les
 différences patch nécéssaires.</span></li>
 <li><span style="color: red">- Cela ne permet pas de gérer plusieurs utilisateurs sur plusieurs machines</span></li>
+<li><span style="color: red">- Dépendance totale sur le server local (panne, corruption du disque dur, ...)</span></li>
 </ul>
 </div>
 </div>
 </div>
-</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=452388e0-7f05-47fc-bd0f-478fec47bc0f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7601,14 +7602,145 @@ différences patch nécéssaires.</span></li>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Les-syst%C3%A8mes-de-gestion-de-version-centralis%C3%A9s-(1/X)">Les systèmes de gestion de version centralisés (1/X)<a class="anchor-link" href="#Les-syst%C3%A8mes-de-gestion-de-version-centralis%C3%A9s-(1/X)">¶</a></h3><hr/>
-<p>Pour traiter ce problème, les systèmes de gestion de version
-centralisés (CVCS en anglais) furent développés. Ces
-systèmes mettent en place un serveur central qui contient
+<p>Les systèmes de gestion de version
+centralisés mettent en place un serveur central qui contient
 tous les fichiers sous gestion de version, et des clients qui peuvent extraire les fichiers de ce dépôt
 central.</p>
 <div style="display:flex;justify-content: center;">
-<img align="center" alt="VCS server" height="500px" src="../pictures/vcs-server.png" style="border: 3px solid #08182F; border-radius: 50px;margin-left: 10px; margin-right:10px" width="500px"/>
+<img align="center" alt="CVCS server" height="500px" src="../pictures/CVCS-server.png" style="border: 3px solid #08182F; border-radius: 50px;margin-left: 10px; margin-right:10px" width="500px"/>
 </div>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=31d990fe-73a7-496a-818e-6077aaba6e96">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Les-syst%C3%A8mes-de-gestion-de-version-distribu%C3%A9s-(2/X)">Les systèmes de gestion de version distribués (2/X)<a class="anchor-link" href="#Les-syst%C3%A8mes-de-gestion-de-version-distribu%C3%A9s-(2/X)">¶</a></h3><hr/>
+<ul style="list-style: none;">
+<li><span style="color: green">+ On il peut restituer l’état de n’importe quel fichier à n’importe quel instant.</span></li>
+<li><span style="color: green">+ Cela permet de gérer plusieurs utilisateurs sur plusieurs machines</span></li>
+<li><span style="color: green">+ Possibilités d'administration de la base de donnée</span></li>
+<li><span style="color: red">- Dépendance totale sur le server distant (panne, lenteur, corruption du disque dur, accès concurrents, ...)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f9d52b08-4076-45db-85b7-7413df9b48da">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Les-syst%C3%A8mes-de-gestion-de-version-centralis%C3%A9s-(1/X)">Les systèmes de gestion de version centralisés (1/X)<a class="anchor-link" href="#Les-syst%C3%A8mes-de-gestion-de-version-centralis%C3%A9s-(1/X)">¶</a></h3><hr/>
+<p>Les clients n’extraient plus seulement la dernière version d’un fichier, mais ils dupliquent
+complètement le dépôt.</p>
+<div style="display:flex;justify-content: center;">
+<img align="center" alt="DVCS server" height="500px" src="../pictures/DVCS-server.png" style="border: 3px solid #08182F; border-radius: 50px;margin-left: 10px; margin-right:10px" width="500px"/>
+</div>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b65f3cdf-0b72-4232-918d-93de2045d5f9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Les-syst%C3%A8mes-de-gestion-de-version-centralis%C3%A9s-(2/X)">Les systèmes de gestion de version centralisés (2/X)<a class="anchor-link" href="#Les-syst%C3%A8mes-de-gestion-de-version-centralis%C3%A9s-(2/X)">¶</a></h3><hr/>
+<ul style="list-style: none;">
+<li><span style="color: green">+ On il peut restituer l’état de n’importe quel fichier à n’importe quel instant.</span></li>
+<li><span style="color: green">+ Cela permet de gérer plusieurs utilisateurs sur plusieurs machines</span></li>
+<li><span style="color: green">+ Possibilités d'administration de la base de donnée</span></li>
+<li><span style="color: red">+ Résilience totale sur le server distant, en cas de problème, chaque machine locale possède un "déplicat" de ce dépot </span></li>
+</ul>
+</div>
+</div>
+</div>
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=00464b95-3472-4ffc-8d97-c7209c2697a1">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Les-syst%C3%A8mes-de-gestion-de-version-centralis%C3%A9s-(3/X)">Les systèmes de gestion de version centralisés (3/X)<a class="anchor-link" href="#Les-syst%C3%A8mes-de-gestion-de-version-centralis%C3%A9s-(3/X)">¶</a></h3><hr/>
+<p>Le noyau Linux est un projet libre de grande envergure. Pour la plus grande partie de sa vie
+(1991–2002), les modifications étaient transmises sous forme de patchs et d’archives de fichiers. En
+2002, le projet du noyau Linux commença à utiliser un DVCS propriétaire appelé BitKeeper.</p>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=53d55bf9-89ff-4098-ae8a-36a20e762419">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul style="list-style: none;">
+<li><span><b>Simple</b>: An easy to use command line interface. </span></li>
+<li><span><b>Scalable</b>: Nested Repositories are submodules done right! Version control collections of repositories.</span></li>
+<li><span><b>Accurate</b>: Tracking of file operations like creates, deletes, and renames.</span></li>
+<li><span><b>Safe</b>: All file accesses validate checksums for integrity. All file writes include redundancy for error correction.</span></li>
+<li><span><b>Dependable</b>: Highly accurate auto-merge that uses the whole history to resolve conflicts. Most other systems use variations of diff3.</span></li>
+<li><span><b>Fast</b>: High performance and scales to very large repositories.</span></li>
+<li><span><b>Free</b>: Licensed under the Apache Version 2 license </span></li>
+</ul>
+</div>
+</div>
+</div>
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=265503bd-fc48-4076-b6ee-a3df01a2cc08">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Les-syst%C3%A8mes-de-gestion-de-version-centralis%C3%A9s-(4/X)">Les systèmes de gestion de version centralisés (4/X)<a class="anchor-link" href="#Les-syst%C3%A8mes-de-gestion-de-version-centralis%C3%A9s-(4/X)">¶</a></h3><hr/>
+<div style="display:flex;justify-content: center;">
+<img align="center" alt="bitkeeper" height="500px" src="../pictures/bitkeeper.png" style="border: 3px solid #08182F; border-radius: 50px;margin-left: 10px; margin-right:10px" width="500px"/>
+</div>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0f2e9483-c2a7-4207-a054-6229719a6082">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<blockquote>
+<p>Où arrive git dans tout cela ?</p>
+</blockquote>
+</div>
+</div>
+</div>
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=04b9d230-6625-40e9-a37f-342ce1c3196f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Les-syst%C3%A8mes-de-gestion-de-version-centralis%C3%A9s-(5/X)">Les systèmes de gestion de version centralisés (5/X)<a class="anchor-link" href="#Les-syst%C3%A8mes-de-gestion-de-version-centralis%C3%A9s-(5/X)">¶</a></h3><hr/>
+<p>En 2005, les relations entre la communauté développant le noyau Linux et la société en charge du
+développement de BitKeeper furent rompues, et le statut de gratuité de l’outil fut révoqué.</p>
+<p>Cela poussa la communauté du développement de Linux (et plus particulièrement Linus Torvalds, le
+créateur de Linux) à développer son propre outil en se basant sur les leçons apprises lors de
+l’utilisation de BitKeeper:</p>
+<ul style="list-style: none;">
+<li><span>vitesse</span></li>
+<li><span>conception simple</span></li>
+<li><span>support pour les développements non linéaires</span></li>
+<li><span>capacité à gérer efficacement des projets d’envergure tels que le noyau Linux</span></li>
+</ul>
 </div>
 </div>
 </div>
