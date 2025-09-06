@@ -34,7 +34,7 @@ libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-d
 
 #### Windows
 
-Use pyenv-win instead
+Use [pyenv-win](https://github.com/pyenv-win/pyenv-win) instead
 
 ```sh
 Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/pyenv-win/pyenv-win/master/pyenv-win/install-pyenv-win.ps1" -OutFile "./install-pyenv-win.ps1"; &"./install-pyenv-win.ps1"
@@ -62,12 +62,14 @@ python -m pip install RISE
 python -m pip install jupyterlab_rise
 ```
 
-## Render 
+## Render
 
 ```sh
-jupyter nbconvert slides/presentation.ipynb --to slides --post serve # for html output
+python -m jupyter notebook # Launch local server
 
-jupyter nbconvert slides/presentation.ipynb --to pdf # for pdf output
+python -m jupyter nbconvert slides/presentation.ipynb --to slides --post serve # for html output
+
+python -m jupyter nbconvert slides/presentation.ipynb --to pdf # for pdf output
 ```
 
 #### Other
