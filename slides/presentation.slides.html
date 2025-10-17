@@ -7491,7 +7491,9 @@ du temps de manière à ce qu’on puisse rappeler une version antérieure d’u
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<img alt="Image d'introduction" src="../pictures/introduction.png"/>
+<div style="display:flex">
+<img alt="Image d'introduction" height="700px" src="../pictures/introduction.png" style="border: 3px solid #08182F; border-radius: 50px; margin: auto" width="700px"/>
+</div>
 </div>
 </div>
 </div>
@@ -7601,13 +7603,13 @@ différences patch nécéssaires.</span></li>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Les-syst%C3%A8mes-de-gestion-de-version-centralis%C3%A9s-(1/X)">Les systèmes de gestion de version centralisés (1/X)<a class="anchor-link" href="#Les-syst%C3%A8mes-de-gestion-de-version-centralis%C3%A9s-(1/X)">¶</a></h3><hr/>
+<h3 id="Les-syst%C3%A8mes-de-gestion-de-version-distribu%C3%A9s-(1/X)">Les systèmes de gestion de version distribués (1/X)<a class="anchor-link" href="#Les-syst%C3%A8mes-de-gestion-de-version-distribu%C3%A9s-(1/X)">¶</a></h3><hr/>
 <p>Les systèmes de gestion de version
 centralisés mettent en place un serveur central qui contient
 tous les fichiers sous gestion de version, et des clients qui peuvent extraire les fichiers de ce dépôt
 central.</p>
-<div style="display:flex;justify-content: center;">
-<img align="center" alt="CVCS server" height="500px" src="../pictures/CVCS-server.png" style="border: 3px solid #08182F; border-radius: 50px;margin-left: 10px; margin-right:10px" width="500px"/>
+<div style="display:flex;">
+<img alt="CVCS server" height="500px" src="../pictures/CVCS-server.png" style="border: 3px solid #08182F; border-radius: 50px; margin: auto" width="500px"/>
 </div>
 </div>
 </div>
@@ -7639,8 +7641,8 @@ central.</p>
 <h3 id="Les-syst%C3%A8mes-de-gestion-de-version-centralis%C3%A9s-(1/X)">Les systèmes de gestion de version centralisés (1/X)<a class="anchor-link" href="#Les-syst%C3%A8mes-de-gestion-de-version-centralis%C3%A9s-(1/X)">¶</a></h3><hr/>
 <p>Les clients n’extraient plus seulement la dernière version d’un fichier, mais ils dupliquent
 complètement le dépôt.</p>
-<div style="display:flex;justify-content: center;">
-<img align="center" alt="DVCS server" height="500px" src="../pictures/DVCS-server.png" style="border: 3px solid #08182F; border-radius: 50px;margin-left: 10px; margin-right:10px" width="500px"/>
+<div style="display:flex">
+<img alt="DVCS server" height="500px" src="../pictures/DVCS-server.png" style="border: 3px solid #08182F; border-radius: 50px; margin: auto" width="500px"/>
 </div>
 </div>
 </div>
@@ -7657,7 +7659,7 @@ complètement le dépôt.</p>
 <li><span style="color: green">+ On il peut restituer l’état de n’importe quel fichier à n’importe quel instant.</span></li>
 <li><span style="color: green">+ Cela permet de gérer plusieurs utilisateurs sur plusieurs machines</span></li>
 <li><span style="color: green">+ Possibilités d'administration de la base de donnée</span></li>
-<li><span style="color: red">+ Résilience totale sur le server distant, en cas de problème, chaque machine locale possède un "déplicat" de ce dépot </span></li>
+<li><span style="color: green">+ Résilience totale sur le server distant, en cas de problème, chaque machine locale possède un "déplicat" de ce dépot </span></li>
 </ul>
 </div>
 </div>
@@ -7703,8 +7705,8 @@ complètement le dépôt.</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Les-syst%C3%A8mes-de-gestion-de-version-centralis%C3%A9s-(4/X)">Les systèmes de gestion de version centralisés (4/X)<a class="anchor-link" href="#Les-syst%C3%A8mes-de-gestion-de-version-centralis%C3%A9s-(4/X)">¶</a></h3><hr/>
-<div style="display:flex;justify-content: center;">
-<img align="center" alt="bitkeeper" height="500px" src="../pictures/bitkeeper.png" style="border: 3px solid #08182F; border-radius: 50px;margin-left: 10px; margin-right:10px" width="500px"/>
+<div style="display:flex">
+<img ;="" alt="bitkeeper" height="500px" src="../pictures/bitkeeper.png" style="border: 3px solid #08182F; border-radius: 50px; padding-left:5px; margin: auto" width="500px"/>
 </div>
 </div>
 </div>
@@ -7735,7 +7737,7 @@ développement de BitKeeper furent rompues, et le statut de gratuité de l’out
 <p>Cela poussa la communauté du développement de Linux (et plus particulièrement Linus Torvalds, le
 créateur de Linux) à développer son propre outil en se basant sur les leçons apprises lors de
 l’utilisation de BitKeeper:</p>
-<ul style="list-style: none;">
+<ul>
 <li><span>vitesse</span></li>
 <li><span>conception simple</span></li>
 <li><span>support pour les développements non linéaires</span></li>
@@ -7909,6 +7911,7 @@ command.</p>
 <span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="s">"switch"</span><span class="p">,</span><span class="w"> </span><span class="n">cmd_switch</span><span class="p">,</span><span class="w"> </span><span class="n">RUN_SETUP</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">NEED_WORK_TREE</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="c1">//l.632</span>
 <span class="w">    </span><span class="p">(...)</span>
 </pre></div>
+<p><em>source</em>: <a href="https://github.com/git/git/blob/2d2a71ce85026edcc40f469678a1035df0dfcf57/git.c#L503">git.c</a></p>
 </div>
 </div>
 </div>
@@ -7950,6 +7953,7 @@ command.</p>
 <span class="w">			     </span><span class="n">switch_branch_usage</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
+<p><em>source</em>: <a href="https://github.com/git/git/blob/master/builtin/checkout.c#L2038">git/builtin/checkout.c</a></p>
 </div>
 </div>
 </div>
@@ -7998,17 +8002,65 @@ command.</p>
 <span class="w">			     </span><span class="n">checkout_usage</span><span class="p">);</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">On</span><span class="w"> </span><span class="n">Appelle</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">même</span><span class="w"> </span><span class="n">fonction</span><span class="w"> </span><span class="n">en</span><span class="w"> </span><span class="n">bas</span>
 <span class="p">}</span>
 </pre></div>
+<p><em>source</em>: <a href="https://github.com/git/git/blob/master/builtin/checkout.c#L1988">git/builtin/checkout.c</a></p>
 </div>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2c301e11-0b06-47d0-977f-57a53d87a7d7">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9d55d480-34b4-41ab-8cf9-38e2bc457213">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h4 id="Que-faire-avec-ces-deux-commandes-?">Que faire avec ces deux commandes ?<a class="anchor-link" href="#Que-faire-avec-ces-deux-commandes-?">¶</a></h4><hr/>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c8475c95-e8ad-48b3-b78c-c3d74664eedb">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Difference</th>
+<th style="text-align:center">Switch</th>
+<th style="text-align:center">Checkout</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Working with older git versions (2.22 and below)</td>
+<td style="text-align:center">Only works with newer Git versions (2.23 and above)</td>
+<td style="text-align:center">Works with both older and new Git versions</td>
+</tr>
+<tr>
+<td style="text-align:center">Search for a branch in the remote repository if it’s not found in the local repository</td>
+<td style="text-align:center">Supported</td>
+<td style="text-align:center">Not Supported</td>
+</tr>
+<tr>
+<td style="text-align:center">Merge the current branch into another branch and switch to it</td>
+<td style="text-align:center">Supported</td>
+<td style="text-align:center">Not supported</td>
+</tr>
+</tbody>
+</table>
+<p><em>source:</em> <a href="https://kodekloud.com/blog/git-switch-vs-checkout/">Git Switch vs. Checkout: What’s the Difference?</a></p>
+</div>
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2c301e11-0b06-47d0-977f-57a53d87a7d7">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <ul>
 <li><em>Checkout</em>: Résoudre les conflits git (ours/theirs)</li>
 <li><em>Switch</em>: Opérations sur les branches : changement/création/suppression</li>
@@ -8016,7 +8068,7 @@ command.</p>
 </div>
 </div>
 </div>
-</div></section><section>
+</div></div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0355e4ff-18df-46a5-963d-b3c539c0ebff">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8034,8 +8086,8 @@ command.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="display:flex;justify-content: center;">
-<img align="center" alt="bitkeeper" height="500px" src="../pictures/bisect.png" style="border: 3px solid #08182F; border-radius: 50px;margin-left: 10px; margin-right:10px" width="500px"/>
+<div style="display:flex">
+<img alt="bitkeeper" height="500px" src="../pictures/bisect.png" style="border: 3px solid #08182F; border-radius: 50px; padding-left:5px; margin: auto" width="500px"/>
 </div>
 </div>
 </div>
@@ -8064,8 +8116,8 @@ command.</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Bisect-(2/X)">Bisect (2/X)<a class="anchor-link" href="#Bisect-(2/X)">¶</a></h3><hr/>
-<div style="display:flex;justify-content: center;">
-<img align="center" alt="bitkeeper" height="500px" src="../pictures/bisect.png" style="border: 3px solid #08182F; border-radius: 50px;margin-left: 10px; margin-right:10px" width="500px"/>
+<div style="display:flex">
+<img alt="bitkeeper" height="500px" src="../pictures/bisect.png" style="border: 3px solid #08182F; border-radius: 50px; padding-left:5px; margin: auto" width="500px"/>
 </div>
 <p>La commande <code>git bisect</code> exploite toute une série de sous-commandes.</p>
 <ol>
@@ -8074,6 +8126,7 @@ command.</p>
 <li>Un <code>git bisect good</code> identifie un commit qui n’avait pas le problème</li>
 <li>À partir de là, la dichotomie commence : Git fait un <code>checkout</code> au milieu de l’intervalle, et ici trois options : <code>git bisect bad</code> ou <code>git bisect good</code> (ou plus rarement, <code>git bisect skip</code>).</li>
 </ol>
+<p><em>source:</em> <a href="https://comprendre-git.com/fr/commandes/git-bisect/">Git Bisect : débusquer rapidement l'origine d'un bug</a></p>
 </div>
 </div>
 </div>
@@ -8403,6 +8456,7 @@ a11bef0<span class="w"> </span>-<span class="w"> </span>Scott<span class="w"> </
 </tr>
 </tbody>
 </table>
+<p><em>source:</em> <a href="https://buzut.net/cours/versioning-avec-git/historique">Git log : Rechercher, naviguer et modifier l'historique</a></p>
 </div>
 </div>
 </div>
@@ -8486,6 +8540,7 @@ a11bef0<span class="w"> </span>-<span class="w"> </span>Scott<span class="w"> </
 contient la chaîne de caractères|
 |-S Ne montre que les commits dont les ajouts ou retraits contient la
 chaîne de caractères|</p>
+<p><em>source:</em> <a href="https://buzut.net/cours/versioning-avec-git/historique">Git log : Rechercher, naviguer et modifier l'historique</a></p>
 </div>
 </div>
 </div>
@@ -8499,7 +8554,7 @@ chaîne de caractères|</p>
 <h4 id="Filtres-(2/X)">Filtres (2/X)<a class="anchor-link" href="#Filtres-(2/X)">¶</a></h4><hr/>
 <blockquote>
 <p>$ git log --pretty="%h - %s" --author='Junio C Hamano' --since="2008-10-01" <br/>
---before="2008-11-01" --no-merges -- t/</p>
+--before="2008-11-01" --no-merges -- repository/</p>
 </blockquote>
 <p><em>Sortie:</em></p>
 <div class="highlight"><pre><span></span>5610e3b<span class="w"> </span>-<span class="w"> </span>Fix<span class="w"> </span>testcase<span class="w"> </span>failure<span class="w"> </span>when<span class="w"> </span>extended<span class="w"> </span>attributes<span class="w"> </span>are<span class="w"> </span><span class="k">in</span><span class="w"> </span>use
@@ -8513,7 +8568,33 @@ branch
 </div>
 </div>
 </div>
-</div></section></section>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cc1d5d79-fe5e-4811-a745-350455bbab0a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="display:flex">
+<img alt="Merci de votre attention" height="500px" src="../pictures/thanks.png" style="border: 3px solid #08182F; border-radius: 50px; margin: auto" width="500px"/>
+</div>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=04429a2d-5e34-4854-8469-62ea8e4c6f18">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<blockquote>
+<p>Avez vous des question ?</p>
+</blockquote>
+</div>
+</div>
+</div>
+</div></div></section></section>
 </div>
 </div>
 </main>
