@@ -69,6 +69,8 @@ python -m jupyter notebook # Launch local server
 
 python -m jupyter nbconvert slides/presentation.ipynb --to slides --post serve # for html output
 
+python -m jupyter nbconvert slides/presentation.ipynb --to slides --config config.jon # for html output with custom config
+
 python -m jupyter nbconvert slides/presentation.ipynb --to pdf # for pdf output
 ```
 

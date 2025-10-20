@@ -7457,11 +7457,18 @@ main {
 <li>Testbis</li>
 <li>on verra</li>
 </ol>
+<p>TODO:</p>
+<ul>
+<li>Fix la taille des images</li>
+<li>Attention à la taille du contenue d'une slide</li>
+<li>Finaliser sommaire</li>
+<li>slide de fin + conclusion</li>
+</ul>
 </div>
 </div>
 </div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5a3ea240-20ad-4f4d-939c-a0e7aeeae1c3">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fc352d68">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7517,10 +7524,10 @@ du temps de manière à ce qu’on puisse rappeler une version antérieure d’u
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <div class="row" style="display:flex;justify-content: center; border: 3px solid #08182F; border-radius: 50px;margin-left: 10px; margin-right:10px">
 <div class="column" style="margin-left:30px">
-<img alt="Image gestion de version locale1" height="400px" src="../pictures/version-ppt.png" width="500px"/>
+<img alt="Image gestion de version locale1" height="400px" src="/pictures/version-ppt.png" width="500px"/>
 </div>
 <div class="column" style="margin-left:70px">
-<img alt="Image gestion de version locale2" height="400px" src="../pictures/local-computer.png" width="500px"/>
+<img alt="Image gestion de version locale2" height="400px" src="/pictures/local-computer.png" width="500px"/>
 </div>
 </div>
 </div>
@@ -7609,7 +7616,7 @@ centralisés mettent en place un serveur central qui contient
 tous les fichiers sous gestion de version, et des clients qui peuvent extraire les fichiers de ce dépôt
 central.</p>
 <div style="display:flex;">
-<img alt="CVCS server" height="500px" src="/pictures/CVCS-server.png" style="border: 3px solid #08182F; border-radius: 50px; margin: auto" width="500px"/>
+<img alt="CVCS server" height="500px" src="pictures/CVCS-server.png" style="border: 3px solid #08182F; border-radius: 50px; margin: auto" width="500px"/>
 </div>
 </div>
 </div>
@@ -7642,7 +7649,7 @@ central.</p>
 <p>Les clients n’extraient plus seulement la dernière version d’un fichier, mais ils dupliquent
 complètement le dépôt.</p>
 <div style="display:flex">
-<img alt="DVCS server" height="500px" src="../pictures/DVCS-server.png" style="border: 3px solid #08182F; border-radius: 50px; margin: auto" width="500px"/>
+<img alt="DVCS server" height="500px" src="pictures/DVCS-server.png" style="border: 3px solid #08182F; border-radius: 50px; margin: auto" width="500px"/>
 </div>
 </div>
 </div>
@@ -7706,7 +7713,7 @@ complètement le dépôt.</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Les-syst%C3%A8mes-de-gestion-de-version-centralis%C3%A9s-(4/X)">Les systèmes de gestion de version centralisés (4/X)<a class="anchor-link" href="#Les-syst%C3%A8mes-de-gestion-de-version-centralis%C3%A9s-(4/X)">¶</a></h3><hr/>
 <div style="display:flex">
-<img ;="" alt="bitkeeper" height="500px" src="../pictures/bitkeeper.png" style="border: 3px solid #08182F; border-radius: 50px; padding-left:5px; margin: auto" width="500px"/>
+<img ;="" alt="bitkeeper" height="500px" src="pictures/bitkeeper.png" style="border: 3px solid #08182F; border-radius: 50px; padding-left:5px; margin: auto" width="500px"/>
 </div>
 </div>
 </div>
@@ -7753,12 +7760,31 @@ l’utilisation de BitKeeper:</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Fonctionnement-interne-de-Git">Fonctionnement interne de Git<a class="anchor-link" href="#Fonctionnement-interne-de-Git">¶</a></h3><ol>
+<h2 id="Fonctionnement-interne-de-Git">Fonctionnement interne de Git<a class="anchor-link" href="#Fonctionnement-interne-de-Git">¶</a></h2><ol>
 <li>Initialisation d'un dépo Git</li>
 <li>Sauvegarder des modifications</li>
 <li>Contruire des branches</li>
 <li>Fusionner des branches</li>
 </ol>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=65053e8d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Point-state">Point state<a class="anchor-link" href="#Point-state">¶</a></h3><p>Un idée de l'efficacité de stockage</p>
+<ul>
+<li>1Go de code</li>
+<li>30 000 commits dans develop</li>
+<li>.git de 9.6Go contenant 262 branches locales</li>
+<li>.git de 2.4Mo au clone, contenant 1 seule branche locale</li>
+</ul>
+<p>Il est possible de connaitre l'état du projet à tout moment, sur n'importe quel commit.
+Tout les fichiers nécessaires au bon fonctionnement de git sont dans le .git, un serveur git n'est nécessaire que pour partager le dépo et pour les commandes <code>git pull</code> <code>git push</code> et <code>git fetch</code>.</p>
 </div>
 </div>
 </div>
@@ -7769,41 +7795,129 @@ l’utilisation de BitKeeper:</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Initialisation-d'un-d%C3%A9po-Git">Initialisation d'un dépo Git<a class="anchor-link" href="#Initialisation-d'un-d%C3%A9po-Git">¶</a></h3><div style="display:flex;">
-<img alt="git-init" src="../pictures/git-init.png" style="border: 3px solid #08182F; border-radius: 5px; width:70%; margin:auto; margin-top: 30px; margin-bottom: 30px"/>
-</div>
-<p>Tout les fichiers nécessaires au bon fonctionnement de git sont dans le .git, un serveur git n'est nécessaire que pour partager le dépo et pour les commandes <code>git pull</code> <code>git push</code> et <code>git fetch</code>.</p>
+<h3 id="Initialisation-d'un-d%C3%A9po-Git">Initialisation d'un dépo Git<a class="anchor-link" href="#Initialisation-d'un-d%C3%A9po-Git">¶</a></h3><p>Il est possible d'initialiser un dépo git à partir de n'importe quel dossier avec la commande <code>git init</code>.</p>
 </div>
 </div>
 </div>
-</div><aside class="notes">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cb311658-664e-4674-aedd-b94ba539e564">
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5402dcb7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>2 fragments pas de screen, snipet de code =&gt;</p>
+<p>Partons d'un dossier vide:</p>
+</div>
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=79740146">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
+<div><span style="color: red">$ </span><span style="color: green">ls -a</span></div>
+<div>
+<span style="color: blue">./ ../</span>
+</div>
+</div>
+<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px; margin-top:10px">
+<div><span style="color: red">$ </span><span style="color: green">git init</span></div>
+<div>
+<span style="color: black">Initialized empty git repository</span>
+</div>
+</div>
+<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px; margin-top:10px">
+<div><span style="color: red">$ </span><span style="color: green">ls -a</span></div>
+<div>
+<span style="color: blue">./ ../ .git/</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1d32d820">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
+<div><span style="color: red">/.git $ </span><span style="color: green">ls</span></div>
+<div>
+<span style="color: purple">HEAD config description</span>
+<span style="color: blue">hooks/ info/ objects/ refs/</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=51133901">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <ul>
-<li>ls -a + git init + ls -a</li>
-<li>ls .git +coloration des éléments</li>
+<li><span style="color: purple"> HEAD </span>: nom de la branche actuelle (ou du commit en detached HEAD)</li>
+<li><span style="color: purple"> config </span>: config du dépo (version du dépo, url du dépo, user...)</li>
+<li><span style="color: purple"> description </span>: nom du dépo</li>
 </ul>
 </div>
 </div>
 </div>
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d5ee93e1">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-</aside>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li><span style="color: blue"> hooks </span>: contient les actions lancé automatiquement lors de l'exécution de commande git (pre-commit, pre-push, commit-msg....)</li>
+<li><span style="color: blue"> info </span>: confoiguration du dépo local, .gitignore, exlcudes...</li>
+<li><span style="color: blue; font-weight: bold"> objects </span> : <strong>contient les objets stockant les changements (blob, tree, commit...)</strong></li>
+<li><span style="color: blue; font-weight: bold"> refs </span>: <strong>contient les lien entre les branch et les commits HEAD</strong></li>
+</ul>
+</div>
+</div>
+</div>
+</div></div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ecbe8b9d-bfae-40f0-afe1-f7acc6851cea">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Sauvegarder-des-modifications">Sauvegarder des modifications<a class="anchor-link" href="#Sauvegarder-des-modifications">¶</a></h3>
+<h3 id="Sauvegarder-des-modifications">Sauvegarder des modifications<a class="anchor-link" href="#Sauvegarder-des-modifications">¶</a></h3><p>Créons 2 nouveaux fichiers, <code>file1.txt</code> contenant "Test 1", et <code>file2.txt</code> contenant "Test 2" et étant dans le dossier <code>folder</code>.</p>
+<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
+<div><span style="color: red">$ </span><span style="color: green">echo "Test 1" &gt; file1.txt</span></div>
+<div><span style="color: red">$ </span><span style="color: green">mkdir folder</span></div>
+<div><span style="color: red">$ </span><span style="color: green">echo "Test 2" &gt; folder/file2.txt</span></div>
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ca2c41ec">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Puis on veut sauvegarder ce nouveau fichier dans le dépo git.</p>
+<h4 id="1%C3%A8re-%C3%A9tape,-git-add">1ère étape, git add<a class="anchor-link" href="#1%C3%A8re-%C3%A9tape,-git-add">¶</a></h4><div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
+<div><span style="color: red">$ </span><span style="color: green">git add .</span></div>
+</div>
+<p>Que s'est il passé ?</p>
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b8e1ac7a-3ca7-4405-9927-6f1c7dfe99bd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8144,7 +8258,7 @@ command.</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <div style="display:flex">
-<img alt="bitkeeper" height="500px" src="../pictures/bisect.png" style="border: 3px solid #08182F; border-radius: 50px; padding-left:5px; margin: auto" width="500px"/>
+<img alt="bitkeeper" height="500px" src="pictures/bisect.png" style="border: 3px solid #08182F; border-radius: 50px; padding-left:5px; margin: auto" width="500px"/>
 </div>
 </div>
 </div>
@@ -8174,7 +8288,7 @@ command.</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Bisect-(2/X)">Bisect (2/X)<a class="anchor-link" href="#Bisect-(2/X)">¶</a></h3><hr/>
 <div style="display:flex">
-<img alt="bitkeeper" height="500px" src="../pictures/bisect.png" style="border: 3px solid #08182F; border-radius: 50px; padding-left:5px; margin: auto" width="500px"/>
+<img alt="bitkeeper" height="500px" src="pictures/bisect.png" style="border: 3px solid #08182F; border-radius: 50px; padding-left:5px; margin: auto" width="500px"/>
 </div>
 <p>La commande <code>git bisect</code> exploite toute une série de sous-commandes.</p>
 <ol>
@@ -8633,7 +8747,7 @@ branch
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <div style="display:flex">
-<img alt="Merci de votre attention" height="500px" src="../pictures/thanks.png" style="border: 3px solid #08182F; border-radius: 50px; margin: auto" width="500px"/>
+<img alt="Merci de votre attention" height="500px" src="pictures/thanks.png" style="border: 3px solid #08182F; border-radius: 50px; margin: auto" width="500px"/>
 </div>
 </div>
 </div>
@@ -8677,8 +8791,8 @@ require(
             transition: "slide",
             slideNumber: "",
             plugins: [RevealNotes],
-            width: 960,
-			      height: 700,
+            width: 1600,
+			      height: 900,
 
         });
 
@@ -8691,7 +8805,7 @@ require(
         Reveal.addEventListener('slidechanged', update);
 
         function setScrollingSlide() {
-            var scroll = false
+            var scroll = true
             if (scroll === true) {
               var h = $('.reveal').height() * 0.95;
               $('section.present').find('section')

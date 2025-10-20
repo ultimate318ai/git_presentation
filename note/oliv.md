@@ -1,20 +1,24 @@
-Mini Intro
+### Mini Intro
 
 Toutes les infos dans le .git du projet server nécessaire que pour pull/fetch et push
 
 (eurotherm): 
 
-pour un projet de 750Mo
+pour un projet de 1Go
+.git 9.6Go => 262 branch
 
-actuel ⇒ .git de 1.3Go pour 180 branch
+Au clone ⇒ .git 2.4Go pour 1 branch
 
-Au clone ⇒ .git 700Mo pour 1 branch
+Yann:
+
+projet 23.1Go total
+
 
 procelain command ⇒ commande user friendly
 
 plumbing command ⇒ commande interne et qui n’ai pas censé être utilisée
 
-![image.png](attachment:26d0bbfb-0a6e-4ca5-9df6-a2d7fcca59bb:image.png)
+![image.png](../slides/pictures/git-init.png)
 
 ## Stocker les changements
 
