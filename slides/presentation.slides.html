@@ -8013,8 +8013,14 @@ Tout les fichiers nécessaires au bon fonctionnement de git sont dans le .git, u
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><span style="color: red; font-weight: bold">Attention</span> SHA du Blob contient le nom du dossier.
-SHA : Secure Hash Algorithm</p>
+<p>L'identifiant d'un blob est un SHA-1 généré à partir d'un hash de:</p>
+<ul>
+<li>Type d'objet (blob ici)</li>
+<li>Taille</li>
+<li>Contenu</li>
+</ul>
+<p>Il fait 40 caractères hexa, ce qui fait plus de $10^{48}$ SHA différents disponibles.</p>
+<p><span style="color: red; font-weight: bold">Attention</span> SHA du Blob contient le nom du dossier.</p>
 </div>
 </div>
 </div>
@@ -8285,6 +8291,134 @@ SHA : Secure Hash Algorithm</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>L'ensemble des commit HEAD pour chaque branches est contenue dans le dossier refs.</p>
+</div>
+</div>
+</div>
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b775e57c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Faire la commande commit met à jour le HEAD de la branch actuelle.</p>
+<div style="display:flex">
+<img alt="branch" src="pictures/multi-branch.png" style="border-radius: 5px; margin: auto; width:80%; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"/>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f62d949d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3>Comment git met à jour le working directory lors d'un changement de branche</h3>
+<p>En théorie facile, on supprime tout le working directory et on recrée tout les fichiers à partir du commit HEAD de la branch (tree + blob). Super les 5min pour changer de branche !</p>
+<div style="display:flex">
+<img alt="branch" src="pictures/git-diff-part-2.png" style="border-radius: 5px; margin: auto; width:80%; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"/>
+</div>
+<p>Git ne remplace que les fichiers qui sont différent entre le HEAD actuel et le HEAD cible.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5cf420e6">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3>Comment Git sait les fichiers qui ont été modifié ? Les SHA ! </h3>
+<p>Comme le SHA d'un Blob dépends du contenu du fichier et que le SHA d'un Tree dépends des blob qu'il contient, si 2 Tree (représentant le même dossier) ont 2 SHA différents, alors ils contiennent au moins un Blob différent.</p>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a715563b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="display: flex; flex-direction:row; font-size:25px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px; background-color:black; color: #e0e0e0">
+<div style="width:50%; display: flex; flex-direction:column;">
+<span style="text-decoration: underline">HEAD source (branche A)</span>
+<span>Tree | root (SHA ff3e480)</span>
+<span>├── Blob | readme.md (SHA f8e24c7)</span>
+<span>└── Tree | src/ (SHA bf010268)</span>
+<span style="padding-left:50px">└── Blob | config.json (SHA aa1b464)</span>
+<span>└── Tree | asset/ (SHA 38e1ee4)</span>
+<span style="padding-left:50px">└── Blob | logo.png (SHA 19ea134)</span>
+</div>
+<div style="width:50%; display: flex; flex-direction:column;">
+<span style="text-decoration: underline">HEAD cible (branche B)</span>
+<span>Tree | root (SHA <span style="color:red">5e1de20</span>)</span>
+<span>├── Blob | readme.md (SHA f8e24c7)</span>
+<span>└── Tree | src/ (SHA <span style="color:red">6033e4b</span>)</span>
+<span style="padding-left:50px">└── Blob | config.json (SHA <span style="color:red">41bd3b3</span>)</span>
+<span>└── Tree | asset/ (SHA 38e1ee4)</span>
+<span style="padding-left:50px">└── Blob | logo.png (SHA 19ea134)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=06fa2644">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Juste en lisant les SHA, on peux déterminer que seul le fichier config.json a été modifié. Il suffit alors d'écraser le fichier actuel par le contenu du Blob de la branche B, et le working directory est à jour !</p>
+<p>Une fois le working directory à jour, le nom de la branch actuelle dans le fichier HEAD du <code>.git</code></p>
+</div>
+</div>
+</div>
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=59258484">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Fusionner-des-branches">Fusionner des branches<a class="anchor-link" href="#Fusionner-des-branches">¶</a></h3><p>On a 2 branches distinctes avec chacune leur commits, le but est que la branche cible contienne les changements des 2 branches initiales.</p>
+<p>Il y a 2 stratégies <strong>Merge</strong> et <strong>Rebase</strong></p>
+<div style="display:flex">
+<img alt="branch" src="pictures/merge-vs-rebase.png" style="border-radius: 5px; margin: auto; width:80%; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"/>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4d153f4c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3>Rebase</h3>
+<p>Le principe de <strong>Rebase</strong> est de garder un historique linéaire, en déplaçant le premier commit la branche cible sur le dernier commit de la branche source.</p>
+<div style="display:flex">
+<img alt="branch" src="pictures/git-rebase-part-1.png" style="border-radius: 5px; margin: auto; width:80%; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"/>
+</div>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=72e2a894">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="display:flex; margin-top:20px">
+<img alt="branch" src="pictures/git-rebase-part-2.png" style="border-radius: 5px; margin: auto; width:80%; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"/>
+</div>
 </div>
 </div>
 </div>

@@ -1,3 +1,20 @@
+# 1 - Historique / Intro
+
+# 2 - Scénario Utilisateur
+
+- git add :Comment Git stock les cahngements dans des Blob
+- git commit: Comment Git décrit l'arborescence du dépo via les Tree et comment Git retrouve l'état du dépo via un commit
+- changement de branche: Comment git fais pour mettre à jour le working directory lors d'un changement de branche
+- git merge / rebase: Comment Git fusionne 2 branches et quelles sont les 2 différentes stratégie pour le faire (avantages, inconvénients, cas d'usage )
+
+# 3 - Commande Git
+
+- différence entre switch / checkout: Y a t il une vrai différence entre switch et checkout pour changer de branche
+- bisec: Une commande magique pour retrouver le commit insérent une erreur dans le dépo
+- log: Revue de fonctionnalité poussée de la commande git log
+
+
+
 ### Mini Intro
 
 Toutes les infos dans le .git du projet server nécessaire que pour pull/fetch et push
@@ -34,7 +51,7 @@ Dans le Blob il y a le hash de la modification
 
 ![image.png](attachment:d60d895a-3d43-444a-b8c7-2a7ef2c39f1a:image.png)
 
-`git cat-file blob blob-name`permet de lire le blob, (modif dedans) (blob-name c’est le hash du content, donc folder + nom du fichier)
+`git cat-file blob blob-name` permet de lire le blob, (modif dedans) (blob-name c’est le hash du content, donc folder + nom du fichier)
 
 Un blob contient un snapshot d’un fichier à moment donné, une copie du contenur du fichier
 
