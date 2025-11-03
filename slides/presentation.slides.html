@@ -7444,13 +7444,12 @@ main {
 <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
 <style>
     pre.prettyprint{
-    font-size: unset;
-     border: 1px solid #08182F;
-     border-radius: 5px;   
-     padding: 15px;
+        font-size: 20px;
+        border: 1px solid #08182F;
+        border-radius: 5px;   
+        padding: 15px;
     }
     .prettyprint.lang-diff * {
-        font-size: 20px;
         color: black;
     }
     .prettyprint.lang-diff > span:nth-child(n+18):nth-child(-n+23) {
@@ -7467,7 +7466,6 @@ main {
     }
 
 </style>
-<p> --&gt;</p>
 <h1 id="Git-Presentation">Git Presentation<a class="anchor-link" href="#Git-Presentation">¶</a></h1>
 </div>
 </div>
@@ -8668,51 +8666,42 @@ command.</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Switch-et-Checkout-(2/X)">Switch et Checkout (2/X)<a class="anchor-link" href="#Switch-et-Checkout-(2/X)">¶</a></h3><hr/>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d0f182fd-f88a-44fe-be04-b5646b63e8b1">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">cmd_main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="nc">strvec</span><span class="w"> </span><span class="n">args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">STRVEC_INIT</span><span class="p">;</span>
-<span class="w">	</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">cmd</span><span class="p">;</span>
-<span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">done_help</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<pre class="prettyprint">
+int cmd_main(int argc, const char **argv)
+{
+	struct strvec args = STRVEC_INIT;
+	const char *cmd;
+	int done_help = 0;
 
-<span class="w">	</span><span class="n">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">cmd</span><span class="p">)</span>
-<span class="w">		</span><span class="n">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"git-help"</span><span class="p">;</span>
-<span class="w">	</span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">		</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">slash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">find_last_dir_sep</span><span class="p">(</span><span class="n">cmd</span><span class="p">);</span>
-<span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">slash</span><span class="p">)</span>
-<span class="w">			</span><span class="n">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slash</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<span class="w">	</span><span class="p">}</span>
+	cmd = argv[0];
+	if (!cmd)
+		cmd = "git-help";
+	else {
+		const char *slash = find_last_dir_sep(cmd);
+		if (slash)
+			cmd = slash + 1;
+	}
 
-<span class="w">	</span><span class="p">(...)</span>
+	(...)
 
 
-<span class="w">	</span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">		</span><span class="kt">int</span><span class="w"> </span><span class="n">was_alias</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">run_argv</span><span class="p">(</span><span class="o">&amp;</span><span class="n">args</span><span class="p">);</span>
-<span class="w">		</span><span class="p">(...)</span>
-<span class="w">	</span><span class="p">}</span>
+	while (1) {
+		int was_alias = run_argv(&amp;args);
+		(...)
+	}
 
-<span class="w">	</span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">(</span><span class="s">"failed to run command '%s': %s</span><span class="se">\n</span><span class="s">"</span><span class="p">),</span>
-<span class="w">		</span><span class="n">cmd</span><span class="p">,</span><span class="w"> </span><span class="n">strerror</span><span class="p">(</span><span class="n">errno</span><span class="p">));</span>
-<span class="w">	</span><span class="n">strvec_clear</span><span class="p">(</span><span class="o">&amp;</span><span class="n">args</span><span class="p">);</span>
+	fprintf(stderr, _("failed to run command '%s': %s\n"),
+		cmd, strerror(errno));
+	strvec_clear(&amp;args);
 
-<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
+	return 1;
+}
+</pre>
 <p><em>source</em>: <a href="https://github.com/git/git/blob/2d2a71ce85026edcc40f469678a1035df0dfcf57/git.c#L882">git.c</a></p>
 </div>
 </div>
 </div>
-</div></div></section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=976aa18d-33a7-4bbc-99e6-e6acbccbf80f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8720,16 +8709,17 @@ command.</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Switch-et-Checkout-(3/X)">Switch et Checkout (3/X)<a class="anchor-link" href="#Switch-et-Checkout-(3/X)">¶</a></h3><hr/>
-<div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">cmd_struct</span><span class="w"> </span><span class="o">*</span><span class="n">get_builtin</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ARRAY_SIZE</span><span class="p">(</span><span class="n">commands</span><span class="p">);</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">		</span><span class="k">struct</span><span class="w"> </span><span class="nc">cmd_struct</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">commands</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
-<span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">strcmp</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">cmd</span><span class="p">))</span>
-<span class="w">			</span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
-<span class="w">	</span><span class="p">}</span>
-<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
+<pre class="prettyprint">
+static struct cmd_struct *get_builtin(const char *s)
+{
+	for (size_t i = 0; i &lt; ARRAY_SIZE(commands); i++) {
+		struct cmd_struct *p = commands + i;
+		if (!strcmp(s, p-&gt;cmd))
+			return p;
+	}
+	return NULL;
+}
+</pre>
 <p><em>source</em>: <a href="https://github.com/git/git/blob/2d2a71ce85026edcc40f469678a1035df0dfcf57/git.c#L653">git.c</a></p>
 </div>
 </div>
@@ -8741,20 +8731,21 @@ command.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">cmd_struct</span><span class="w"> </span><span class="n">commands</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//l.503</span>
-<span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="s">"add"</span><span class="p">,</span><span class="w"> </span><span class="n">cmd_add</span><span class="p">,</span><span class="w"> </span><span class="n">RUN_SETUP</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">NEED_WORK_TREE</span><span class="w"> </span><span class="p">},</span>
-<span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="s">"am"</span><span class="p">,</span><span class="w"> </span><span class="n">cmd_am</span><span class="p">,</span><span class="w"> </span><span class="n">RUN_SETUP</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">NEED_WORK_TREE</span><span class="w"> </span><span class="p">},</span>
-<span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="s">"annotate"</span><span class="p">,</span><span class="w"> </span><span class="n">cmd_annotate</span><span class="p">,</span><span class="w"> </span><span class="n">RUN_SETUP</span><span class="w"> </span><span class="p">},</span>
-<span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="s">"apply"</span><span class="p">,</span><span class="w"> </span><span class="n">cmd_apply</span><span class="p">,</span><span class="w"> </span><span class="n">RUN_SETUP_GENTLY</span><span class="w"> </span><span class="p">},</span>
-<span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="s">"archive"</span><span class="p">,</span><span class="w"> </span><span class="n">cmd_archive</span><span class="p">,</span><span class="w"> </span><span class="n">RUN_SETUP_GENTLY</span><span class="w"> </span><span class="p">},</span>
-<span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="s">"backfill"</span><span class="p">,</span><span class="w"> </span><span class="n">cmd_backfill</span><span class="p">,</span><span class="w"> </span><span class="n">RUN_SETUP</span><span class="w"> </span><span class="p">},</span>
-<span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="s">"bisect"</span><span class="p">,</span><span class="w"> </span><span class="n">cmd_bisect</span><span class="p">,</span><span class="w"> </span><span class="n">RUN_SETUP</span><span class="w"> </span><span class="p">},</span>
-<span class="w">        </span><span class="p">(...)</span>
-<span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="s">"checkout"</span><span class="p">,</span><span class="w"> </span><span class="n">cmd_checkout</span><span class="p">,</span><span class="w"> </span><span class="n">RUN_SETUP</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">NEED_WORK_TREE</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="c1">//l.520</span>
-<span class="w">        </span><span class="p">(...)</span>
-<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="s">"switch"</span><span class="p">,</span><span class="w"> </span><span class="n">cmd_switch</span><span class="p">,</span><span class="w"> </span><span class="n">RUN_SETUP</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">NEED_WORK_TREE</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="c1">//l.632</span>
-<span class="w">        </span><span class="p">(...)</span>
-</pre></div>
+<pre class="prettyprint">
+static struct cmd_struct commands[] = { //l.503
+	{ "add", cmd_add, RUN_SETUP | NEED_WORK_TREE },
+	{ "am", cmd_am, RUN_SETUP | NEED_WORK_TREE },
+	{ "annotate", cmd_annotate, RUN_SETUP },
+	{ "apply", cmd_apply, RUN_SETUP_GENTLY },
+	{ "archive", cmd_archive, RUN_SETUP_GENTLY },
+	{ "backfill", cmd_backfill, RUN_SETUP },
+	{ "bisect", cmd_bisect, RUN_SETUP },
+        (...)
+	{ "checkout", cmd_checkout, RUN_SETUP | NEED_WORK_TREE }, //l.520
+        (...)
+    { "switch", cmd_switch, RUN_SETUP | NEED_WORK_TREE }, //l.632
+        (...)
+</pre>
 <p><em>source</em>: <a href="https://github.com/git/git/blob/2d2a71ce85026edcc40f469678a1035df0dfcf57/git.c#L503">git.c</a></p>
 </div>
 </div>
@@ -8767,30 +8758,31 @@ command.</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Switch-et-Checkout-(4/X)">Switch et Checkout (4/X)<a class="anchor-link" href="#Switch-et-Checkout-(4/X)">¶</a></h3><hr/>
-<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">cmd_switch</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">prefix</span><span class="p">,</span><span class="k">struct</span><span class="w"> </span><span class="nc">repository</span><span class="w"> </span><span class="o">*</span><span class="n">repo</span><span class="w"> </span><span class="n">UNUSED</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="nc">checkout_opts</span><span class="w"> </span><span class="n">opts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CHECKOUT_OPTS_INIT</span><span class="p">;</span><span class="w"> </span><span class="c1">// same as checkout</span>
-<span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="nc">option</span><span class="w"> </span><span class="o">*</span><span class="n">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
-<span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="nc">option</span><span class="w"> </span><span class="n">switch_options</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">		</span><span class="n">OPT_STRING</span><span class="p">(</span><span class="sc">'c'</span><span class="p">,</span><span class="w"> </span><span class="s">"create"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">opts</span><span class="p">.</span><span class="n">new_branch</span><span class="p">,</span><span class="w"> </span><span class="n">N_</span><span class="p">(</span><span class="s">"branch"</span><span class="p">),</span>
-<span class="w">			   </span><span class="n">N_</span><span class="p">(</span><span class="s">"create and switch to a new branch"</span><span class="p">)),</span>
-<span class="w">		</span><span class="n">OPT_STRING</span><span class="p">(</span><span class="sc">'C'</span><span class="p">,</span><span class="w"> </span><span class="s">"force-create"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">opts</span><span class="p">.</span><span class="n">new_branch_force</span><span class="p">,</span><span class="w"> </span><span class="n">N_</span><span class="p">(</span><span class="s">"branch"</span><span class="p">),</span>
-<span class="w">			   </span><span class="n">N_</span><span class="p">(</span><span class="s">"create/reset and switch to a branch"</span><span class="p">)),</span>
-<span class="w">		</span><span class="p">(...)</span>
-<span class="w">		</span><span class="n">OPT_END</span><span class="p">()</span>
-<span class="w">	</span><span class="p">};</span>
-<span class="w">        </span><span class="p">(...)</span>
-<span class="w">        </span><span class="n">opts</span><span class="p">.</span><span class="n">switch_branch_doing_nothing_is_ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// Ces deux paramètres ont leurs importances </span>
-<span class="w">	</span><span class="n">opts</span><span class="p">.</span><span class="n">only_merge_on_switching_branches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<span class="w">        </span>
-<span class="w">	</span><span class="n">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parse_options_dup</span><span class="p">(</span><span class="n">switch_options</span><span class="p">);</span>
-<span class="w">	</span><span class="n">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">add_common_options</span><span class="p">(</span><span class="o">&amp;</span><span class="n">opts</span><span class="p">,</span><span class="w"> </span><span class="n">options</span><span class="p">);</span>
-<span class="w">	</span><span class="n">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">add_common_switch_branch_options</span><span class="p">(</span><span class="o">&amp;</span><span class="n">opts</span><span class="p">,</span><span class="w"> </span><span class="n">options</span><span class="p">);</span>
+<pre class="prettyprint">
+int cmd_switch(int argc, const char **argv, const char *prefix,struct repository *repo UNUSED)
+{
+	struct checkout_opts opts = CHECKOUT_OPTS_INIT; // same as checkout
+	struct option *options = NULL;
+	struct option switch_options[] = {
+		OPT_STRING('c', "create", &amp;opts.new_branch, N_("branch"),
+			   N_("create and switch to a new branch")),
+		OPT_STRING('C', "force-create", &amp;opts.new_branch_force, N_("branch"),
+			   N_("create/reset and switch to a branch")),
+		(...)
+		OPT_END()
+	};
+        (...)
+        opts.switch_branch_doing_nothing_is_ok = 0; // Ces deux paramètres ont leurs importances 
+	opts.only_merge_on_switching_branches = 1;
+        
+	options = parse_options_dup(switch_options);
+	options = add_common_options(&amp;opts, options);
+	options = add_common_switch_branch_options(&amp;opts, options);
 
-<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="n">checkout_main</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">,</span><span class="w"> </span><span class="n">prefix</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">opts</span><span class="p">,</span><span class="w"> </span><span class="n">options</span><span class="p">,</span><span class="w">  </span><span class="c1">// Un appel a checkout_main</span>
-<span class="w">			     </span><span class="n">switch_branch_usage</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
+	return checkout_main(argc, argv, prefix, &amp;opts, options,  // Un appel a checkout_main
+			     switch_branch_usage);
+}
+</pre>
 <p><em>source</em>: <a href="https://github.com/git/git/blob/master/builtin/checkout.c#L2038">git/builtin/checkout.c</a></p>
 </div>
 </div>
@@ -8803,36 +8795,37 @@ command.</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Switch-et-Checkout-(5/X)">Switch et Checkout (5/X)<a class="anchor-link" href="#Switch-et-Checkout-(5/X)">¶</a></h3><hr/>
-<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">cmd_checkout</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">prefix</span><span class="p">,</span><span class="k">struct</span><span class="w"> </span><span class="nc">repository</span><span class="w"> </span><span class="o">*</span><span class="n">repo</span><span class="w"> </span><span class="n">UNUSED</span><span class="p">)</span>
-<span class="p">{</span>
-<span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="nc">checkout_opts</span><span class="w"> </span><span class="n">opts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CHECKOUT_OPTS_INIT</span><span class="p">;</span>
-<span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="nc">option</span><span class="w"> </span><span class="o">*</span><span class="n">options</span><span class="p">;</span>
-<span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="nc">option</span><span class="w"> </span><span class="n">checkout_options</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">		</span><span class="n">OPT_STRING</span><span class="p">(</span><span class="sc">'b'</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">opts</span><span class="p">.</span><span class="n">new_branch</span><span class="p">,</span><span class="w"> </span><span class="n">N_</span><span class="p">(</span><span class="s">"branch"</span><span class="p">),</span>
-<span class="w">			   </span><span class="n">N_</span><span class="p">(</span><span class="s">"create and checkout a new branch"</span><span class="p">)),</span>
-<span class="w">		</span><span class="n">OPT_STRING</span><span class="p">(</span><span class="sc">'B'</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">opts</span><span class="p">.</span><span class="n">new_branch_force</span><span class="p">,</span><span class="w"> </span><span class="n">N_</span><span class="p">(</span><span class="s">"branch"</span><span class="p">),</span>
-<span class="w">			   </span><span class="n">N_</span><span class="p">(</span><span class="s">"create/reset and checkout a branch"</span><span class="p">)),</span>
-<span class="w">		</span><span class="p">(...)</span>
-<span class="w">		</span><span class="n">OPT_END</span><span class="p">()</span>
-<span class="w">	</span><span class="p">};</span>
-<span class="w">        </span><span class="p">(...)</span>
-<span class="w">        </span><span class="n">opts</span><span class="p">.</span><span class="n">switch_branch_doing_nothing_is_ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// Tiens tiens tiens...</span>
-<span class="w">	</span><span class="n">opts</span><span class="p">.</span><span class="n">only_merge_on_switching_branches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<pre class="prettyprint">
+int cmd_checkout(int argc, const char **argv, const char *prefix,struct repository *repo UNUSED)
+{
+	struct checkout_opts opts = CHECKOUT_OPTS_INIT;
+	struct option *options;
+	struct option checkout_options[] = {
+		OPT_STRING('b', NULL, &amp;opts.new_branch, N_("branch"),
+			   N_("create and checkout a new branch")),
+		OPT_STRING('B', NULL, &amp;opts.new_branch_force, N_("branch"),
+			   N_("create/reset and checkout a branch")),
+		(...)
+		OPT_END()
+	};
+        (...)
+        opts.switch_branch_doing_nothing_is_ok = 1; // Tiens tiens tiens...
+	opts.only_merge_on_switching_branches = 0;
 
-<span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="s">"-b"</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// Si l'utilisateur rentre [git] checkout -b &lt;branchName&gt;</span>
-<span class="w">		</span><span class="cm">/*</span>
-<span class="cm">		 * User ran 'git checkout -b &lt;branch&gt;' and expects</span>
-<span class="cm">		 * the same behavior as 'git switch -c &lt;branch&gt;'.</span>
-<span class="cm">		 */</span>
-<span class="w">		</span><span class="n">opts</span><span class="p">.</span><span class="n">switch_branch_doing_nothing_is_ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">		</span><span class="n">opts</span><span class="p">.</span><span class="n">only_merge_on_switching_branches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<span class="w">	</span><span class="p">}</span>
-<span class="w">	</span><span class="p">(...)</span><span class="w"> </span><span class="c1">// On Parse les options</span>
+	if (argc == 3 &amp;&amp; !strcmp(argv[1], "-b")) { // Si l'utilisateur rentre [git] checkout -b <branchname>
+		/*
+		 * User ran 'git checkout -b <branch>' and expects
+		 * the same behavior as 'git switch -c <branch>'.
+		 */
+		opts.switch_branch_doing_nothing_is_ok = 0;
+		opts.only_merge_on_switching_branches = 1;
+	}
+	(...) // On Parse les options
 
-<span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="n">checkout_main</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">,</span><span class="w"> </span><span class="n">prefix</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">opts</span><span class="p">,</span><span class="w"> </span><span class="n">options</span><span class="p">,</span><span class="w"> </span><span class="c1">// Toujours un appel a checkout_main</span>
-<span class="w">			     </span><span class="n">checkout_usage</span><span class="p">);</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">On</span><span class="w"> </span><span class="n">Appelle</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">même</span><span class="w"> </span><span class="n">fonction</span><span class="w"> </span><span class="n">en</span><span class="w"> </span><span class="n">bas</span>
-<span class="p">}</span>
-</pre></div>
+	return checkout_main(argc, argv, prefix, &amp;opts, options, // Toujours un appel a checkout_main
+			     checkout_usage); -&gt; On Appelle la même fonction en bas
+}
+</branch></branch></branchname></pre>
 <p><em>source</em>: <a href="https://github.com/git/git/blob/master/builtin/checkout.c#L1988">git/builtin/checkout.c</a></p>
 </div>
 </div>
