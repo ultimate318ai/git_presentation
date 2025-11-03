@@ -7452,18 +7452,52 @@ main {
     .prettyprint.lang-diff * {
         color: black;
     }
-    .prettyprint.lang-diff > span:nth-child(n+18):nth-child(-n+23) {
+    .prettyprint.lang-diff.local-version > span:nth-child(n+18):nth-child(-n+23) {
         color: red;
     }
-    .prettyprint.lang-diff > span:nth-child(n+24):nth-child(-n+29) {
+    .prettyprint.lang-diff.local-version > span:nth-child(n+24):nth-child(-n+29) {
         color: green;
     }
-    .prettyprint.lang-diff > span:nth-child(n+58):nth-child(-n+70) {
+    .prettyprint.lang-diff.local-version > span:nth-child(n+58):nth-child(-n+70) {
         color: red;
     }
-    .prettyprint.lang-diff > span:nth-child(n+71):nth-child(-n+92) {
+    .prettyprint.lang-diff.local-version > span:nth-child(n+71):nth-child(-n+92) {
         color: green;
     }
+
+    .prettyprint.lang-diff.log1 > span:nth-child(n+49):nth-child(-n+55) {
+        color: red;
+    }
+    .prettyprint.lang-diff.log1 > span:nth-child(n+55):nth-child(-n+59) {
+        color: green;
+    }
+    .prettyprint.lang-diff.log1 > span:nth-child(n+106):nth-child(-n+114) {
+        color: red;
+    }
+    .prettyprint.lang-diff.log1 > span:nth-child(n+115):nth-child(-n+121) {
+        color: green;
+    }
+
+    
+    /* .prettyprint.lang-diff.log2 > span:nth-child(n+49) TODO{
+        color: red;
+    }
+    .prettyprint.lang-diff.log2 > span:nth-child(n+49){
+        color: green;
+    }
+    .prettyprint.lang-diff.log2 > span:nth-child(n+49):nth-child(-n+55) {
+        color: red;
+    }
+    .prettyprint.lang-diff.log2 > span:nth-child(n+55):nth-child(-n+59) {
+        color: green;
+    }
+    .prettyprint.lang-diff.log2 > span:nth-child(n+106):nth-child(-n+114) {
+        color: red;
+    }
+    .prettyprint.lang-diff.log2 > span:nth-child(n+115):nth-child(-n+121) {
+        color: green;
+    } */
+
 
 </style>
 <h1 id="Git-Presentation">Git Presentation<a class="anchor-link" href="#Git-Presentation">¶</a></h1>
@@ -8972,23 +9006,30 @@ int cmd_checkout(int argc, const char **argv, const char *prefix,struct reposito
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<blockquote>
-<p>$ git log</p>
-</blockquote>
+<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
+<div><span style="color: red">$ </span><span style="color: green">git log</span></div>
+</div>
 <p><em>Sortie:</em></p>
-<div class="highlight"><pre><span></span><span class="w">	</span>commit<span class="w"> </span>ca82a6dff817ec66f44342007202690a93763949
-<span class="w">	</span>Author:<span class="w"> </span>Scott<span class="w"> </span>Chacon<span class="w"> </span>schacon@gee-mail.com
-<span class="w">	</span>Date:<span class="w"> </span>Mon<span class="w"> </span>Mar<span class="w"> </span><span class="m">17</span><span class="w"> </span><span class="m">21</span>:52:11<span class="w"> </span><span class="m">2008</span><span class="w"> </span>-0700
-<span class="w">			</span>changed<span class="w"> </span>the<span class="w"> </span>version<span class="w"> </span>number
-<span class="w">	</span>commit<span class="w"> </span>085bb3bcb608e1e8451d4b2432f8ecbe6306e7e7
-<span class="w">	</span>Author:<span class="w"> </span>Scott<span class="w"> </span>Chacon<span class="w"> </span>schacon@gee-mail.com
-<span class="w">	</span>Date:<span class="w"> </span>Sat<span class="w"> </span>Mar<span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="m">16</span>:40:33<span class="w"> </span><span class="m">2008</span><span class="w"> </span>-0700
-<span class="w">			</span>removed<span class="w"> </span>unnecessary<span class="w"> </span><span class="nb">test</span>
-<span class="w">	</span>commit<span class="w"> </span>a11bef06a3f659402fe7563abf99ad00de2209e6
-<span class="w">	</span>Author:<span class="w"> </span>Scott<span class="w"> </span>Chacon<span class="w"> </span>schacon@gee-mail.com
-<span class="w">	</span>Date:<span class="w"> </span>Sat<span class="w"> </span>Mar<span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="m">10</span>:31:28<span class="w"> </span><span class="m">2008</span><span class="w"> </span>-0700
-<span class="w">			</span>first<span class="w"> </span>commit
-</pre></div>
+<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
+<div>
+<span style="color: black">
+    commit ca82a6dff817ec66f44342007202690a93763949<br/>
+	Author: Scott Chacon schacon@gee-mail.com<br/>
+	Date: Mon Mar 17 21:52:11 2008 -0700<br/>
+			changed the version number<br/>
+<br/>
+	commit 085bb3bcb608e1e8451d4b2432f8ecbe6306e7e7<br/>
+	Author: Scott Chacon schacon@gee-mail.com<br/>
+	Date: Sat Mar 15 16:40:33 2008 -0700<br/>
+			removed unnecessary test<br/>
+<br/>
+	commit a11bef06a3f659402fe7563abf99ad00de2209e6<br/>
+	Author: Scott Chacon schacon@gee-mail.com<br/>
+	Date: Sat Mar 15 10:31:28 2008 -0700<br/>
+			first commit<br/>
+</span>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -9000,24 +9041,32 @@ int cmd_checkout(int argc, const char **argv, const char *prefix,struct reposito
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Log-(2/X)">Log (2/X)<a class="anchor-link" href="#Log-(2/X)">¶</a></h3><hr/>
-<blockquote>
-<p>$ git log</p>
-</blockquote>
+<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
+<div><span style="color: red">$ </span><span style="color: green">git log</span></div>
+</div>
 <p><em>Sortie:</em></p>
-<p>
-    <span style="color:orange">commit ca82a6dff817ec66f44342007202690a93763949</span>
-    Author: Scott Chacon schacon@gee-mail.com
-    Date: Mon Mar 17 21:52:11 2008 -0700
-        changed the version number
-    commit 085bb3bcb608e1e8451d4b2432f8ecbe6306e7e7
-    Author: Scott Chacon schacon@gee-mail.com
-    Date: Sat Mar 15 16:40:33 2008 -0700
-        removed unnecessary test
-    commit a11bef06a3f659402fe7563abf99ad00de2209e6
-    Author: Scott Chacon schacon@gee-mail.com
-    Date: Sat Mar 15 10:31:28 2008 -0700
-        first commit
-</p>
+<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
+<div>
+<span style="color: orange">
+    commit ca82a6dff817ec66f44342007202690a93763949<br/>
+</span>
+<span style="color: black">
+	Author: Scott Chacon schacon@gee-mail.com<br/>
+	Date: Mon Mar 17 21:52:11 2008 -0700<br/>
+			changed the version number<br/>
+<br/>
+	commit 085bb3bcb608e1e8451d4b2432f8ecbe6306e7e7<br/>
+	Author: Scott Chacon schacon@gee-mail.com<br/>
+	Date: Sat Mar 15 16:40:33 2008 -0700<br/>
+			removed unnecessary test<br/>
+<br/>
+	commit a11bef06a3f659402fe7563abf99ad00de2209e6<br/>
+	Author: Scott Chacon schacon@gee-mail.com<br/>
+	Date: Sat Mar 15 10:31:28 2008 -0700<br/>
+			first commit<br/>
+</span>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -9029,24 +9078,34 @@ int cmd_checkout(int argc, const char **argv, const char *prefix,struct reposito
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Log-(3/X)">Log (3/X)<a class="anchor-link" href="#Log-(3/X)">¶</a></h3><hr/>
-<blockquote>
-<p>$ git log</p>
-</blockquote>
+<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
+<div><span style="color: red">$ </span><span style="color: green">git log</span></div>
+</div>
 <p><em>Sortie:</em></p>
-<p>
-    commit ca82a6dff817ec66f44342007202690a93763949
-    <span style="color:orange">Author: Scott Chacon schacon@gee-mail.com</span>
-    Date: Mon Mar 17 21:52:11 2008 -0700
-        changed the version number
-    commit 085bb3bcb608e1e8451d4b2432f8ecbe6306e7e7
-    Author: Scott Chacon schacon@gee-mail.com
-    Date: Sat Mar 15 16:40:33 2008 -0700
-        removed unnecessary test
-    commit a11bef06a3f659402fe7563abf99ad00de2209e6
-    Author: Scott Chacon schacon@gee-mail.com
-    Date: Sat Mar 15 10:31:28 2008 -0700
-        first commit
-</p>
+<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
+<div>
+<span style="color: black">
+    commit ca82a6dff817ec66f44342007202690a93763949<br/>
+</span>
+<span style="color: orange">
+	Author: Scott Chacon schacon@gee-mail.com<br/>
+</span>
+<span style="color: black">
+	Date: Mon Mar 17 21:52:11 2008 -0700<br/>
+			changed the version number<br/>
+<br/>
+	commit 085bb3bcb608e1e8451d4b2432f8ecbe6306e7e7<br/>
+	Author: Scott Chacon schacon@gee-mail.com<br/>
+	Date: Sat Mar 15 16:40:33 2008 -0700<br/>
+			removed unnecessary test<br/>
+<br/>
+	commit a11bef06a3f659402fe7563abf99ad00de2209e6<br/>
+	Author: Scott Chacon schacon@gee-mail.com<br/>
+	Date: Sat Mar 15 10:31:28 2008 -0700<br/>
+			first commit<br/>
+</span>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -9058,24 +9117,34 @@ int cmd_checkout(int argc, const char **argv, const char *prefix,struct reposito
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Log-(4/X)">Log (4/X)<a class="anchor-link" href="#Log-(4/X)">¶</a></h3><hr/>
-<blockquote>
-<p>$ git log</p>
-</blockquote>
+<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
+<div><span style="color: red">$ </span><span style="color: green">git log</span></div>
+</div>
 <p><em>Sortie:</em></p>
-<p>
-    commit ca82a6dff817ec66f44342007202690a93763949
-    Author: Scott Chacon schacon@gee-mail.com
-    <span style="color:orange">Date: Mon Mar 17 21:52:11 2008 -0700</span>
-        changed the version number
-    commit 085bb3bcb608e1e8451d4b2432f8ecbe6306e7e7
-    Author: Scott Chacon schacon@gee-mail.com
-    Date: Sat Mar 15 16:40:33 2008 -0700
-        removed unnecessary test
-    commit a11bef06a3f659402fe7563abf99ad00de2209e6
-    Author: Scott Chacon schacon@gee-mail.com
-    Date: Sat Mar 15 10:31:28 2008 -0700
-        first commit
-</p>
+<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
+<div>
+<span style="color: black">
+    commit ca82a6dff817ec66f44342007202690a93763949<br/>
+	Author: Scott Chacon schacon@gee-mail.com<br/>
+</span>
+<span style="color: orange">
+	Date: Mon Mar 17 21:52:11 2008 -0700<br/>
+</span>
+<span style="color: black">
+			changed the version number<br/>
+<br/>
+	commit 085bb3bcb608e1e8451d4b2432f8ecbe6306e7e7<br/>
+	Author: Scott Chacon schacon@gee-mail.com<br/>
+	Date: Sat Mar 15 16:40:33 2008 -0700<br/>
+			removed unnecessary test<br/>
+<br/>
+	commit a11bef06a3f659402fe7563abf99ad00de2209e6<br/>
+	Author: Scott Chacon schacon@gee-mail.com<br/>
+	Date: Sat Mar 15 10:31:28 2008 -0700<br/>
+			first commit<br/>
+</span>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -9087,49 +9156,43 @@ int cmd_checkout(int argc, const char **argv, const char *prefix,struct reposito
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h4 id="Formattages-(1/X)">Formattages (1/X)<a class="anchor-link" href="#Formattages-(1/X)">¶</a></h4><hr/>
-<blockquote>
-<p>$ git log -p -2</p>
-</blockquote>
-<p><em>Sortie:</em></p>
-<div class="highlight"><pre><span></span>commit<span class="w"> </span>ca82a6dff817ec66f44342007202690a93763949
-Author:<span class="w"> </span>Scott<span class="w"> </span>Chacon<span class="w"> </span>&lt;schacon@gee-mail.com&gt;
-Date:<span class="w"> </span>Mon<span class="w"> </span>Mar<span class="w"> </span><span class="m">17</span><span class="w"> </span><span class="m">21</span>:52:11<span class="w"> </span><span class="m">2008</span><span class="w"> </span>-0700
-changed<span class="w"> </span>the<span class="w"> </span>version<span class="w"> </span>number
-diff<span class="w"> </span>--git<span class="w"> </span>a/Rakefile<span class="w"> </span>b/Rakefile
-index<span class="w"> </span>a874b73..8f94139<span class="w"> </span><span class="m">100644</span>
----<span class="w"> </span>a/Rakefile
-+++<span class="w"> </span>b/Rakefile
-@@<span class="w"> </span>-5,7<span class="w"> </span>+5,7<span class="w"> </span>@@<span class="w"> </span>require<span class="w"> </span><span class="s1">'rake/gempackagetask'</span>
-<span class="nv">spec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Gem::Specification.new<span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="p">|</span>s<span class="p">|</span>
-s.platform<span class="w"> </span><span class="o">=</span><span class="w"> </span>Gem::Platform::RUBY
-s.name<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"simplegit"</span>
--<span class="w"> </span>s.version<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"0.1.0"</span>
-+<span class="w"> </span>s.version<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"0.1.1"</span>
-s.author<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Scott Chacon"</span>
-s.email<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"schacon@gee-mail.com"</span>
-s.summary<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"A simple gem for using Git in Ruby code."</span>
-commit<span class="w"> </span>085bb3bcb608e1e8451d4b2432f8ecbe6306e7e7
-Author:<span class="w"> </span>Scott<span class="w"> </span>Chacon<span class="w"> </span>&lt;schacon@gee-mail.com&gt;
-Date:<span class="w"> </span>Sat<span class="w"> </span>Mar<span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="m">16</span>:40:33<span class="w"> </span><span class="m">2008</span><span class="w"> </span>-0700
-removed<span class="w"> </span>unnecessary<span class="w"> </span><span class="nb">test</span>
-diff<span class="w"> </span>--git<span class="w"> </span>a/lib/simplegit.rb<span class="w"> </span>b/lib/simplegit.rb
-index<span class="w"> </span>a0a60ae..47c6340<span class="w"> </span><span class="m">100644</span>
----<span class="w"> </span>a/lib/simplegit.rb
-+++<span class="w"> </span>b/lib/simplegit.rb
-@@<span class="w"> </span>-18,8<span class="w"> </span>+18,3<span class="w"> </span>@@<span class="w"> </span>class<span class="w"> </span>SimpleGit
-end
-end
--
--if<span class="w"> </span><span class="nv">$0</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>__FILE__
--<span class="w"> </span><span class="nv">git</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>SimpleGit.new
--<span class="w"> </span>puts<span class="w"> </span>git.show
--end
-<span class="se">\ </span>No<span class="w"> </span>newline<span class="w"> </span>at<span class="w"> </span>end<span class="w"> </span>of<span class="w"> </span>file
-</pre></div>
+<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
+<div><span style="color: red">$ </span><span style="color: green">git log -p -2</span></div>
 </div>
 </div>
 </div>
-</div></section><section>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=39173dc4-fcc1-45f9-a2b6-526c56d791d5">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<pre class="prettyprint lang-diff log1">
+commit ca82a6dff817ec66f44342007202690a93763949
+Author: Scott Chacon &lt;schacon@gee-mail.com&gt;
+Date: Mon Mar 17 21:52:11 2008 -0700
+changed the version number
+diff --git a/Rakefile b/Rakefile
+index a874b73..8f94139 100644
+--- a/Rakefile
++++ b/Rakefile
+@@ -5,7 +5,7 @@ require 'rake/gempackagetask'
+spec = Gem::Specification.new do |s|
+s.platform = Gem::Platform::RUBY
+s.name = "simplegit"
+- s.version = "0.1.0"
++ s.version = "0.1.1"
+s.author = "Scott Chacon"
+s.email = "schacon@gee-mail.com"
+s.summary = "A simple gem for using Git in Ruby code."
+(...)
+</pre>
+</div>
+</div>
+</div>
+</div></div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0ca89ca1-6a5c-46f2-886c-92885f4147ac">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -9137,35 +9200,45 @@ end
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h4 id="Formattages-(2/X)">Formattages (2/X)<a class="anchor-link" href="#Formattages-(2/X)">¶</a></h4><hr/>
-<blockquote>
-<p>$ git log --stat</p>
-</blockquote>
-<p><em>Sortie:</em></p>
-<div class="highlight"><pre><span></span>commit<span class="w"> </span>ca82a6dff817ec66f44342007202690a93763949
-Author:<span class="w"> </span>Scott<span class="w"> </span>Chacon<span class="w"> </span>&lt;schacon@gee-mail.com&gt;
-Date:<span class="w"> </span>Mon<span class="w"> </span>Mar<span class="w"> </span><span class="m">17</span><span class="w"> </span><span class="m">21</span>:52:11<span class="w"> </span><span class="m">2008</span><span class="w"> </span>-0700
-changed<span class="w"> </span>the<span class="w"> </span>version<span class="w"> </span>number
-Rakefile<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">2</span><span class="w"> </span>+-
-<span class="m">1</span><span class="w"> </span>file<span class="w"> </span>changed,<span class="w"> </span><span class="m">1</span><span class="w"> </span>insertion<span class="o">(</span>+<span class="o">)</span>,<span class="w"> </span><span class="m">1</span><span class="w"> </span>deletion<span class="o">(</span>-<span class="o">)</span>
-commit<span class="w"> </span>085bb3bcb608e1e8451d4b2432f8ecbe6306e7e7
-Author:<span class="w"> </span>Scott<span class="w"> </span>Chacon<span class="w"> </span>&lt;schacon@gee-mail.com&gt;
-Date:<span class="w"> </span>Sat<span class="w"> </span>Mar<span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="m">16</span>:40:33<span class="w"> </span><span class="m">2008</span><span class="w"> </span>-0700
-removed<span class="w"> </span>unnecessary<span class="w"> </span><span class="nb">test</span>
-lib/simplegit.rb<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">5</span><span class="w"> </span>-----
-<span class="m">1</span><span class="w"> </span>file<span class="w"> </span>changed,<span class="w"> </span><span class="m">5</span><span class="w"> </span>deletions<span class="o">(</span>-<span class="o">)</span>
-commit<span class="w"> </span>a11bef06a3f659402fe7563abf99ad00de2209e6
-Author:<span class="w"> </span>Scott<span class="w"> </span>Chacon<span class="w"> </span>&lt;schacon@gee-mail.com&gt;
-Date:<span class="w"> </span>Sat<span class="w"> </span>Mar<span class="w"> </span><span class="m">15</span><span class="w"> </span><span class="m">10</span>:31:28<span class="w"> </span><span class="m">2008</span><span class="w"> </span>-0700
-first<span class="w"> </span>commit
-README<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">6</span><span class="w"> </span>++++++
-Rakefile<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">23</span><span class="w"> </span>+++++++++++++++++++++++
-lib/simplegit.rb<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">25</span><span class="w"> </span>+++++++++++++++++++++++++
-<span class="m">3</span><span class="w"> </span>files<span class="w"> </span>changed,<span class="w"> </span><span class="m">54</span><span class="w"> </span>insertions<span class="o">(</span>+
-</pre></div>
+<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
+<div><span style="color: red">$ </span><span style="color: green">git log --stat</span></div>
 </div>
 </div>
 </div>
-</div></section><section>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ecaee5f3-dbde-4069-b3bf-10342b893c4f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<pre class="prettyprint lang-diff log2">
+commit ca82a6dff817ec66f44342007202690a93763949
+Author: Scott Chacon <schacon@gee-mail.com>
+Date: Mon Mar 17 21:52:11 2008 -0700
+changed the version number
+Rakefile | 2 +-
+1 file changed, 1 insertion(+), 1 deletion(-)
+commit 085bb3bcb608e1e8451d4b2432f8ecbe6306e7e7
+Author: Scott Chacon <schacon@gee-mail.com>
+Date: Sat Mar 15 16:40:33 2008 -0700
+removed unnecessary test
+lib/simplegit.rb | 5 -----
+1 file changed, 5 deletions(-)
+commit a11bef06a3f659402fe7563abf99ad00de2209e6
+Author: Scott Chacon <schacon@gee-mail.com>
+Date: Sat Mar 15 10:31:28 2008 -0700
+first commit
+README | 6 ++++++
+Rakefile | 23 +++++++++++++++++++++++
+lib/simplegit.rb | 25 +++++++++++++++++++++++++
+3 files changed, 54 insertions(+)
+</schacon@gee-mail.com></schacon@gee-mail.com></schacon@gee-mail.com></pre>
+</div>
+</div>
+</div>
+</div></div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d28211ff-ec86-4d1c-be24-ea0dc6cab948">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -9173,14 +9246,19 @@ lib/simplegit.rb<span class="w"> </span><span class="p">|</span><span class="w">
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h4 id="Formattages-(3/X)">Formattages (3/X)<a class="anchor-link" href="#Formattages-(3/X)">¶</a></h4><hr/>
-<blockquote>
-<p>$ git log --pretty=oneline</p>
-</blockquote>
+<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
+<div><span style="color: red">$ </span><span style="color: green">git log --pretty=oneline</span></div>
+</div>
 <p><em>Sortie:</em></p>
-<div class="highlight"><pre><span></span>ca82a6dff817ec66f44342007202690a93763949<span class="w"> </span>changed<span class="w"> </span>the<span class="w"> </span>version<span class="w"> </span>number
-085bb3bcb608e1e8451d4b2432f8ecbe6306e7e7<span class="w"> </span>removed<span class="w"> </span>unnecessary<span class="w"> </span><span class="nb">test</span>
-a11bef06a3f659402fe7563abf99ad00de2209e6<span class="w"> </span>first<span class="w"> </span>commit
-</pre></div>
+<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
+<div>
+<span style="color: black">
+    ca82a6dff817ec66f44342007202690a93763949 changed the version number<br/>
+    085bb3bcb608e1e8451d4b2432f8ecbe6306e7e7 removed unnecessary test<br/>
+    a11bef06a3f659402fe7563abf99ad00de2209e6 first commit<br/>
+</span>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -9192,14 +9270,19 @@ a11bef06a3f659402fe7563abf99ad00de2209e6<span class="w"> </span>first<span class
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h4 id="Formattages-(4/X)">Formattages (4/X)<a class="anchor-link" href="#Formattages-(4/X)">¶</a></h4><hr/>
-<blockquote>
-<p>$ git log --pretty=format:"%h - %an, %ar : %s"</p>
-</blockquote>
+<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
+<div><span style="color: red">$ </span><span style="color: green">git log --pretty=format:"%h - %an, %ar : %s</span></div>
+</div>
 <p><em>Sortie:</em></p>
-<div class="highlight"><pre><span></span>ca82a6d<span class="w"> </span>-<span class="w"> </span>Scott<span class="w"> </span>Chacon,<span class="w"> </span><span class="m">6</span><span class="w"> </span>years<span class="w"> </span>ago<span class="w"> </span>:<span class="w"> </span>changed<span class="w"> </span>the<span class="w"> </span>version<span class="w"> </span>number
-085bb3b<span class="w"> </span>-<span class="w"> </span>Scott<span class="w"> </span>Chacon,<span class="w"> </span><span class="m">6</span><span class="w"> </span>years<span class="w"> </span>ago<span class="w"> </span>:<span class="w"> </span>removed<span class="w"> </span>unnecessary<span class="w"> </span><span class="nb">test</span>
-a11bef0<span class="w"> </span>-<span class="w"> </span>Scott<span class="w"> </span>Chacon,<span class="w"> </span><span class="m">6</span><span class="w"> </span>years<span class="w"> </span>ago<span class="w"> </span>:<span class="w"> </span>first<span class="w"> </span>commit
-</pre></div>
+<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
+<div>
+<span style="color: black">
+    ca82a6d - Scott Chacon, 6 years ago : changed the version number<br/>
+    085bb3b - Scott Chacon, 6 years ago : removed unnecessary test<br/>
+    a11bef0 - Scott Chacon, 6 years ago : first commit<br/>
+</span>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -9292,21 +9375,26 @@ a11bef0<span class="w"> </span>-<span class="w"> </span>Scott<span class="w"> </
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h4 id="Formattages-(5/X)">Formattages (5/X)<a class="anchor-link" href="#Formattages-(5/X)">¶</a></h4><hr/>
-<blockquote>
-<p>$ git log --pretty=format:"%h %s" --graph</p>
-</blockquote>
+<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
+<div><span style="color: red">$ </span><span style="color: green">git log --pretty=format:"%h %s" --graph</span></div>
+</div>
 <p><em>Sortie:</em></p>
-<div class="highlight"><pre><span></span>*<span class="w"> </span>2d3acf9<span class="w"> </span>ignore<span class="w"> </span>errors<span class="w"> </span>from<span class="w"> </span>SIGCHLD<span class="w"> </span>on<span class="w"> </span><span class="nb">trap</span>
-*<span class="w"> </span>5e3ee11<span class="w"> </span>Merge<span class="w"> </span>branch<span class="w"> </span><span class="s1">'master'</span><span class="w"> </span>of<span class="w"> </span>git://github.com/dustin/grit
-<span class="p">|</span><span class="se">\</span>
-<span class="p">|</span><span class="w"> </span>*<span class="w"> </span>420eac9<span class="w"> </span>Added<span class="w"> </span>a<span class="w"> </span>method<span class="w"> </span><span class="k">for</span><span class="w"> </span>getting<span class="w"> </span>the<span class="w"> </span>current<span class="w"> </span>branch.
-*<span class="w"> </span><span class="p">|</span><span class="w"> </span>30e367c<span class="w"> </span>timeout<span class="w"> </span>code<span class="w"> </span>and<span class="w"> </span>tests
-*<span class="w"> </span><span class="p">|</span><span class="w"> </span>5a09431<span class="w"> </span>add<span class="w"> </span>timeout<span class="w"> </span>protection<span class="w"> </span>to<span class="w"> </span>grit
-*<span class="w"> </span><span class="p">|</span><span class="w"> </span>e1193f8<span class="w"> </span>support<span class="w"> </span><span class="k">for</span><span class="w"> </span>heads<span class="w"> </span>with<span class="w"> </span>slashes<span class="w"> </span><span class="k">in</span><span class="w"> </span>them
-<span class="p">|</span>/
-*<span class="w"> </span>d6016bc<span class="w"> </span>require<span class="w"> </span><span class="nb">time</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>xmlschema
-*<span class="w"> </span>11d191e<span class="w"> </span>Merge<span class="w"> </span>branch<span class="w"> </span><span class="s1">'defunkt'</span><span class="w"> </span>into<span class="w"> </span><span class="nb">local</span>
-</pre></div>
+<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
+<div>
+<span style="color: black">
+    * 2d3acf9 ignore errors from SIGCHLD on trap<br/>
+    * 5e3ee11 Merge branch 'master' of git://github.com/dustin/grit<br/>
+    |\<br/>
+    | * 420eac9 Added a method for getting the current branch.<br/>
+    * | 30e367c timeout code and tests<br/>
+    * | 5a09431 add timeout protection to grit<br/>
+    * | e1193f8 support for heads with slashes in them<br/>
+    |/<br/>
+    * d6016bc require time for xmlschema<br/>
+    * 11d191e Merge branch 'defunkt' into local<br/>
+</span>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -9318,7 +9406,9 @@ a11bef0<span class="w"> </span>-<span class="w"> </span>Scott<span class="w"> </
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h4 id="Filtres-(1/X)">Filtres (1/X)<a class="anchor-link" href="#Filtres-(1/X)">¶</a></h4><hr/>
-<p><code>git log --since=2.weeks</code></p>
+<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
+<div><span style="color: red">$ </span><span style="color: green">git log --since=2.weeks</span></div>
+</div>
 </div>
 </div>
 </div>
@@ -9329,7 +9419,9 @@ a11bef0<span class="w"> </span>-<span class="w"> </span>Scott<span class="w"> </
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><code>git log -S do_some_things</code></p>
+<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
+<div><span style="color: red">$ </span><span style="color: green">git log -S do_some_things</span></div>
+</div>
 </div>
 </div>
 </div>
@@ -9340,7 +9432,9 @@ a11bef0<span class="w"> </span>-<span class="w"> </span>Scott<span class="w"> </
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><code>git log -- chemin/vers/le/fichier</code></p>
+<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
+<div><span style="color: red">$ </span><span style="color: green">git log -- chemin/vers/le/fichier</span></div>
+</div>
 </div>
 </div>
 </div>
@@ -9352,18 +9446,44 @@ a11bef0<span class="w"> </span>-<span class="w"> </span>Scott<span class="w"> </
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h4 id="Filtres-(2/X)">Filtres (2/X)<a class="anchor-link" href="#Filtres-(2/X)">¶</a></h4><hr/>
-<p>| Option | Description du filtre |
-|------|------|
-|-(n) N’affiche que les n derniers commits|
-|--since, --after Limite l’affichage aux commits réalisés après la date spécifiée|
-|--until, --before Limite l’affichage aux commits réalisés avant la date spécifiée|
-|--author Ne montre que les commits dont le champ auteur correspond à la chaîne passée en argument|
-|--committer Ne montre que les commits dont le champ validateur correspond
-à la chaîne passée en argument|
-|--grep Ne montre que les commits dont le message de validation
-contient la chaîne de caractères|
-|-S Ne montre que les commits dont les ajouts ou retraits contient la
-chaîne de caractères|</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description du filtre</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-(n)</td>
+<td>N’affiche que les n derniers commits</td>
+</tr>
+<tr>
+<td>--since, --after</td>
+<td>Limite l’affichage aux commits réalisés après la date spécifiée</td>
+</tr>
+<tr>
+<td>--until, --before</td>
+<td>Limite l’affichage aux commits réalisés avant la date spécifiée</td>
+</tr>
+<tr>
+<td>--author</td>
+<td>Montre que les commits dont le champ auteur correspond à la chaîne passée en argument</td>
+</tr>
+<tr>
+<td>--committer</td>
+<td>Montre que les commits dont le champ validateur correspond à la chaîne passée en argument</td>
+</tr>
+<tr>
+<td>--grep</td>
+<td>Montre que les commits dont le message de validation contient la chaîne de caractères</td>
+</tr>
+<tr>
+<td>-S</td>
+<td>Montre que les commits dont les ajouts ou retraits contient la chaîne de caractères</td>
+</tr>
+</tbody>
+</table>
 <p><em>source:</em> <a href="https://buzut.net/cours/versioning-avec-git/historique">Git log : Rechercher, naviguer et modifier l'historique</a></p>
 </div>
 </div>
@@ -9376,19 +9496,23 @@ chaîne de caractères|</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h4 id="Filtres-(2/X)">Filtres (2/X)<a class="anchor-link" href="#Filtres-(2/X)">¶</a></h4><hr/>
-<blockquote>
-<p>$ git log --pretty="%h - %s" --author='Junio C Hamano' --since="2008-10-01" <br/>
---before="2008-11-01" --no-merges -- repository/</p>
-</blockquote>
+<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
+<div><span style="color: red">$ </span><span style="color: green">git log --pretty="%h - %s" --author='Junio C Hamano' --since="2008-10-01"
+--before="2008-11-01" --no-merges -- repository/</span></div>
+</div>
 <p><em>Sortie:</em></p>
-<div class="highlight"><pre><span></span>5610e3b<span class="w"> </span>-<span class="w"> </span>Fix<span class="w"> </span>testcase<span class="w"> </span>failure<span class="w"> </span>when<span class="w"> </span>extended<span class="w"> </span>attributes<span class="w"> </span>are<span class="w"> </span><span class="k">in</span><span class="w"> </span>use
-acd3b9e<span class="w"> </span>-<span class="w"> </span>Enhance<span class="w"> </span>hold_lock_file_for_<span class="o">{</span>update,append<span class="o">}()</span><span class="w"> </span>API
-f563754<span class="w"> </span>-<span class="w"> </span>demonstrate<span class="w"> </span>breakage<span class="w"> </span>of<span class="w"> </span>detached<span class="w"> </span>checkout<span class="w"> </span>with<span class="w"> </span>symbolic<span class="w"> </span>link<span class="w"> </span>HEAD
-d1a43f2<span class="w"> </span>-<span class="w"> </span>reset<span class="w"> </span>--hard/read-tree<span class="w"> </span>--reset<span class="w"> </span>-u:<span class="w"> </span>remove<span class="w"> </span>unmerged<span class="w"> </span>new<span class="w"> </span>paths
-51a94af<span class="w"> </span>-<span class="w"> </span>Fix<span class="w"> </span><span class="s2">"checkout --track -b newbranch"</span><span class="w"> </span>on<span class="w"> </span>detached<span class="w"> </span>HEAD
-b0ad11e<span class="w"> </span>-<span class="w"> </span>pull:<span class="w"> </span>allow<span class="w"> </span><span class="s2">"git pull origin </span><span class="nv">$something</span><span class="s2">:</span><span class="nv">$current_branch</span><span class="s2">"</span><span class="w"> </span>into<span class="w"> </span>an<span class="w"> </span>unborn
-branch
-</pre></div>
+<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
+<div>
+<span style="color: black">
+    5610e3b - Fix testcase failure when extended attributes are in use<br/>
+    acd3b9e - Enhance hold_lock_file_for_{update,append}() API<br/>
+    f563754 - demonstrate breakage of detached checkout with symbolic link HEAD<br/>
+    d1a43f2 - reset --hard/read-tree --reset -u: remove unmerged new paths<br/>
+    51a94af - Fix "checkout --track -b newbranch" on detached HEAD<br/>
+    b0ad11e - pull: allow "git pull origin $something:$current_branch" into an unborn branch<br/>
+</span>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -9413,7 +9537,7 @@ branch
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <blockquote>
-<p>Avez vous des question ?</p>
+<p>Avez vous des questions ?</p>
 </blockquote>
 </div>
 </div>
