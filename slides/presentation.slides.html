@@ -7776,7 +7776,7 @@ l’utilisation de BitKeeper:</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Point-stats">Point stats<a class="anchor-link" href="#Point-stats">¶</a></h3><p>Un idée de l'efficacité de stockage</p>
+<h3 id="Point-stats">Point stats<a class="anchor-link" href="#Point-stats">¶</a></h3><p>Un idée de l'efficacité de stockage de git</p>
 <ul>
 <li>1Go de code</li>
 <li>30 000 commits dans develop</li>
@@ -7848,7 +7848,7 @@ Tout les fichiers nécessaires au bon fonctionnement de git sont dans le .git, u
 <div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
 <div><span style="color: red">/.git $ </span><span style="color: green">ls</span></div>
 <div>
-<span style="color: purple">HEAD config description</span>
+<span style="color: black">HEAD config description</span>
 <span style="color: blue">hooks/ info/ objects/ refs/</span>
 </div>
 </div>
@@ -7863,9 +7863,9 @@ Tout les fichiers nécessaires au bon fonctionnement de git sont dans le .git, u
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <ul>
-<li><span style="color: purple"> HEAD </span>: nom de la branche actuelle (ou du commit en detached HEAD)</li>
-<li><span style="color: purple"> config </span>: config du dépo (version du dépo, url du dépo, user...)</li>
-<li><span style="color: purple"> description </span>: nom du dépo</li>
+<li><span style="color: black"> HEAD </span>: nom de la branche actuelle (ou du commit en detached HEAD)</li>
+<li><span style="color: black"> config </span>: config du dépo (version du dépo, url du dépo, user...)</li>
+<li><span style="color: black"> description </span>: nom du dépo</li>
 </ul>
 </div>
 </div>
@@ -7950,9 +7950,9 @@ Tout les fichiers nécessaires au bon fonctionnement de git sont dans le .git, u
 <div style="display:flex; gap: 10px"><span style="color: red">$ </span><span style="color: green">ls .git/objects</span></div>
 <span style="color: blue; margin-bottom: 50px">info/ pack/ 3c/ 55/</span>
 <div style="display:flex; gap: 10px"><span style="color: red">$ </span><span style="color: green">ls .git/objects/3c</span></div>
-<span style="color: purple; margin-bottom: 50px">d77f0710fee3ea2ef3b7477277106fdd7ee1ec</span>
+<span style="color: black; margin-bottom: 50px">d77f0710fee3ea2ef3b7477277106fdd7ee1ec</span>
 <div style="display:flex; gap: 10px"><span style="color: red">$ </span><span style="color: green">ls .git/objects/55</span></div>
-<span style="color: purple">d8fa4b0d6ff9e9715ed2ed86763ca63ff4ae63</span>
+<span style="color: black">d8fa4b0d6ff9e9715ed2ed86763ca63ff4ae63</span>
 </div>
 <p>Ces fichiers sont des Blob (Binary Large Object).</p>
 </div>
@@ -7978,11 +7978,11 @@ Tout les fichiers nécessaires au bon fonctionnement de git sont dans le .git, u
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px; margin-bottom:15px">
 <div style="display:flex; gap: 10px"><span style="color: red">$ </span><span style="color: green">cat .git/objects/3c/d77f0710fee3ea2ef3b7477277106fdd7ee1ec</span></div>
-<span style="color: purple">Q0▒$▒</span>
+<span style="color: black">Q0▒$▒</span>
 </div>
 <div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
 <div style="display:flex; gap: 10px"><span style="color: red">$ </span><span style="color: green">cat .git/objects/55/d8fa4b0d6ff9e9715ed2ed86763ca63ff4ae63</span></div>
-<span style="color: purple">Q0▒&amp;▒</span>
+<span style="color: black">Q0▒&amp;▒</span>
 </div>
 </div>
 </div>
@@ -7997,11 +7997,11 @@ Tout les fichiers nécessaires au bon fonctionnement de git sont dans le .git, u
 <p>Affichons le contenu réel des blobs</p>
 <div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px; margin-bottom:15px">
 <div style="display:flex; gap: 10px"><span style="color: red">$ </span><span style="color: green">git cat-file blob 3cd77f0710fee3ea2ef3b7477277106fdd7ee1ec</span></div>
-<span style="color: purple">Test 1</span>
+<span style="color: black">Test 1</span>
 </div>
 <div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px;">
 <div style="display:flex; gap: 10px"><span style="color: red">$ </span><span style="color: green">git cat-file blob 55d8fa4b0d6ff9e9715ed2ed86763ca63ff4ae63</span></div>
-<span style="color: purple">Test 2</span>
+<span style="color: black">Test 2</span>
 </div>
 </div>
 </div>
@@ -8072,13 +8072,13 @@ Tout les fichiers nécessaires au bon fonctionnement de git sont dans le .git, u
 <p>Utilisons la plumbing commande <code>git write-tree</code> pour construire l'aborescence.</p>
 <div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px;">
 <div style="display:flex; gap: 10px"><span style="color: red">$ </span><span style="color: green">git write-tree</span></div>
-<span style="color: purple; margin-bottom: 50px">bf010268b9aaec572fcb61faf3b38eb9fb4ae916</span>
+<span style="color: black; margin-bottom: 50px">bf010268b9aaec572fcb61faf3b38eb9fb4ae916</span>
 <div style="display:flex; gap: 10px"><span style="color: red">$ </span><span style="color: green">ls .git/objects</span></div>
 <span style="color: blue; margin-bottom: 50px">info/ pack/ 3c/ 55/ bf/ ff/</span>
 <div style="display:flex; gap: 10px; font-weight: 800"><span style="color: red">$ </span><span style="color: green">ls .git/objects/bf</span></div>
-<span style="color: purple; margin-bottom: 50px; font-weight: 800">010268b9aaec572fcb61faf3b38eb9fb4ae916</span>
+<span style="color: black; margin-bottom: 50px; font-weight: 800">010268b9aaec572fcb61faf3b38eb9fb4ae916</span>
 <div style="display:flex; gap: 10px; font-weight: 800"><span style="color: red">$ </span><span style="color: green">ls .git/objects/ff</span></div>
-<span style="color: purple; margin-bottom: 50px; font-weight: 800">3e4802e7624245c0cc9733effca88e9c87c943</span>
+<span style="color: black; margin-bottom: 50px; font-weight: 800">3e4802e7624245c0cc9733effca88e9c87c943</span>
 </div>
 </div>
 </div>
@@ -8093,10 +8093,10 @@ Tout les fichiers nécessaires au bon fonctionnement de git sont dans le .git, u
 <h3>Affichons le contenu de ces Tree </h3>
 <div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px;">
 <div style="display:flex; gap: 10px"><span style="color: red">$ </span><span style="color: green">git cat-file -p bf010268b9aaec572fcb61faf3b38eb9fb4ae916</span></div>
-<span style="color: purple">100644 blob 3cd77f0710fee3ea2ef3b7477277106fdd7ee1ec    file1.txt</span>
-<span style="color: purple;margin-bottom:50px;">040000 tree ff3e4802e7624245c0cc9733effca88e9c87c943    src</span>
+<span style="color: black">100644 blob 3cd77f0710fee3ea2ef3b7477277106fdd7ee1ec    file1.txt</span>
+<span style="color: black;margin-bottom:50px;">040000 tree ff3e4802e7624245c0cc9733effca88e9c87c943    src</span>
 <div style="display:flex; gap: 10px"><span style="color: red">$ </span><span style="color: green">git cat-file -p ff3e4802e7624245c0cc9733effca88e9c87c943</span></div>
-<span style="color: purple">100644 blob 55d8fa4b0d6ff9e9715ed2ed86763ca63ff4ae63    file2.txt</span>
+<span style="color: black">100644 blob 55d8fa4b0d6ff9e9715ed2ed86763ca63ff4ae63    file2.txt</span>
 </div>
 </div>
 </div>
@@ -8152,7 +8152,7 @@ Tout les fichiers nécessaires au bon fonctionnement de git sont dans le .git, u
 <p>Après avoir créer les objet Tree, la commande <code>git commit</code> crée un objet commit.</p>
 <div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px;">
 <div style="display:flex; gap: 10px"><span style="color: red">$ </span><span style="color: green">git commit -m "Ceci est un message de commit"</span></div>
-<span style="color: #3b3b3bff">[master (root-commit) 0bb69bc] Ceci est un message de commit</span>
+<span style="color: black">[master (root-commit) 0bb69bc] Ceci est un message de commit</span>
 <span style="color: black;">  Committer: olivier.michau@avisto.com &lt;olivier.michau@avisto.com&gt;</span>
 <span style="color: black;"> 2 files changed, 2 insertions(+)</span>
 <span style="color: black;"> create mode 100644 file1.txt</span>
@@ -8172,7 +8172,7 @@ Tout les fichiers nécessaires au bon fonctionnement de git sont dans le .git, u
 <div style="display:flex; gap: 10px"><span style="color: red">$ </span><span style="color: green">ls .git/objects</span></div>
 <span style="color: blue; margin-bottom: 50px">info/ pack/ 3c/ 55/ bf/ ff/ 0b/</span>
 <div style="display:flex; gap: 10px;"><span style="color: red">$ </span><span style="color: green">ls .git/objects/0b</span></div>
-<span style="color: purple">b69bceab7f605a68b4d6f2807a76d967ed1617</span>
+<span style="color: black">b69bceab7f605a68b4d6f2807a76d967ed1617</span>
 </div>
 </div>
 </div>
@@ -8187,11 +8187,11 @@ Tout les fichiers nécessaires au bon fonctionnement de git sont dans le .git, u
 <div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px;">
 <div style="display:flex; gap: 10px"><span style="color: red">$ </span><span style="color: green"> git cat-file -p 0bb69bceab7f605a68b4d6f2807a76d967ed1617
     </span></div>
-<span style="color: purple">info/ pack/ 3c/ 55/ bf/ ff/ 0b/</span>
-<span style="color: purple">tree bf010268b9aaec572fcb61faf3b38eb9fb4ae916</span>
-<span style="color: purple">author olivier.michau@avisto.com &lt;olivier.michau@avisto.com&gt; 1761308143 +0200</span>
-<span style="color: purple">committer olivier.michau@avisto.com &lt;olivier.michau@avisto.com&gt; 1761308143 +0200</span>
-<span style="color: purple">Ceci est un message de commit</span>
+<span style="color: black">info/ pack/ 3c/ 55/ bf/ ff/ 0b/</span>
+<span style="color: black">tree bf010268b9aaec572fcb61faf3b38eb9fb4ae916</span>
+<span style="color: black">author olivier.michau@avisto.com &lt;olivier.michau@avisto.com&gt; 1761308143 +0200</span>
+<span style="color: black">committer olivier.michau@avisto.com &lt;olivier.michau@avisto.com&gt; 1761308143 +0200</span>
+<span style="color: black">Ceci est un message de commit</span>
 </div>
 </div>
 </div>
@@ -8416,13 +8416,151 @@ Tout les fichiers nécessaires au bon fonctionnement de git sont dans le .git, u
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Git cherche le commit de base, c'est à dire le commit le plus réçent en commun avec les 2 branches.</p>
 <div style="display:flex; margin-top:20px">
 <img alt="branch" src="pictures/git-rebase-part-2.png" style="border-radius: 5px; margin: auto; width:80%; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"/>
 </div>
 </div>
 </div>
 </div>
-</div></div></section></section><section><section>
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c5427a09">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Une fois le commit de base obtenu, git calcule les diff entre chaque commit et son précédent jusqu'à arriver au commit de base.</p>
+<div style="display:flex; margin-top:20px">
+<img alt="branch" src="pictures/git-rebase-part-3.png" style="border-radius: 5px; margin: auto; width:80%; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"/>
+</div>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=81a27fa3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Pour faire les diff entre 2 commits, git cherche tout les fichiers modifiés (comme précédemment), puis utilise l'algorithme <strong>Myers diff</strong>. Cet algorithme sort la différence minimale entre les 2 fichiers dans le format vu précédemment.
+Une fois toutes les diff calculées, git réapplique toutes les diff depuis la nouvelle base.</p>
+</div>
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a40aaca3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="display:flex; margin-top:20px">
+<img alt="branch" src="pictures/git-rebase-part-4.png" style="border-radius: 5px; margin: auto; width:80%; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"/>
+</div>
+<p>Si un problème est détecter lors de l'application des diff, alors git sort un conflict.</p>
+</div>
+</div>
+</div>
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0bf1e75f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3>Merge</h3>
+<p>Le principe de <strong>Merge</strong> est de créer un commit dans la branche cible qui fusionnera les 2 branches.
+Pour fusionner les changements des 2 branches, git applique le <em>Three-way merge</em>, dans un premier temps il calcule les diffs des 2 branches avec la base, puis applique toutes les diffs depuis la base.</p>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6a08f3e5">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="display:flex; margin-top: 15px">
+<img alt="branch" src="pictures/git-merge-part-2.png" style="border-radius: 5px; margin: auto; width:80%; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"/>
+</div>
+</div>
+</div>
+</div>
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f8d28dbe">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="display:flex; margin-top: 15px">
+<img alt="branch" src="pictures/git-merge-part-1.png" style="border-radius: 5px; margin: auto; width:80%; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"/>
+</div>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=65551fe5">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Le commit de merge contient:</p>
+<ul>
+<li>La base</li>
+<li>Les 2 commits parents</li>
+<li>L'état complet du dépo (comme tout les commits)</li>
+</ul>
+</div>
+</div>
+</div>
+</div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0cb6f02e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 style="margin-bottom: 50px">Merge vs Rebase</h3>
+<table style="width: 100%; font-size: 25px; border: 1px black solid">
+<thead>
+<tr style="font-weight: bold; background-color: black; color: white; padding: 5px;">
+<td style="padding-top: 15px; padding-bottom: 15px; border-right: 1px gray solid"></td>
+<td style="padding-top: 15px; padding-bottom: 15px; font-style: italic; border-right: 1px gray solid"> Merge </td>
+<td style="padding-top: 15px; padding-bottom: 15px; font-style: italic"> Rebase </td>
+</tr>
+</thead>
+<tbody>
+<tr style="padding: 5px;">
+<td style="padding-top: 15px; padding-bottom: 15px;border-right: 1px black solid"> Création d’un commit supplémentaire </td>
+<td style="padding-top: 15px; padding-bottom: 15px;border-right: 1px black solid"> Oui (commit de merge) </td>
+<td style="padding-top: 15px; padding-bottom: 15px;"> Non </td>
+</tr>
+<tr style="padding: 5px;">
+<td style="padding-top: 15px; padding-bottom: 15px;border-right: 1px black solid"> Historique </td>
+<td style="padding-top: 15px; padding-bottom: 15px;border-right: 1px black solid"> Ramifié (graph avec branches) </td>
+<td style="padding-top: 15px; padding-bottom: 15px;"> Linéaire </td>
+</tr>
+<tr style="padding: 5px;">
+<td style="padding-top: 15px; padding-bottom: 15px;border-right: 1px black solid"> SHA des commits </td>
+<td style="padding-top: 15px; padding-bottom: 15px;border-right: 1px black solid"> Inchangés </td>
+<td style="padding-top: 15px; padding-bottom: 15px;"> Recalculés </td>
+</tr>
+<tr style="padding: 5px;">
+<td style="padding-top: 15px; padding-bottom: 15px;border-right: 1px black solid"> Réécriture d’historique </td>
+<td style="padding-top: 15px; padding-bottom: 15px;border-right: 1px black solid"> Non </td>
+<td style="padding-top: 15px; padding-bottom: 15px;"> Oui (nouveaux commits) </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b8e1ac7a-3ca7-4405-9927-6f1c7dfe99bd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
