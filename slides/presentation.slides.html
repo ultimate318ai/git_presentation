@@ -7444,12 +7444,13 @@ main {
 <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
 <style>
     pre.prettyprint{
+    font-size: unset;
      border: 1px solid #08182F;
-     border-radius: 30px;   
+     border-radius: 5px;   
      padding: 15px;
     }
     .prettyprint.lang-diff * {
-        font-size: 16px;
+        font-size: 20px;
         color: black;
     }
     .prettyprint.lang-diff > span:nth-child(n+18):nth-child(-n+23) {
@@ -7458,10 +7459,10 @@ main {
     .prettyprint.lang-diff > span:nth-child(n+24):nth-child(-n+29) {
         color: green;
     }
-    .prettyprint.lang-diff > * > span:nth-child(n+12):nth-child(-n+26) {
+    .prettyprint.lang-diff > span:nth-child(n+58):nth-child(-n+70) {
         color: red;
     }
-    .prettyprint.lang-diff > * > span:nth-child(n+26):nth-child(-n+47) {
+    .prettyprint.lang-diff > span:nth-child(n+71):nth-child(-n+92) {
         color: green;
     }
 
@@ -7576,13 +7577,13 @@ index 30cfd169..8de130c2 100644
 --- a/foo.c
 +++ b/foo.c
 @@ -1,5 +1,5 @@
- #include <string.h>
+ #include &lt;string.h&gt;
 
  int check (char *string) {
 -    return !strcmp(string, "ok");
 +    return (string != NULL) &amp;&amp; !strcmp(string, "ok");
 }
-</string.h></pre>
+</pre>
 <p>Un patch est une representation compacte de différences entres deux fichiers. Cela décrit comment effectuer une tranformation afin de passer d'un fichier à un autre.</p>
 </div>
 </div>
@@ -8632,10 +8633,12 @@ Pour fusionner les changements des 2 branches, git applique le <em>Three-way mer
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <blockquote>
-<pre><code>Git switch and git checkout are both used to change branches, but they have some differences in syntax and behavior. Git switch is a newer command that is more focused on branches, while git checkout is an older command that can do other things besides switching branches.
-Git checkout has a more versatile syntax than git switch, but it can also be more confusing and error-prone if you don’t understand its behavior.</code></pre>
+<p>Git switch and git checkout are both used to change branches, but they have some differences in syntax and behavior. Git switch is a newer command that is more focused on branches, while git checkout is an older command that can do other things besides switching branches.</p>
 </blockquote>
-<p><em>Source</em>: <a href="https://kodekloud.com/blog/git-switch-vs-checkout/">Git Switch vs. Checkout: What’s the Difference? (2023)</a></p>
+<blockquote>
+<p>Git checkout has a more versatile syntax than git switch, but it can also be more confusing and error-prone if you don’t understand its behavior.</p>
+</blockquote>
+<p><em>source</em>: <a href="https://kodekloud.com/blog/git-switch-vs-checkout/">Git Switch vs. Checkout: What’s the Difference? (2023)</a></p>
 </div>
 </div>
 </div>
@@ -8746,11 +8749,11 @@ command.</p>
 <span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="s">"archive"</span><span class="p">,</span><span class="w"> </span><span class="n">cmd_archive</span><span class="p">,</span><span class="w"> </span><span class="n">RUN_SETUP_GENTLY</span><span class="w"> </span><span class="p">},</span>
 <span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="s">"backfill"</span><span class="p">,</span><span class="w"> </span><span class="n">cmd_backfill</span><span class="p">,</span><span class="w"> </span><span class="n">RUN_SETUP</span><span class="w"> </span><span class="p">},</span>
 <span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="s">"bisect"</span><span class="p">,</span><span class="w"> </span><span class="n">cmd_bisect</span><span class="p">,</span><span class="w"> </span><span class="n">RUN_SETUP</span><span class="w"> </span><span class="p">},</span>
-<span class="w">    </span><span class="p">(...)</span>
+<span class="w">        </span><span class="p">(...)</span>
 <span class="w">	</span><span class="p">{</span><span class="w"> </span><span class="s">"checkout"</span><span class="p">,</span><span class="w"> </span><span class="n">cmd_checkout</span><span class="p">,</span><span class="w"> </span><span class="n">RUN_SETUP</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">NEED_WORK_TREE</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="c1">//l.520</span>
-<span class="w">    </span><span class="p">(...)</span>
+<span class="w">        </span><span class="p">(...)</span>
 <span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="s">"switch"</span><span class="p">,</span><span class="w"> </span><span class="n">cmd_switch</span><span class="p">,</span><span class="w"> </span><span class="n">RUN_SETUP</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">NEED_WORK_TREE</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="c1">//l.632</span>
-<span class="w">    </span><span class="p">(...)</span>
+<span class="w">        </span><span class="p">(...)</span>
 </pre></div>
 <p><em>source</em>: <a href="https://github.com/git/git/blob/2d2a71ce85026edcc40f469678a1035df0dfcf57/git.c#L503">git.c</a></p>
 </div>
@@ -8764,10 +8767,7 @@ command.</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Switch-et-Checkout-(4/X)">Switch et Checkout (4/X)<a class="anchor-link" href="#Switch-et-Checkout-(4/X)">¶</a></h3><hr/>
-<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">cmd_switch</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span>
-<span class="w">	       </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">,</span>
-<span class="w">	       </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">prefix</span><span class="p">,</span>
-<span class="w">	       </span><span class="k">struct</span><span class="w"> </span><span class="nc">repository</span><span class="w"> </span><span class="o">*</span><span class="n">repo</span><span class="w"> </span><span class="n">UNUSED</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">cmd_switch</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">prefix</span><span class="p">,</span><span class="k">struct</span><span class="w"> </span><span class="nc">repository</span><span class="w"> </span><span class="o">*</span><span class="n">repo</span><span class="w"> </span><span class="n">UNUSED</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="nc">checkout_opts</span><span class="w"> </span><span class="n">opts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CHECKOUT_OPTS_INIT</span><span class="p">;</span><span class="w"> </span><span class="c1">// same as checkout</span>
 <span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="nc">option</span><span class="w"> </span><span class="o">*</span><span class="n">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
@@ -8776,14 +8776,11 @@ command.</p>
 <span class="w">			   </span><span class="n">N_</span><span class="p">(</span><span class="s">"create and switch to a new branch"</span><span class="p">)),</span>
 <span class="w">		</span><span class="n">OPT_STRING</span><span class="p">(</span><span class="sc">'C'</span><span class="p">,</span><span class="w"> </span><span class="s">"force-create"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">opts</span><span class="p">.</span><span class="n">new_branch_force</span><span class="p">,</span><span class="w"> </span><span class="n">N_</span><span class="p">(</span><span class="s">"branch"</span><span class="p">),</span>
 <span class="w">			   </span><span class="n">N_</span><span class="p">(</span><span class="s">"create/reset and switch to a branch"</span><span class="p">)),</span>
-<span class="w">		</span><span class="n">OPT_BOOL</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">"guess"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">opts</span><span class="p">.</span><span class="n">dwim_new_local_branch</span><span class="p">,</span>
-<span class="w">			 </span><span class="n">N_</span><span class="p">(</span><span class="s">"second guess 'git switch &lt;no-such-branch&gt;'"</span><span class="p">)),</span>
-<span class="w">		</span><span class="n">OPT_BOOL</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">"discard-changes"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">opts</span><span class="p">.</span><span class="n">discard_changes</span><span class="p">,</span>
-<span class="w">			 </span><span class="n">N_</span><span class="p">(</span><span class="s">"throw away local modifications"</span><span class="p">)),</span>
+<span class="w">		</span><span class="p">(...)</span>
 <span class="w">		</span><span class="n">OPT_END</span><span class="p">()</span>
 <span class="w">	</span><span class="p">};</span>
-<span class="w">    </span><span class="p">(...)</span>
-<span class="w">    </span><span class="n">opts</span><span class="p">.</span><span class="n">switch_branch_doing_nothing_is_ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// Ces deux paramètres ont leurs importances </span>
+<span class="w">        </span><span class="p">(...)</span>
+<span class="w">        </span><span class="n">opts</span><span class="p">.</span><span class="n">switch_branch_doing_nothing_is_ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// Ces deux paramètres ont leurs importances </span>
 <span class="w">	</span><span class="n">opts</span><span class="p">.</span><span class="n">only_merge_on_switching_branches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="w">        </span>
 <span class="w">	</span><span class="n">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parse_options_dup</span><span class="p">(</span><span class="n">switch_options</span><span class="p">);</span>
@@ -8806,10 +8803,7 @@ command.</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Switch-et-Checkout-(5/X)">Switch et Checkout (5/X)<a class="anchor-link" href="#Switch-et-Checkout-(5/X)">¶</a></h3><hr/>
-<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">cmd_checkout</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span>
-<span class="w">		 </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">,</span>
-<span class="w">		 </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">prefix</span><span class="p">,</span>
-<span class="w">		 </span><span class="k">struct</span><span class="w"> </span><span class="nc">repository</span><span class="w"> </span><span class="o">*</span><span class="n">repo</span><span class="w"> </span><span class="n">UNUSED</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">cmd_checkout</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">prefix</span><span class="p">,</span><span class="k">struct</span><span class="w"> </span><span class="nc">repository</span><span class="w"> </span><span class="o">*</span><span class="n">repo</span><span class="w"> </span><span class="n">UNUSED</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="nc">checkout_opts</span><span class="w"> </span><span class="n">opts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CHECKOUT_OPTS_INIT</span><span class="p">;</span>
 <span class="w">	</span><span class="k">struct</span><span class="w"> </span><span class="nc">option</span><span class="w"> </span><span class="o">*</span><span class="n">options</span><span class="p">;</span>
@@ -8818,14 +8812,11 @@ command.</p>
 <span class="w">			   </span><span class="n">N_</span><span class="p">(</span><span class="s">"create and checkout a new branch"</span><span class="p">)),</span>
 <span class="w">		</span><span class="n">OPT_STRING</span><span class="p">(</span><span class="sc">'B'</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">opts</span><span class="p">.</span><span class="n">new_branch_force</span><span class="p">,</span><span class="w"> </span><span class="n">N_</span><span class="p">(</span><span class="s">"branch"</span><span class="p">),</span>
 <span class="w">			   </span><span class="n">N_</span><span class="p">(</span><span class="s">"create/reset and checkout a branch"</span><span class="p">)),</span>
-<span class="w">		</span><span class="n">OPT_BOOL</span><span class="p">(</span><span class="sc">'l'</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">opts</span><span class="p">.</span><span class="n">new_branch_log</span><span class="p">,</span><span class="w"> </span><span class="n">N_</span><span class="p">(</span><span class="s">"create reflog for new branch"</span><span class="p">)),</span>
-<span class="w">		</span><span class="n">OPT_BOOL</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">"guess"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">opts</span><span class="p">.</span><span class="n">dwim_new_local_branch</span><span class="p">,</span>
-<span class="w">			 </span><span class="n">N_</span><span class="p">(</span><span class="s">"second guess 'git checkout &lt;no-such-branch&gt;' (default)"</span><span class="p">)),</span>
-<span class="w">		</span><span class="n">OPT_BOOL</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">"overlay"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">opts</span><span class="p">.</span><span class="n">overlay_mode</span><span class="p">,</span><span class="w"> </span><span class="n">N_</span><span class="p">(</span><span class="s">"use overlay mode (default)"</span><span class="p">)),</span>
+<span class="w">		</span><span class="p">(...)</span>
 <span class="w">		</span><span class="n">OPT_END</span><span class="p">()</span>
 <span class="w">	</span><span class="p">};</span>
-<span class="w">    </span><span class="p">(...)</span>
-<span class="w">    </span><span class="n">opts</span><span class="p">.</span><span class="n">switch_branch_doing_nothing_is_ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// Tiens tiens tiens...</span>
+<span class="w">        </span><span class="p">(...)</span>
+<span class="w">        </span><span class="n">opts</span><span class="p">.</span><span class="n">switch_branch_doing_nothing_is_ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// Tiens tiens tiens...</span>
 <span class="w">	</span><span class="n">opts</span><span class="p">.</span><span class="n">only_merge_on_switching_branches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 
 <span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="s">"-b"</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// Si l'utilisateur rentre [git] checkout -b &lt;branchName&gt;</span>
@@ -8836,7 +8827,6 @@ command.</p>
 <span class="w">		</span><span class="n">opts</span><span class="p">.</span><span class="n">switch_branch_doing_nothing_is_ok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="w">		</span><span class="n">opts</span><span class="p">.</span><span class="n">only_merge_on_switching_branches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="w">	</span><span class="p">}</span>
-
 <span class="w">	</span><span class="p">(...)</span><span class="w"> </span><span class="c1">// On Parse les options</span>
 
 <span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="n">checkout_main</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">,</span><span class="w"> </span><span class="n">prefix</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">opts</span><span class="p">,</span><span class="w"> </span><span class="n">options</span><span class="p">,</span><span class="w"> </span><span class="c1">// Toujours un appel a checkout_main</span>
