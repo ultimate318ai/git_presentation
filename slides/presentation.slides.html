@@ -7441,6 +7441,27 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+<style>
+    .prettyprint.lang-diff * {
+        font-size: 16px;
+        color: black
+    }
+    .prettyprint.lang-diff > span:nth-child(n+18):nth-child(-n+23) {
+        color: red
+    }
+    .prettyprint.lang-diff > span:nth-child(n+24):nth-child(-n+29) {
+        color: green
+    }
+    .prettyprint.lang-diff > * > span:nth-child(n+12):nth-child(-n+26) {
+        color: red
+    }
+    .prettyprint.lang-diff > * > span:nth-child(n+26):nth-child(-n+47) {
+        color: green
+    }
+
+</style>
+<p> --&gt;</p>
 <h1 id="Git-Presentation">Git Presentation<a class="anchor-link" href="#Git-Presentation">¶</a></h1>
 </div>
 </div>
@@ -7467,7 +7488,7 @@ main {
 </div>
 </div>
 </div>
-</div>
+</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fc352d68">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7524,10 +7545,10 @@ du temps de manière à ce qu’on puisse rappeler une version antérieure d’u
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <div class="row" style="display:flex;justify-content: center; border: 3px solid #08182F; border-radius: 50px;margin-left: 10px; margin-right:10px">
 <div class="column" style="margin-left:30px">
-<img alt="Image gestion de version locale1" height="400px" src="/pictures/version-ppt.png" width="500px"/>
+<img alt="Image gestion de version locale1" height="400px" src="pictures/version-ppt.png" width="500px"/>
 </div>
 <div class="column" style="margin-left:70px">
-<img alt="Image gestion de version locale2" height="400px" src="/pictures/local-computer.png" width="500px"/>
+<img alt="Image gestion de version locale2" height="400px" src="pictures/local-computer.png" width="500px"/>
 </div>
 </div>
 </div>
@@ -7544,18 +7565,19 @@ du temps de manière à ce qu’on puisse rappeler une version antérieure d’u
 <p>Un des systèmes les plus populaires était <a href="https://www.gnu.org/software/rcs/">RCS</a>, qui est encore distribué avec de nombreux systèmes
 d’exploitation aujourd’hui.</p>
 <p>Cet outil fonctionne en conservant des ensembles de patchs</p>
-<div class="highlight"><pre><span></span><span class="gh">diff --git a/foo.c b/foo.c</span>
-<span class="gh">index 30cfd169..8de130c2 100644</span>
-<span class="gd">--- a/foo.c</span>
-<span class="gi">+++ b/foo.c</span>
-<span class="gu">@@ -1,5 +1,5 @@</span>
-<span class="w"> </span>#include &lt;string.h&gt;
+<pre class="prettyprint lang-diff local-version">
+diff --git a/foo.c b/foo.c
+index 30cfd169..8de130c2 100644
+--- a/foo.c
++++ b/foo.c
+@@ -1,5 +1,5 @@
+ #include <string.h>
 
-<span class="w"> </span>int check (char *string) {
-<span class="gd">-    return !strcmp(string, "ok");</span>
-<span class="gi">+    return (string != NULL) &amp;&amp; !strcmp(string, "ok");</span>
+ int check (char *string) {
+-    return !strcmp(string, "ok");
++    return (string != NULL) &amp;&amp; !strcmp(string, "ok");
 }
-</pre></div>
+</string.h></pre>
 <p>Un patch est une representation compacte de différences entres deux fichiers. Cela décrit comment effectuer une tranformation afin de passer d'un fichier à un autre.</p>
 </div>
 </div>
