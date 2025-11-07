@@ -7537,7 +7537,7 @@ main {
         color: cyan
     }
     .c-text {
-        color: gray
+        color: white
     }
     .fw-bold{
         font-weight: bold
@@ -7585,6 +7585,12 @@ main {
     .jp-MarkdownOutput {
         overflow: hidden !important
     }
+
+    div:has(> img) {
+        margin-top: 30px;
+        margin-bottom: 30px !important;
+    }
+
 
 </style>
 <h1 id="Anatomie-de-Git-:-comment-vos-branches-et-commits-fonctionnent-vraiment">Anatomie de Git : comment vos branches et commits fonctionnent vraiment<a class="anchor-link" href="#Anatomie-de-Git-:-comment-vos-branches-et-commits-fonctionnent-vraiment">¶</a></h1>
@@ -8202,7 +8208,7 @@ Sauvegardons ces nouvelle modifications dans le dépo Git.
 <h3>Les objets Tree </h3>
 <p>Utilisons la plumbing commande <code>git write-tree</code> pour construire l'aborescence.</p>
 <div class="black-block flex-column">
-<span class="inline">└──&gt; git write-tree</span>
+<span class="inline">git write-tree</span>
 <span class="inline pl-1">└──&gt; <span class="c-text">f292363e8eaae01072ef08484f8b64421eceef94</span></span>
 </div>
 </div>
@@ -8270,42 +8276,58 @@ Sauvegardons ces nouvelle modifications dans le dépo Git.
 </div>
 </div>
 </div>
-</div><div class="fragment">
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=59220562">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3>Les objets Tree </h3>
 <p>Les Tree décrivent l'arborescence du working directory.</p>
+<div style="display:flex;">
+<img alt="branch" src="pictures/tree-directory.png" style="border-radius: 5px; margin: auto; width:100%; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"/>
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6bd3c70a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3>Les objets Tree </h3>
+<p>Les Tree ne dupliquent pas les informations, si un fichié n'as pas été modifié il pointe vers le même Blob qu'avant.</p>
 <div class="black-block two-columns" style="font-weight: unset">
 <div class="flex-columns">
 <strong>Avant modif</strong>
-<span class="c-folder inline">Tree A (root)</span>
-<span class="inline">└── <p class="c-file">Blob 1 (readme.md)</p></span>
-<span class="inline">└── <p class="c-folder">Tree B (src)</p></span>
-<span class="pl-1 inline">└── <p class="c-file">Blob 2 (config.json)</p></span>
-<span class="pl-1 inline">└── <p class="c-folder">Tree C (app)</p></span>
-<span class="pl-2 inline">└── <p class="c-file">Blob 3 (main.js)</p></span>
-<span class="inline">└── <p class="c-folder">Tree D (asset)</p></span>
-<span class="pl-1 inline">└── <p class="c-file">Blob 4 (logo.png)</p></span>
+<span class="c-folder inline">Tree A | root</span>
+<span class="inline">└── <p class="c-file">Blob 1 | readme.md</p></span>
+<span class="inline">└── <p class="c-folder">Tree B | src</p></span>
+<span class="pl-1 inline">└── <p class="c-file">Blob 2 | config.json</p></span>
+<span class="pl-1 inline">└── <p class="c-folder">Tree C | app</p></span>
+<span class="pl-2 inline">└── <p class="c-file">Blob 3 | main.js</p></span>
+<span class="inline">└── <p class="c-folder">Tree D | asset</p></span>
+<span class="pl-1 inline">└── <p class="c-file">Blob 4 | logo.png</p></span>
 </div>
 <div class="flex-columns">
 <strong>Après modif</strong>
-<span class="c-folder fw-bold inline"><p class="c-warning fw-bold">/!\</p>Tree A2 (root)</span>
-<span class="inline">└── <p class="c-file">Blob 1 (readme.md)</p></span>
-<span class="inline">└── <p class="c-warning fw-bold">/!\</p> <p class="c-folder fw-bold">Tree B2 (src)</p></span>
-<span class="pl-1 inline">└── <p class="c-warning fw-bold">/!\</p><p class="c-file fw-bold">Blob 5 (config.json)</p></span>
-<span class="pl-1 inline">└── <p class="c-warning fw-bold">/!\</p><p class="c-folder fw-bold">Tree C2 (app)</p></span>
-<span class="pl-2 inline">└── <p class="c-warning fw-bold">/!\</p><p class="c-file fw-bold">Blob 6 (main.js)</p></span>
-<span class="inline">└── <p class="c-folder">Tree D (asset)</p></span>
-<span class="pl-1 inline">└── <p class="c-file">Blob 4 (logo.png)</p> </span>
+<span class="c-folder fw-bold inline"><p class="c-warning fw-bold">/!\</p>Tree A2 | root</span>
+<span class="inline">└── <p class="c-file">Blob 1 | readme.md</p></span>
+<span class="inline">└── <p class="c-warning fw-bold">/!\</p> <p class="c-folder fw-bold">Tree B2 | src</p></span>
+<span class="pl-1 inline">└── <p class="c-warning fw-bold">/!\</p><p class="c-file fw-bold">Blob 5 | config.json</p></span>
+<span class="pl-1 inline">└── <p class="c-warning fw-bold">/!\</p><p class="c-folder fw-bold">Tree C2 | app</p></span>
+<span class="pl-2 inline">└── <p class="c-warning fw-bold">/!\</p><p class="c-file fw-bold">Blob 6 | main.js</p></span>
+<span class="inline">└── <p class="c-folder">Tree D | asset</p></span>
+<span class="pl-1 inline">└── <p class="c-file">Blob 4 | logo.png</p> </span>
 </div>
 </div>
 </div>
 </div>
 </div>
-</div></div></section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3b61c882">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8314,47 +8336,31 @@ Sauvegardons ces nouvelle modifications dans le dépo Git.
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3>L'objet commit </h3>
 <p>Après avoir créer les objet Tree, la commande <code>git commit</code> crée un objet commit.</p>
-<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px;">
-<div style="display:flex; gap: 10px"><span style="color: red">$ </span><span style="color: green">git commit -m "Ceci est un message de commit"</span></div>
-<span style="color: black">[master (root-commit) 0bb69bc] Ceci est un message de commit</span>
-<span style="color: black;">  Committer: olivier.michau@avisto.com &lt;olivier.michau@avisto.com&gt;</span>
-<span style="color: black;"> 2 files changed, 2 insertions(+)</span>
-<span style="color: black;"> create mode 100644 readme.md</span>
-<span style="color: black;"> create mode 100644 src/config.json</span>
+<div class="black-block flex-column">
+<span>git commit -m "Ceci est un message de commit"</span>
+<span>└──&gt; </span>
+<span class="c-text pl-1">[master (root-commit) 0bb69bc] Ceci est un message de commit</span>
+<span class="c-text pl-1">Committer: olivier.michau@avisto.com &gt;olivier.michau@avisto.com&lt;</span>
+<span class="c-text pl-1">2 files changed, 185 insertions(+), 84 deletions(-)</span>
 </div>
 </div>
 </div>
 </div>
 </div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2406a9b9">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px;">
-<div style="display:flex; gap: 10px"><span style="color: red">$ </span><span style="color: green">ls .git/objects</span></div>
-<span style="color: blue; margin-bottom: 50px">info/ pack/ 3c/ 55/ bf/ ff/ 0b/</span>
-<div style="display:flex; gap: 10px;"><span style="color: red">$ </span><span style="color: green">ls .git/objects/0b</span></div>
-<span style="color: black">b69bceab7f605a68b4d6f2807a76d967ed1617</span>
-</div>
-</div>
-</div>
-</div>
-</div></div><div class="fragment">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dd5bbbd2">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px;">
-<div style="display:flex; gap: 10px"><span style="color: red">$ </span><span style="color: green"> git cat-file -p 0bb69bceab7f605a68b4d6f2807a76d967ed1617
-    </span></div>
-<span style="color: black">tree bf010268b9aaec572fcb61faf3b38eb9fb4ae916</span>
-<span style="color: black">author olivier.michau@avisto.com &lt;olivier.michau@avisto.com&gt; 1761308143 +0200</span>
-<span style="color: black">committer olivier.michau@avisto.com &lt;olivier.michau@avisto.com&gt; 1761308143 +0200</span>
-<span style="color: black">Ceci est un message de commit</span>
+<div class="black-block flex-column">
+<span>git cat-file -p 0bb69bceab7f605a68b4d6f2807a76d967ed1617</span>
+<span>└──&gt; </span>
+<span class="c-text pl-1">tree f292363e8eaae01072ef08484f8b64421eceef94</span>
+<span class="c-text pl-1">parent 3909c29f1a67bb3a199c80a4bcd2875d8caef512</span>
+<span class="c-text pl-1">author olivier.michau@avisto.com &lt;olivier.michau@avisto.com&gt; 1761308143 +0200</span>
+<span class="c-text pl-1">committer olivier.michau@avisto.com &lt;olivier.michau@avisto.com&gt; 1761308143 +0200</span>
+<span class="c-text pl-1">Ceci est un message de commit</span>
 </div>
 </div>
 </div>
@@ -8366,82 +8372,32 @@ Sauvegardons ces nouvelle modifications dans le dépo Git.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Les objets commits contiennent les informations suivantes:</p>
-<ul>
+<h3>L'objet commit </h3>
+<div class="info-box">
+    Les objets commits contiennent les informations suivantes:
+    <ul>
 <li>SHA du Tree de racine du projet</li>
 <li>SHA du commit parent</li>
 <li>L'auteur du commit (celui qui a changé les donné)</li>
 <li>Le commiteur (celui qui a commit)</li>
 <li>Message de commit</li>
-<li>L'utilisateur qui a signé le commit</li>
+<li>L'utilisateur qui a signé le commit (si le commit est signé)</li>
 </ul>
-<p>Les commits ont un seul commit parent, sauf le commit initial qui n'en a pas et les commits de merge qui en ont 2.</p>
+    Les commits ont un seul commit parent, sauf le commit initial qui n'en a pas et les commits de merge qui en ont 2.
+</div>
+<p>Comme un commit contient la référence d'un Tree contenant l'ensemble du projet, git poeux retrouver l'état du projet pour n'importe quel commit.</p>
 </div>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=24a9b675">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>En résumé, avec le cas initial suivant:</p>
-<div style="display: flex; flex-direction:row; font-size:25px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px; background-color:black; color: #e0e0e0">
-<div style="width:50%; display: flex; flex-direction:column;">
-<span style="text-decoration: underline">Working directory</span>
-<span>root</span>
-<span>├── readme.md</span>
-<span>└── src/</span>
-<span style="padding-left:50px">└── config.json</span>
-</div>
-<div style="width:50%; display: flex; flex-direction:column;">
-<span style="text-decoration: underline">Commit HEAD</span>
-<span>Tree 1 (root)</span>
-<span>├── Blob A (readme.md)</span>
-<span>└── Tree 2 (src/)</span>
-<span style="padding-left:50px">└── Blob B (config.json)</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9d3a0abe">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Si on modifie le fichier "file1.txt"</p>
-<div style="display: flex; flex-direction:row; font-size:25px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px; background-color:black; color: #e0e0e0">
-<div style="width:50%; display: flex; flex-direction:column;">
-<span style="text-decoration: underline">Working directory</span>
-<span>root</span>
-<span>├── readme.md (modifié)</span>
-<span>└── src/</span>
-<span style="padding-left:50px">└── config.json</span>
-</div>
-<div style="width:50%; display: flex; flex-direction:column;">
-<span style="text-decoration: underline">Nouveau Commit</span>
-<span>Tree 3 (root)</span>
-<span>├── Blob C (readme.md)</span>
-<span>└── Tree 2 (src/)</span>
-<span style="padding-left:50px">└── Blob B (config.json)</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div></div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3a73edfa">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Construire-des-branches">Construire des branches<a class="anchor-link" href="#Construire-des-branches">¶</a></h3><p>Puisque chaque commit à le commit parent, on peux recontruire tout l'historique des modifications, depuis le commit initial et jusqu'à l'état actuel.</p>
-<div style="display:flex">
+<h3 id="Construire-des-branches">Construire des branches<a class="anchor-link" href="#Construire-des-branches">¶</a></h3><p>Puisque chaque commit à le commit parent, on peux recontruire tout l'historique des modifications, depuis le commit initial et jusqu'à l'état actuel, c'est l'ensemble de cet historique qui est la <strong>branche</strong>.</p>
+<div style="display:flex;">
 <img alt="branch" src="pictures/branch-part-1.png" style="border-radius: 5px; margin: auto; width:80%; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"/>
 </div>
 </div>
@@ -8465,8 +8421,9 @@ Sauvegardons ces nouvelle modifications dans le dépo Git.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3>Construire des branches</h3>
 <p>Faire la commande commit met à jour le HEAD de la branch actuelle.</p>
-<div style="display:flex">
+<div style="display:flex;">
 <img alt="branch" src="pictures/multi-branch.png" style="border-radius: 5px; margin: auto; width:80%; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"/>
 </div>
 </div>
@@ -8481,7 +8438,7 @@ Sauvegardons ces nouvelle modifications dans le dépo Git.
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3>Comment git met à jour le working directory lors d'un changement de branche</h3>
 <p>En théorie facile, on supprime tout le working directory et on recrée tout les fichiers à partir du commit HEAD de la branch (tree + blob). Super les 5min pour changer de branche !</p>
-<div style="display:flex">
+<div style="display:flex;">
 <img alt="branch" src="pictures/git-diff-part-2.png" style="border-radius: 5px; margin: auto; width:80%; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"/>
 </div>
 <p>Git ne remplace que les fichiers qui sont différent entre le HEAD actuel et le HEAD cible.</p>
@@ -8496,7 +8453,9 @@ Sauvegardons ces nouvelle modifications dans le dépo Git.
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3>Comment Git sait les fichiers qui ont été modifié ? Les SHA ! </h3>
-<p>Comme le SHA d'un Blob dépends du contenu du fichier et que le SHA d'un Tree dépends des blob qu'il contient, si 2 Tree (représentant le même dossier) ont 2 SHA différents, alors ils contiennent au moins un Blob différent.</p>
+<div class="info-box">
+  Comme le SHA d'un Blob dépends du contenu du fichier et que le SHA d'un Tree dépends des blob qu'il contient, si 2 Tree ont 2 SHA identiques, alors ils contiennent exactement le même contenu.
+</div>
 </div>
 </div>
 </div>
@@ -8507,24 +8466,28 @@ Sauvegardons ces nouvelle modifications dans le dépo Git.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="display: flex; flex-direction:row; font-size:25px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px; background-color:black; color: #e0e0e0">
-<div style="width:50%; display: flex; flex-direction:column;">
-<span style="text-decoration: underline">HEAD source (branche A)</span>
-<span>Tree | root (SHA ff3e480)</span>
-<span>├── Blob | readme.md (SHA f8e24c7)</span>
-<span>└── Tree | src/ (SHA bf010268)</span>
-<span style="padding-left:50px">└── Blob | config.json (SHA aa1b464)</span>
-<span>└── Tree | asset/ (SHA 38e1ee4)</span>
-<span style="padding-left:50px">└── Blob | logo.png (SHA 19ea134)</span>
+<div class="black-block two-columns">
+<div class="flex-columns">
+<strong>HEAD Source (branche A)</strong>
+<span class="c-folder inline">Tree | root (SHA ff3e480)</span>
+<span class="inline">└── <p class="c-file">Blob | readme.md (SHA f8e24c7)</p></span>
+<span class="inline">└── <p class="c-folder">Tree | src (SHA bf010268)</p></span>
+<span class="pl-1 inline">└── <p class="c-file">Blob | config.json (SHA aa1b464)</p></span>
+<span class="pl-1 inline">└── <p class="c-folder">Tree | app (SHA e859021)</p></span>
+<span class="pl-2 inline">└── <p class="c-file">Blob | main.js (SHA e052dc1)</p></span>
+<span class="inline">└── <p class="c-folder">Tree | asset (SHA 38e1ee4)</p></span>
+<span class="pl-1 inline">└── <p class="c-file">Blob | logo.png (SHA 19ea134)</p></span>
 </div>
-<div style="width:50%; display: flex; flex-direction:column;">
-<span style="text-decoration: underline">HEAD cible (branche B)</span>
-<span>Tree | root (SHA <span style="color:red">5e1de20</span>)</span>
-<span>├── Blob | readme.md (SHA f8e24c7)</span>
-<span>└── Tree | src/ (SHA <span style="color:red">6033e4b</span>)</span>
-<span style="padding-left:50px">└── Blob | config.json (SHA <span style="color:red">41bd3b3</span>)</span>
-<span>└── Tree | asset/ (SHA 38e1ee4)</span>
-<span style="padding-left:50px">└── Blob | logo.png (SHA 19ea134)</span>
+<div class="flex-columns">
+<strong>HEAD Source (branche A)</strong>
+<span class="c-folder inline">Tree | root (SHA <p class="c-warning">dd3eb5b</p>)</span>
+<span class="inline">└── <p class="c-file">Blob | readme.md (SHA f8e24c7)</p></span>
+<span class="inline">└── <p class="c-folder">Tree | src (SHA <p class="c-warning">61081d0</p>)</p></span>
+<span class="pl-1 inline">└── <p class="c-file">Blob | config.json (SHA <p class="c-warning">511620c</p></p>)</span>
+<span class="pl-1 inline">└── <p class="c-folder">Tree | app (SHA <p class="c-warning">4e8cc78</p></p>)</span>
+<span class="pl-2 inline">└── <p class="c-file">Blob | main.js (SHA <p class="c-warning">9af8e96</p></p>)</span>
+<span class="inline">└── <p class="c-folder">Tree | asset (SHA 38e1ee4)</p></span>
+<span class="pl-1 inline">└── <p class="c-file">Blob | logo.png (SHA 19ea134)</p></span>
 </div>
 </div>
 </div>
@@ -8551,7 +8514,7 @@ Sauvegardons ces nouvelle modifications dans le dépo Git.
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Fusionner-des-branches">Fusionner des branches<a class="anchor-link" href="#Fusionner-des-branches">¶</a></h3><p>On a 2 branches distinctes avec chacune leur commits, le but est que la branche cible contienne les changements des 2 branches initiales.</p>
 <p>Il y a 2 stratégies <strong>Merge</strong> et <strong>Rebase</strong></p>
-<div style="display:flex">
+<div style="display:flex;">
 <img alt="branch" src="pictures/merge-vs-rebase.png" style="border-radius: 5px; margin: auto; width:80%; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"/>
 </div>
 </div>
@@ -8566,7 +8529,7 @@ Sauvegardons ces nouvelle modifications dans le dépo Git.
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3>Rebase</h3>
 <p>Le principe de <strong>Rebase</strong> est de garder un historique linéaire, en déplaçant le premier commit la branche cible sur le dernier commit de la branche source.</p>
-<div style="display:flex">
+<div style="display:flex;">
 <img alt="branch" src="pictures/git-rebase-part-1.png" style="border-radius: 5px; margin: auto; width:80%; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"/>
 </div>
 </div>
@@ -8594,7 +8557,7 @@ Sauvegardons ces nouvelle modifications dans le dépo Git.
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Une fois le commit de base obtenu, git calcule les diff entre chaque commit et son précédent jusqu'à arriver au commit de base.</p>
-<div style="display:flex; margin-top:20px">
+<div style="display:flex;">
 <img alt="branch" src="pictures/git-rebase-part-3.png" style="border-radius: 5px; margin: auto; width:80%; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"/>
 </div>
 </div>
@@ -8619,7 +8582,7 @@ Une fois toutes les diff calculées, git réapplique toutes les diff depuis la n
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="display:flex; margin-top:20px">
+<div style="display:flex">
 <img alt="branch" src="pictures/git-rebase-part-4.png" style="border-radius: 5px; margin: auto; width:80%; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"/>
 </div>
 <p>Si un problème est détecter lors de l'application des diff, alors git sort un conflict.</p>
@@ -8635,7 +8598,7 @@ Une fois toutes les diff calculées, git réapplique toutes les diff depuis la n
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3>Merge</h3>
 <p>Le principe de <strong>Merge</strong> est de créer un commit dans la branche cible qui fusionnera les 2 branches.
-Pour fusionner les changements des 2 branches, git applique le <em>Three-way merge</em>, dans un premier temps il calcule les diffs des 2 branches avec la base, puis applique toutes les diffs depuis la base.</p>
+Pour fusionner les changements des 2 branches, git applique le <em>Three-way merge</em>, dans un premier temps il calcule les diffs des 2 branches avec la base, puis il fusionne les diffs et les appliques.</p>
 </div>
 </div>
 </div>
@@ -8646,20 +8609,70 @@ Pour fusionner les changements des 2 branches, git applique le <em>Three-way mer
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="display:flex; margin-top: 15px">
+<div style="display:flex;">
 <img alt="branch" src="pictures/git-merge-part-2.png" style="border-radius: 5px; margin: auto; width:80%; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"/>
 </div>
 </div>
 </div>
 </div>
 </div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b5d0a838">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3>Merge</h3>
+Pour fuisonner les diffs, git applique une série de règles simples et si aucune règle ne peux s'appliquer, alors il y a des conflits
+
+<table style="width: 80%; font-size: 20px; border: 1px black solid">
+<thead>
+<tr style="font-weight: bold; background-color: black; color: white; padding: 5px;">
+<td style="padding-top: 15px; padding-bottom: 15px; border-right: 1px gray solid"></td>
+<td style="padding-top: 15px; padding-bottom: 15px; font-style: italic; border-right: 1px gray solid">Changement entre HEAD A et BASE</td>
+<td style="padding-top: 15px; padding-bottom: 15px; font-style: italic; border-right: 1px gray solid">Changement entre HEAD B et BASE</td>
+<td style="padding-top: 15px; padding-bottom: 15px; font-style: italic"> Peux fusionner ? </td>
+</tr>
+</thead>
+<tbody>
+<tr style="padding: 5px;">
+<td style="padding-top: 15px; padding-bottom: 15px;border-right: 1px black solid"> Modification de ligne uniquement dans HEAD A </td>
+<td style="padding-top: 15px; padding-bottom: 15px;border-right: 1px black solid"> Différent </td>
+<td style="padding-top: 15px; padding-bottom: 15px;border-right: 1px black solid"> Identique </td>
+<td style="padding-top: 15px; padding-bottom: 15px;"> ✅ OUI </td>
+</tr>
+<tr style="padding: 5px;">
+<td style="padding-top: 15px; padding-bottom: 15px;border-right: 1px black solid"> Modification du fichier uniquement dans HEAD B </td>
+<td style="padding-top: 15px; padding-bottom: 15px;border-right: 1px black solid"> Identique </td>
+<td style="padding-top: 15px; padding-bottom: 15px;border-right: 1px black solid"> Différent </td>
+<td style="padding-top: 15px; padding-bottom: 15px;"> ✅ OUI </td>
+</tr>
+<tr style="padding: 5px;">
+<td style="padding-top: 15px; padding-bottom: 15px;border-right: 1px black solid"> Modifié dans les 2 branches mais changements identiques </td>
+<td style="padding-top: 15px; padding-bottom: 15px;border-right: 1px black solid"> Même modification </td>
+<td style="padding-top: 15px; padding-bottom: 15px;border-right: 1px black solid"> Même modification </td>
+<td style="padding-top: 15px; padding-bottom: 15px;"> ✅ OUI </td>
+</tr>
+<tr style="padding: 5px;">
+<td style="padding-top: 15px; padding-bottom: 15px;border-right: 1px black solid"> Modifié dans les 2 branches mais changements différents </td>
+<td style="padding-top: 15px; padding-bottom: 15px;border-right: 1px black solid"> Modification différentes </td>
+<td style="padding-top: 15px; padding-bottom: 15px;border-right: 1px black solid"> Modification différentes </td>
+<td style="padding-top: 15px; padding-bottom: 15px;"> ❌ NON </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f8d28dbe">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="display:flex; margin-top: 15px">
+<h3>Merge</h3>
+<div style="display:flex;">
 <img alt="branch" src="pictures/git-merge-part-1.png" style="border-radius: 5px; margin: auto; width:80%; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"/>
 </div>
 </div>
@@ -8672,12 +8685,14 @@ Pour fusionner les changements des 2 branches, git applique le <em>Three-way mer
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Le commit de merge contient:</p>
-<ul>
-<li>La base</li>
+<div class="info-box">
+    Le commit de merge contient:
+    <ul>
+<li>La base, le commit le plus réçent commun au 2 branches</li>
 <li>Les 2 commits parents</li>
 <li>L'état complet du dépo (comme tout les commits)</li>
 </ul>
+</div>
 </div>
 </div>
 </div>
@@ -8720,6 +8735,27 @@ Pour fusionner les changements des 2 branches, git applique le <em>Three-way mer
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=92c618da">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3> Conclusion, comment Git est il si efficace ? </h3>
+<div class="info-box">
+    Globalement, Git est faignant pour les taches facile
+    <ul>
+<li>Il ne duplique jamais des informations</li>
+<li>Il ne se base pas sur des diffs qui serait trop longues à gérer</li>
+<li>Il en fait le minimum possible pour changer de branche</li>
+</ul>
+<hr>
+    Par contre, il fait très attention sur les taches risquées comme la fusion de branches.
+</hr></div>
 </div>
 </div>
 </div>
@@ -8802,7 +8838,7 @@ command.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Switch-et-Checkout-(2/X)">Switch et Checkout (2/X)<a class="anchor-link" href="#Switch-et-Checkout-(2/X)">¶</a></h3><hr>
+<h3 id="Switch-et-Checkout-(2/X)">Switch et Checkout (2/X)<a class="anchor-link" href="#Switch-et-Checkout-(2/X)">¶</a></h3><hr/>
 <pre class="prettyprint">
 int cmd_main(int argc, const char **argv)
 {
@@ -8835,7 +8871,7 @@ int cmd_main(int argc, const char **argv)
 }
 </pre>
 <p><em>source</em>: <a href="https://github.com/git/git/blob/2d2a71ce85026edcc40f469678a1035df0dfcf57/git.c#L882">git.c</a></p>
-</hr></div>
+</div>
 </div>
 </div>
 </div></section><section>
