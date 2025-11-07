@@ -7930,7 +7930,7 @@ Tout les fichiers nécessaires au bon fonctionnement de git sont dans le .git, u
 <li>Analyse d'un dépo Git</li>
 <li>Comment Git sauvegarde des changements</li>
 <li>Comment Git gère les branches</li>
-<li>Comment Git change de branche</li>
+<li>Comment Git fusionne des branches</li>
 </ol>
 </div>
 </div>
@@ -7982,7 +7982,7 @@ Tout les fichiers nécessaires au bon fonctionnement de git sont dans le .git, u
 <span class="pl-1 inline">└── <p class="c-file"> HEAD </p></span>
 <span class="pl-1 inline">└── <p class="c-file"> description </p> </span>
 <span class="pl-1 inline">└── <p class="c-file"> config </p> </span>
-<span class="inline pl-1">└── <p class="c-folder">asset</p></span>
+<span class="inline pl-1">└── <p class="c-folder">hooks</p></span>
 <span class="inline pl-1">└── <p class="c-folder">info</p></span>
 <span class="inline pl-1">└── <p class="c-folder">objects</p></span>
 <span class="inline pl-2">└── <p class="c-folder">......</p></span>
@@ -8077,6 +8077,7 @@ Sauvegardons ces nouvelle modifications dans le dépo Git.
 <span class="inline pl-3">└── <p class="c-file">......</p></span>
 <span class="inline pl-2">└── <p class="c-folder">......</p></span>
 </div>
+<p>C'est fichiers sont des Blob (Binary Large Object).</p>
 </div>
 </div>
 </div>
@@ -8103,7 +8104,7 @@ Sauvegardons ces nouvelle modifications dans le dépo Git.
     Il y a 2 types de commandes git:
     <ul>
 <li><strong>Porcelain</strong>: Les commandes user friendly, bien docummenté et ayant des sorties lisibles et claires pour un utilisateur classique</li>
-<li><strong>Pumbling</strong>: Des commandes utilisé par les devs de Git pour du débug ou par d'autres commandes</li>
+<li><strong>Pumbling</strong>: Des commandes utilisées par les devs de Git pour du débug ou par d'autres commandes</li>
 </ul>
 </div>
 </div>
@@ -8133,6 +8134,7 @@ Sauvegardons ces nouvelle modifications dans le dépo Git.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3>Les Blob</h3>
 <div class="info-box">
     L'identifiant d'un blob est un SHA-1 généré à partir d'un hash de:
     <ul>
@@ -8158,8 +8160,8 @@ Sauvegardons ces nouvelle modifications dans le dépo Git.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3>Résumons ce qu'on a.<h3>
-<div class="black-block flex-column">
+<h3>Résumons ce qu'on a.</h3>
+<div class="black-block flex- fw-bold">
 <span class="c-folder">root</span>
 <span class="inline">└── <p class="c-file">readme.md</p></span>
 <span class="inline">└── <p class="c-folder">src</p></span>
@@ -8169,7 +8171,7 @@ Sauvegardons ces nouvelle modifications dans le dépo Git.
 <span class="inline">└── <p class="c-folder">asset</p></span>
 <span class="pl-1 inline">└── <p class="c-file">logo.png</p> </span>
 </div>
-</h3></h3></div>
+</div>
 </div>
 </div>
 </div><div class="fragment">
@@ -8241,7 +8243,7 @@ Sauvegardons ces nouvelle modifications dans le dépo Git.
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <div class="black-block flex-column">
 <span class="c-text">src</span>
-<span class="inline">└──&gt; git cat-file -p f39bc2c368eb918f6d226a3cc7b6f1e58152f334</span>
+<span class="inline">└──&gt; git cat-file -p eeecb95d644bc3956a3d54da27b286c7b02f1732</span>
 <span class="inline pl-1">└──&gt;</span>
 <span class="inline pl-2 c-text">100644 blob 8454286955b4876e8d1c9635b36c2365175fc4ec config.json</span>
 <span class="inline pl-2 c-text">040000 tree 7bb0daf7063caf0492a4d95e7d7ffe031d0b368c app</span>
@@ -8299,7 +8301,7 @@ Sauvegardons ces nouvelle modifications dans le dépo Git.
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3>Les objets Tree </h3>
-<p>Les Tree ne dupliquent pas les informations, si un fichié n'as pas été modifié il pointe vers le même Blob qu'avant.</p>
+<p>Les Tree ne dupliquent pas les informations, si un fichier n'as pas été modifié il pointe vers le même Blob qu'avant.</p>
 <div class="black-block two-columns" style="font-weight: unset">
 <div class="flex-columns">
 <strong>Avant modif</strong>
@@ -8339,8 +8341,8 @@ Sauvegardons ces nouvelle modifications dans le dépo Git.
 <div class="black-block flex-column">
 <span>git commit -m "Ceci est un message de commit"</span>
 <span>└──&gt; </span>
-<span class="c-text pl-1">[master (root-commit) 0bb69bc] Ceci est un message de commit</span>
-<span class="c-text pl-1">Committer: olivier.michau@avisto.com &gt;olivier.michau@avisto.com&lt;</span>
+<span class="c-text pl-1">[master 0bb69bc] Ceci est un message de commit</span>
+<span class="c-text pl-1">Committer: olivier.michau@avisto.com &lt;olivier.michau@avisto.com&gt;</span>
 <span class="c-text pl-1">2 files changed, 185 insertions(+), 84 deletions(-)</span>
 </div>
 </div>
@@ -8385,7 +8387,7 @@ Sauvegardons ces nouvelle modifications dans le dépo Git.
 </ul>
     Les commits ont un seul commit parent, sauf le commit initial qui n'en a pas et les commits de merge qui en ont 2.
 </div>
-<p>Comme un commit contient la référence d'un Tree contenant l'ensemble du projet, git poeux retrouver l'état du projet pour n'importe quel commit.</p>
+<p>Comme un commit contient la référence d'un Tree contenant l'ensemble du projet, git peux retrouver l'état du projet pour n'importe quel commit.</p>
 </div>
 </div>
 </div>
@@ -8479,7 +8481,7 @@ Sauvegardons ces nouvelle modifications dans le dépo Git.
 <span class="pl-1 inline">└── <p class="c-file">Blob | logo.png (SHA 19ea134)</p></span>
 </div>
 <div class="flex-columns">
-<strong>HEAD Source (branche A)</strong>
+<strong>HEAD Cible (branche B)</strong>
 <span class="c-folder inline">Tree | root (SHA <p class="c-warning">dd3eb5b</p>)</span>
 <span class="inline">└── <p class="c-file">Blob | readme.md (SHA f8e24c7)</p></span>
 <span class="inline">└── <p class="c-folder">Tree | src (SHA <p class="c-warning">61081d0</p>)</p></span>
@@ -8500,7 +8502,7 @@ Sauvegardons ces nouvelle modifications dans le dépo Git.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Juste en lisant les SHA, on peux déterminer que seul le fichier config.json a été modifié. Il suffit alors d'écraser le fichier actuel par le contenu du Blob de la branche B, et le working directory est à jour !</p>
+<p>Juste en lisant les SHA, on peux déterminer que seul les fichiers config.json et main.js ont été modifié. Il suffit alors d'écraser le fichier actuel par le contenu du Blob de la branche B, et le working directory est à jour !</p>
 <p>Une fois le working directory à jour, le nom de la branch actuelle dans le fichier HEAD du <code>.git</code></p>
 </div>
 </div>
@@ -8512,7 +8514,7 @@ Sauvegardons ces nouvelle modifications dans le dépo Git.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Fusionner-des-branches">Fusionner des branches<a class="anchor-link" href="#Fusionner-des-branches">¶</a></h3><p>On a 2 branches distinctes avec chacune leur commits, le but est que la branche cible contienne les changements des 2 branches initiales.</p>
+<h3 id="Fusionner-des-branches">Fusionner des branches<a class="anchor-link" href="#Fusionner-des-branches">¶</a></h3><p>On a 2 branches distinctes avec chacune leur modifications par rapport à la base, le but est que la branche cible contienne les changements des 2 branches initiales.</p>
 <p>Il y a 2 stratégies <strong>Merge</strong> et <strong>Rebase</strong></p>
 <div style="display:flex;">
 <img alt="branch" src="pictures/merge-vs-rebase.png" style="border-radius: 5px; margin: auto; width:80%; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"/>
@@ -8733,6 +8735,11 @@ Pour fuisonner les diffs, git applique une série de règles simples et si aucun
 <td style="padding-top: 15px; padding-bottom: 15px;border-right: 1px black solid"> Non </td>
 <td style="padding-top: 15px; padding-bottom: 15px;"> Oui (nouveaux commits) </td>
 </tr>
+<tr style="padding: 5px;">
+<td style="padding-top: 15px; padding-bottom: 15px;border-right: 1px black solid"> Cas d'utilisation </td>
+<td style="padding-top: 15px; padding-bottom: 15px;border-right: 1px black solid"> Fusion de branches de dévelopement dans la branches principale </td>
+<td style="padding-top: 15px; padding-bottom: 15px;"> Résolution de conflit par rapport à la branches principale </td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -8753,9 +8760,9 @@ Pour fuisonner les diffs, git applique une série de règles simples et si aucun
 <li>Il ne se base pas sur des diffs qui serait trop longues à gérer</li>
 <li>Il en fait le minimum possible pour changer de branche</li>
 </ul>
-<hr>
+<hr/>
     Par contre, il fait très attention sur les taches risquées comme la fusion de branches.
-</hr></div>
+</div>
 </div>
 </div>
 </div>
