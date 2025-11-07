@@ -7530,20 +7530,40 @@ main {
     .c-folder {
         color: orange
     }
+    .c-warning {
+        color: red
+    }
     .c-file {
         color: cyan
     }
+    .c-text {
+        color: gray
+    }
+    .fw-bold{
+        font-weight: bold
+    }
+    .flex-column{
+        display: flex; flex-direction:column;
+    }
     .black-block {
-        display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px; background-color:black; color: #e0e0e0
+         font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px; background-color:black; color: #e0e0e0;
     }
     .inline {
         display:flex;
         gap: 5px
     }
+    .gap-1{
+        gap:10px
+    }
 
     p {
         margin:0 !important
     }
+    .two-columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
 
     .info-box {
         background-color: #f8fafc;
@@ -8005,7 +8025,7 @@ Tout les fichiers nécessaires au bon fonctionnement de git sont dans le .git, u
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Sauvegarder-des-modifications">Sauvegarder des modifications<a class="anchor-link" href="#Sauvegarder-des-modifications">¶</a></h3><p>Faisons des modifications dans notre projet et regardons comment Git les sauvegarde.</p>
-<div class="black-block">
+<div class="black-block flex-column">
 <span class="c-folder">root</span>
 <span class="inline">└── <p class="c-file">readme.md</p></span>
 <span class="inline">└── <p class="c-folder">src</p></span>
@@ -8091,12 +8111,10 @@ Sauvegardons ces nouvelle modifications dans le dépo Git.
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <div class="black-block">
-<span class="inline c-file">3cd77f0710fee3ea2ef3b7477277106fdd7ee1ec</span>
-<span class="inline">└──&gt; git cat-file</span>
+<span class="inline">└──&gt; git cat-file blob 3cd77f0710fee3ea2ef3b7477277106fdd7ee1ec</span>
 <span class="inline pl-1">└──&gt; contenu entier de config.json</span>
 <hr/>
-<span class="inline c-file">55d8fa4b0d6ff9e9715ed2ed86763ca63ff4ae63</span>
-<span class="inline">└──&gt; git cat-file</span>
+<span class="inline">└──&gt; git cat-file blob 55d8fa4b0d6ff9e9715ed2ed86763ca63ff4ae63</span>
 <span class="inline pl-1">└──&gt; contenu entier de main.js</span>
 </div>
 </div>
@@ -8135,7 +8153,7 @@ Sauvegardons ces nouvelle modifications dans le dépo Git.
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3>Résumons ce qu'on a.<h3>
-<div class="black-block">
+<div class="black-block flex-column">
 <span class="c-folder">root</span>
 <span class="inline">└── <p class="c-file">readme.md</p></span>
 <span class="inline">└── <p class="c-folder">src</p></span>
@@ -8170,7 +8188,7 @@ Sauvegardons ces nouvelle modifications dans le dépo Git.
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3>2ème étape, git commit </h3>
-<p>La commande <code>git commit</code> fait 2 choses, elle crée un ensemble d'objet Tree décrivant l'arborescence de fichiers, et créer un objet commit.</p>
+<p>La commande <code>git commit</code> fait 2 choses, elle crée un ensemble d'objets Tree décrivant l'arborescence de fichiers, et créer un objet commit.</p>
 </div>
 </div>
 </div>
@@ -8183,73 +8201,106 @@ Sauvegardons ces nouvelle modifications dans le dépo Git.
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3>Les objets Tree </h3>
 <p>Utilisons la plumbing commande <code>git write-tree</code> pour construire l'aborescence.</p>
-<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px;">
-<div style="display:flex; gap: 10px"><span style="color: red">$ </span><span style="color: green">git write-tree</span></div>
-<span style="color: black; margin-bottom: 50px">bf010268b9aaec572fcb61faf3b38eb9fb4ae916</span>
-<div style="display:flex; gap: 10px"><span style="color: red">$ </span><span style="color: green">ls .git/objects</span></div>
-<span style="color: blue; margin-bottom: 50px">info/ pack/ 3c/ 55/ bf/ ff/</span>
-<div style="display:flex; gap: 10px; font-weight: 800"><span style="color: red">$ </span><span style="color: green">ls .git/objects/bf</span></div>
-<span style="color: black; margin-bottom: 50px; font-weight: 800">010268b9aaec572fcb61faf3b38eb9fb4ae916</span>
-<div style="display:flex; gap: 10px; font-weight: 800"><span style="color: red">$ </span><span style="color: green">ls .git/objects/ff</span></div>
-<span style="color: black; margin-bottom: 50px; font-weight: 800">3e4802e7624245c0cc9733effca88e9c87c943</span>
+<div class="black-block flex-column">
+<span class="inline">└──&gt; git write-tree</span>
+<span class="inline pl-1">└──&gt; <span class="c-text">f292363e8eaae01072ef08484f8b64421eceef94</span></span>
 </div>
 </div>
 </div>
 </div>
-</div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fa72f33e">
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e8b1b18a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3>Affichons le contenu de ces Tree </h3>
-<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px;">
-<div style="display:flex; gap: 10px"><span style="color: red">$ </span><span style="color: green">git cat-file -p bf010268b9aaec572fcb61faf3b38eb9fb4ae916</span></div>
-<span style="color: black">100644 blob 3cd77f0710fee3ea2ef3b7477277106fdd7ee1ec    readme.md</span>
-<span style="color: black;margin-bottom:50px;">040000 tree ff3e4802e7624245c0cc9733effca88e9c87c943    src</span>
-<div style="display:flex; gap: 10px"><span style="color: red">$ </span><span style="color: green">git cat-file -p ff3e4802e7624245c0cc9733effca88e9c87c943</span></div>
-<span style="color: black">100644 blob 55d8fa4b0d6ff9e9715ed2ed86763ca63ff4ae63    config.json</span>
+<div class="black-block flex-column">
+<span class="c-text">root</span>
+<span class="inline">└──&gt; git cat-file -p f292363e8eaae01072ef08484f8b64421eceef94</span>
+<span class="inline pl-1">└──&gt;</span>
+<span class="inline pl-2 c-text">100644 blob f39bc2c368eb918f6d226a3cc7b6f1e58152f334 readme.md</span>
+<span class="inline pl-2 c-text">040000 tree eeecb95d644bc3956a3d54da27b286c7b02f1732 src</span>
+<span class="inline pl-2 c-text">040000 tree df3eb5b5dcd8d56d6b1c3688b1a768b176179cc1 asset</span>
 </div>
 </div>
 </div>
 </div>
-</div><div class="fragment">
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a1d68f0a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="black-block flex-column">
+<span class="c-text">src</span>
+<span class="inline">└──&gt; git cat-file -p f39bc2c368eb918f6d226a3cc7b6f1e58152f334</span>
+<span class="inline pl-1">└──&gt;</span>
+<span class="inline pl-2 c-text">100644 blob 8454286955b4876e8d1c9635b36c2365175fc4ec config.json</span>
+<span class="inline pl-2 c-text">040000 tree 7bb0daf7063caf0492a4d95e7d7ffe031d0b368c app</span>
+</div>
+</div>
+</div>
+</div>
+</div></div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=aa6cf83e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Chaque ligne des Tree suit le format suivant:</p>
-<div style="display: flex; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px; gap:10px">
+<h3>Les objets Tree </h3>
+<div class="info-box">
+    Chaque ligne des Tree suit le format suivant:
+    <span class="inline gap-1">
 <span style="color: red">Permission</span>
 <span style="color: green">Type de fichier</span>
 <span style="color: black">SHA</span>
 <span style="color: purple">Nom du fichier/dossier</span>
-</div>
+</span>
 <ul>
 <li>Permission : lecture, écriture, exécutable, lien sabolique, répertoire, sous-module....</li>
 <li>Type de fichier : Blob, Tree ou commit</li>
 <li>SHA du fichier</li>
 <li>Nom du fichier ou dossier</li>
 </ul>
-<p>Les fichiers Tree contiennent l'ensemble des metadata et reforme l'aborescence de fichier.</p>
+    Les fichiers Tree contiennent l'ensemble des metadata et reforme l'aborescence de fichier.
 </div>
 </div>
 </div>
-</div></div><div class="fragment">
+</div>
+</div><div class="fragment">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=59220562">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px; background-color:black; color: #e0e0e0">
-<span>Tree (root)</span>
-<span>├── Blob (readme.md)</span>
-<span>└── Tree (src)</span>
-<span style="padding-left:50px">└── Blob (config.json)</span>
+<p>Les Tree décrivent l'arborescence du working directory.</p>
+<div class="black-block two-columns" style="font-weight: unset">
+<div class="flex-columns">
+<strong>Avant modif</strong>
+<span class="c-folder inline">Tree A (root)</span>
+<span class="inline">└── <p class="c-file">Blob 1 (readme.md)</p></span>
+<span class="inline">└── <p class="c-folder">Tree B (src)</p></span>
+<span class="pl-1 inline">└── <p class="c-file">Blob 2 (config.json)</p></span>
+<span class="pl-1 inline">└── <p class="c-folder">Tree C (app)</p></span>
+<span class="pl-2 inline">└── <p class="c-file">Blob 3 (main.js)</p></span>
+<span class="inline">└── <p class="c-folder">Tree D (asset)</p></span>
+<span class="pl-1 inline">└── <p class="c-file">Blob 4 (logo.png)</p></span>
+</div>
+<div class="flex-columns">
+<strong>Après modif</strong>
+<span class="c-folder fw-bold inline"><p class="c-warning fw-bold">/!\</p>Tree A2 (root)</span>
+<span class="inline">└── <p class="c-file">Blob 1 (readme.md)</p></span>
+<span class="inline">└── <p class="c-warning fw-bold">/!\</p> <p class="c-folder fw-bold">Tree B2 (src)</p></span>
+<span class="pl-1 inline">└── <p class="c-warning fw-bold">/!\</p><p class="c-file fw-bold">Blob 5 (config.json)</p></span>
+<span class="pl-1 inline">└── <p class="c-warning fw-bold">/!\</p><p class="c-folder fw-bold">Tree C2 (app)</p></span>
+<span class="pl-2 inline">└── <p class="c-warning fw-bold">/!\</p><p class="c-file fw-bold">Blob 6 (main.js)</p></span>
+<span class="inline">└── <p class="c-folder">Tree D (asset)</p></span>
+<span class="pl-1 inline">└── <p class="c-file">Blob 4 (logo.png)</p> </span>
+</div>
 </div>
 </div>
 </div>
