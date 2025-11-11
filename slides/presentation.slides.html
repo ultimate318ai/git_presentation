@@ -9306,16 +9306,11 @@ lib/simplegit.rb | 25 +++++++++++++++++++++++++
 <div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
 <div><span style="color: red">$ </span><span style="color: green">git log --pretty=oneline</span></div>
 </div>
-<p><em>Sortie:</em></p>
-<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
-<div>
-<span style="color: black">
+<pre class="prettyprint">
     ca82a6dff817ec66f44342007202690a93763949 changed the version number<br/>
     085bb3bcb608e1e8451d4b2432f8ecbe6306e7e7 removed unnecessary test<br/>
     a11bef06a3f659402fe7563abf99ad00de2209e6 first commit<br/>
-</span>
-</div>
-</div>
+</pre>
 </div>
 </div>
 </div>
@@ -9330,16 +9325,11 @@ lib/simplegit.rb | 25 +++++++++++++++++++++++++
 <div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
 <div><span style="color: red">$ </span><span style="color: green">git log --pretty=format:"%h - %an, %ar : %s</span></div>
 </div>
-<p><em>Sortie:</em></p>
-<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
-<div>
-<span style="color: black">
+<pre class="prettyprint">
     ca82a6d - Scott Chacon, 6 years ago : changed the version number<br/>
     085bb3b - Scott Chacon, 6 years ago : removed unnecessary test<br/>
     a11bef0 - Scott Chacon, 6 years ago : first commit<br/>
-</span>
-</div>
-</div>
+</pre>
 </div>
 </div>
 </div>
@@ -9435,10 +9425,7 @@ lib/simplegit.rb | 25 +++++++++++++++++++++++++
 <div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
 <div><span style="color: red">$ </span><span style="color: green">git log --pretty=format:"%h %s" --graph</span></div>
 </div>
-<p><em>Sortie:</em></p>
-<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
-<div>
-<span style="color: black">
+<pre class="prettyprint">
     * 2d3acf9 ignore errors from SIGCHLD on trap<br/>
     * 5e3ee11 Merge branch 'master' of git://github.com/dustin/grit<br/>
     |\<br/>
@@ -9449,9 +9436,7 @@ lib/simplegit.rb | 25 +++++++++++++++++++++++++
     |/<br/>
     * d6016bc require time for xmlschema<br/>
     * 11d191e Merge branch 'defunkt' into local<br/>
-</span>
-</div>
-</div>
+</pre>
 </div>
 </div>
 </div>
@@ -9557,19 +9542,14 @@ lib/simplegit.rb | 25 +++++++++++++++++++++++++
 <div><span style="color: red">$ </span><span style="color: green">git log --pretty="%h - %s" --author='Junio C Hamano' --since="2008-10-01"
 --before="2008-11-01" --no-merges -- repository/</span></div>
 </div>
-<p><em>Sortie:</em></p>
-<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
-<div>
-<span style="color: black">
+<pre class="prettyprint">
     5610e3b - Fix testcase failure when extended attributes are in use<br/>
     acd3b9e - Enhance hold_lock_file_for_{update,append}() API<br/>
     f563754 - demonstrate breakage of detached checkout with symbolic link HEAD<br/>
     d1a43f2 - reset --hard/read-tree --reset -u: remove unmerged new paths<br/>
     51a94af - Fix "checkout --track -b newbranch" on detached HEAD<br/>
     b0ad11e - pull: allow "git pull origin $something:$current_branch" into an unborn branch<br/>
-</span>
-</div>
-</div>
+</pre>
 </div>
 </div>
 </div>
