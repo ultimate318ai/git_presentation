@@ -110,6 +110,12 @@ Le noyau Linux est un projet libre de grande envergure. Pour la plus grande part
 (1991–2002), les modifications étaient transmises sous forme de patchs et d’archives de fichiers. En
 2002, le projet du noyau Linux commença à utiliser un DVCS propriétaire appelé BitKeeper.
 
+La décision prise en 2002 d'utiliser BitKeeper pour le développement du noyau Linux a été très controversée. Certains, notamment Richard Stallman, fondateur de GNU, ont exprimé leur scepticisme envers l'utilisation d'un outil propriétaire pour un projet faisant figure de porte-drapeau du logiciel libre.
+
+Tandis que le coordonnateur Linus Torvalds et quelques-uns des principaux développeurs adoptèrent BitKeeper, de nombreux développeurs-clés refusèrent d'en faire de même, en citant la licence de BitMover et en arguant du fait que le projet remettait une partie de son devenir à un développement propriétaire.
+
+Pour couper court aux craintes exprimées, BitMover a ajouté des passerelles permettant une interopérabilité partielle entre les serveurs BitKeeper de Linux (administrés par BitMover) et les développeurs utilisant CVS ou Subversion. Mais même après cet ajout, des flamewars occasionnelles se produisaient sur la Linux Kernel Mailing List, impliquant régulièrement des développeurs-clés du noyau et Larry McVoy, le PDG de BitMover, qui est lui aussi un développeur du noyau Linux. mwouhahaha l'anbiance.
+
 ## Bitkeeper en gros
 
 ### Features
