@@ -7498,26 +7498,6 @@ main {
         color: green;
     }
 
-    
-    /* .prettyprint.lang-diff.log2 > span:nth-child(n+49) TODO{
-        color: red;
-    }
-    .prettyprint.lang-diff.log2 > span:nth-child(n+49){
-        color: green;
-    }
-    .prettyprint.lang-diff.log2 > span:nth-child(n+49):nth-child(-n+55) {
-        color: red;
-    }
-    .prettyprint.lang-diff.log2 > span:nth-child(n+55):nth-child(-n+59) {
-        color: green;
-    }
-    .prettyprint.lang-diff.log2 > span:nth-child(n+106):nth-child(-n+114) {
-        color: red;
-    }
-    .prettyprint.lang-diff.log2 > span:nth-child(n+115):nth-child(-n+121) {
-        color: green;
-    } */
-
     .pl-1 {
         padding-left: 50px
     }
@@ -9143,146 +9123,64 @@ int cmd_checkout(int argc, const char **argv, const char *prefix,struct reposito
 <div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
 <div><span style="color: red">$ </span><span style="color: green">git log</span></div>
 </div>
-<p><em>Sortie:</em></p>
-<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
-<div>
-<span style="color: black">
-    commit ca82a6dff817ec66f44342007202690a93763949<br/>
-	Author: Scott Chacon schacon@gee-mail.com<br/>
-	Date: Mon Mar 17 21:52:11 2008 -0700<br/>
-			changed the version number<br/>
-<br/>
-	commit 085bb3bcb608e1e8451d4b2432f8ecbe6306e7e7<br/>
-	Author: Scott Chacon schacon@gee-mail.com<br/>
-	Date: Sat Mar 15 16:40:33 2008 -0700<br/>
-			removed unnecessary test<br/>
-<br/>
-	commit a11bef06a3f659402fe7563abf99ad00de2209e6<br/>
-	Author: Scott Chacon schacon@gee-mail.com<br/>
-	Date: Sat Mar 15 10:31:28 2008 -0700<br/>
-			first commit<br/>
-</span>
 </div>
 </div>
+</div>
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=23a86907-6fac-41cb-b377-4394987f878c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<script>
+    let n = 0;
+    const highlightIndexesList = [[0,1], [2,12], [13,31], [32,32], [0,0]]
+    document.addEventListener("click", (event) => {
+      if (n < 5){
+          console.log(n)
+        const sheet = Object.values(document.styleSheets).at(-1);
+
+        // remove old rule to remove orange color
+        const oldValues = highlightIndexesList[n-1]
+        if (oldValues !== undefined){
+            console.log("remove")
+            sheet.deleteRule(0)
+        }
+        const [from, to] = highlightIndexesList[n]
+          console.log(from)
+          console.log(to)
+        const rule = `.prettyprint.log2 > span:nth-child(n+${from}):nth-child(-n+${to}) {
+            color: orange;
+        }`;
+        sheet.insertRule(rule, 0);
+        n++;
+      } else {
+          n = 0;
+          sheet.deleteRule(0);
+      }
+    })
+</script>
+<pre class="prettyprint log2">
+        commit ca82a6dff817ec66f44342007202690a93763949
+	Author: Scott Chacon schacon@gee-mail.com
+	Date: Mon Mar 17 21:52:11 2008 -0700
+			changed the version number
+
+	<span>commit 085bb3bcb608e1e8451d4b2432f8ecbe6306e7e7
+	Author: Scott Chacon schacon@gee-mail.com
+	Date: Sat Mar 15 16:40:33 2008 -0700
+			removed unnecessary test</span>
+
+	commit a11bef06a3f659402fe7563abf99ad00de2209e6
+	Author: Scott Chacon schacon@gee-mail.com
+	Date: Sat Mar 15 10:31:28 2008 -0700
+			first commit
+</pre>
 </div>
 </div>
 </div>
 </div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ee4fbb1c-2c08-4415-9790-4b02ddaf1a04">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Log-(2/X)">Log (2/X)<a class="anchor-link" href="#Log-(2/X)">¶</a></h3><hr/>
-<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
-<div><span style="color: red">$ </span><span style="color: green">git log</span></div>
-</div>
-<p><em>Sortie:</em></p>
-<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
-<div>
-<span style="color: orange">
-    commit ca82a6dff817ec66f44342007202690a93763949<br/>
-</span>
-<span style="color: black">
-	Author: Scott Chacon schacon@gee-mail.com<br/>
-	Date: Mon Mar 17 21:52:11 2008 -0700<br/>
-			changed the version number<br/>
-<br/>
-	commit 085bb3bcb608e1e8451d4b2432f8ecbe6306e7e7<br/>
-	Author: Scott Chacon schacon@gee-mail.com<br/>
-	Date: Sat Mar 15 16:40:33 2008 -0700<br/>
-			removed unnecessary test<br/>
-<br/>
-	commit a11bef06a3f659402fe7563abf99ad00de2209e6<br/>
-	Author: Scott Chacon schacon@gee-mail.com<br/>
-	Date: Sat Mar 15 10:31:28 2008 -0700<br/>
-			first commit<br/>
-</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b34b4287-76da-4c47-9847-ae34d535dce6">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Log-(3/X)">Log (3/X)<a class="anchor-link" href="#Log-(3/X)">¶</a></h3><hr/>
-<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
-<div><span style="color: red">$ </span><span style="color: green">git log</span></div>
-</div>
-<p><em>Sortie:</em></p>
-<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
-<div>
-<span style="color: black">
-    commit ca82a6dff817ec66f44342007202690a93763949<br/>
-</span>
-<span style="color: orange">
-	Author: Scott Chacon schacon@gee-mail.com<br/>
-</span>
-<span style="color: black">
-	Date: Mon Mar 17 21:52:11 2008 -0700<br/>
-			changed the version number<br/>
-<br/>
-	commit 085bb3bcb608e1e8451d4b2432f8ecbe6306e7e7<br/>
-	Author: Scott Chacon schacon@gee-mail.com<br/>
-	Date: Sat Mar 15 16:40:33 2008 -0700<br/>
-			removed unnecessary test<br/>
-<br/>
-	commit a11bef06a3f659402fe7563abf99ad00de2209e6<br/>
-	Author: Scott Chacon schacon@gee-mail.com<br/>
-	Date: Sat Mar 15 10:31:28 2008 -0700<br/>
-			first commit<br/>
-</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b025646f-1448-4085-a7f9-d6c18c2ee481">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Log-(4/X)">Log (4/X)<a class="anchor-link" href="#Log-(4/X)">¶</a></h3><hr/>
-<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
-<div><span style="color: red">$ </span><span style="color: green">git log</span></div>
-</div>
-<p><em>Sortie:</em></p>
-<div style="display: flex; flex-direction:column; font-size:20px; font-weight: bold; border: solid 1px #e0e0e0; border-radius: 5px; padding:5px">
-<div>
-<span style="color: black">
-    commit ca82a6dff817ec66f44342007202690a93763949<br/>
-	Author: Scott Chacon schacon@gee-mail.com<br/>
-</span>
-<span style="color: orange">
-	Date: Mon Mar 17 21:52:11 2008 -0700<br/>
-</span>
-<span style="color: black">
-			changed the version number<br/>
-<br/>
-	commit 085bb3bcb608e1e8451d4b2432f8ecbe6306e7e7<br/>
-	Author: Scott Chacon schacon@gee-mail.com<br/>
-	Date: Sat Mar 15 16:40:33 2008 -0700<br/>
-			removed unnecessary test<br/>
-<br/>
-	commit a11bef06a3f659402fe7563abf99ad00de2209e6<br/>
-	Author: Scott Chacon schacon@gee-mail.com<br/>
-	Date: Sat Mar 15 10:31:28 2008 -0700<br/>
-			first commit<br/>
-</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e05ef610-18bc-412b-996c-8f0fc535385b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -9347,7 +9245,7 @@ s.summary = "A simple gem for using Git in Ruby code."
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<pre class="prettyprint lang-diff log2">
+<pre class="prettyprint lang-diff log3">
 commit ca82a6dff817ec66f44342007202690a93763949
 Author: Scott Chacon <schacon@gee-mail.com>
 Date: Mon Mar 17 21:52:11 2008 -0700
