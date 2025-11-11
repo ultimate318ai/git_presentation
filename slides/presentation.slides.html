@@ -8810,12 +8810,12 @@ Pour fuisonner les diffs, git applique une série de règles simples et si aucun
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<blockquote>
-<p>Git switch and git checkout are both used to change branches, but they have some differences in syntax and behavior. Git switch is a newer command that is more focused on branches, while git checkout is an older command that can do other things besides switching branches.</p>
-</blockquote>
-<blockquote>
-<p>Git checkout has a more versatile syntax than git switch, but it can also be more confusing and error-prone if you don’t understand its behavior.</p>
-</blockquote>
+<div class="info-box">
+    Git switch and git checkout are both used to change branches, but they have some differences in syntax and behavior. Git switch is a newer command that is more focused on branches, while git checkout is an older command that can do other things besides switching branches.
+</div>
+<div class="info-box">
+    Git checkout has a more versatile syntax than git switch, but it can also be more confusing and error-prone if you don’t understand its behavior.
+</div>
 <p><em>source</em>: <a href="https://kodekloud.com/blog/git-switch-vs-checkout/">Git Switch vs. Checkout: What’s the Difference? (2023)</a></p>
 </div>
 </div>
@@ -8827,13 +8827,13 @@ Pour fuisonner les diffs, git applique une série de règles simples et si aucun
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<blockquote>
-<p>Two new commands "git switch" and "git restore" are introduced to
-split "checking out a branch to work on advancing its history" and
-"checking out paths out of the index and/or a tree-ish to work on
-advancing the current history" out of the single "git checkout"
-command.</p>
-</blockquote>
+<div class="info-box">
+   Two new commands "git switch" and "git restore" are introduced to
+   split "checking out a branch to work on advancing its history" and
+   "checking out paths out of the index and/or a tree-ish to work on
+   advancing the current history" out of the single "git checkout"
+   command.
+</div>
 <p><em>source</em>: <a href="https://github.com/git/git/blob/2d2a71ce85026edcc40f469678a1035df0dfcf57/Documentation/RelNotes/2.23.0.adoc?plain=1#L61-L65">release 2.23</a></p>
 </div>
 </div>
@@ -8923,7 +8923,7 @@ static struct cmd_struct commands[] = { //l.503
         (...)
 	{ "checkout", cmd_checkout, RUN_SETUP | NEED_WORK_TREE }, //l.520
         (...)
-    { "switch", cmd_switch, RUN_SETUP | NEED_WORK_TREE }, //l.632
+        { "switch", cmd_switch, RUN_SETUP | NEED_WORK_TREE }, //l.632
         (...)
 </pre>
 <p><em>source</em>: <a href="https://github.com/git/git/blob/2d2a71ce85026edcc40f469678a1035df0dfcf57/git.c#L503">git.c</a></p>
@@ -8992,7 +8992,7 @@ int cmd_checkout(int argc, const char **argv, const char *prefix,struct reposito
         opts.switch_branch_doing_nothing_is_ok = 1; // Tiens tiens tiens...
 	opts.only_merge_on_switching_branches = 0;
 
-	if (argc == 3 &amp;&amp; !strcmp(argv[1], "-b")) { // Si l'utilisateur rentre [git] checkout -b <branchname>
+	if (argc == 3 &amp;&amp; !strcmp(argv[1], "-b")) { // Si l'utilisateur rentre (git) checkout -b [branchName]
 		/*
 		 * User ran 'git checkout -b <branch>' and expects
 		 * the same behavior as 'git switch -c <branch>'.
@@ -9003,9 +9003,9 @@ int cmd_checkout(int argc, const char **argv, const char *prefix,struct reposito
 	(...) // On Parse les options
 
 	return checkout_main(argc, argv, prefix, &amp;opts, options, // Toujours un appel a checkout_main
-			     checkout_usage); -&gt; On Appelle la même fonction en bas
+			     checkout_usage);
 }
-</branch></branch></branchname></pre>
+</branch></branch></pre>
 <p><em>source</em>: <a href="https://github.com/git/git/blob/master/builtin/checkout.c#L1988">git/builtin/checkout.c</a></p>
 </div>
 </div>
@@ -9055,20 +9055,6 @@ int cmd_checkout(int argc, const char **argv, const char *prefix,struct reposito
 </tbody>
 </table>
 <p><em>source:</em> <a href="https://kodekloud.com/blog/git-switch-vs-checkout/">Git Switch vs. Checkout: What’s the Difference?</a></p>
-</div>
-</div>
-</div>
-</div></div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2c301e11-0b06-47d0-977f-57a53d87a7d7">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<ul>
-<li><em>Checkout</em>: Résoudre les conflits git (ours/theirs)</li>
-<li><em>Switch</em>: Opérations sur les branches : changement/création/suppression</li>
-</ul>
 </div>
 </div>
 </div>
