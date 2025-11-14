@@ -7703,8 +7703,7 @@ du temps de manière à ce qu’on puisse rappeler une version antérieure d’u
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Etat-de-l'art-et-critiques">Etat de l'art et critiques<a class="anchor-link" href="#Etat-de-l'art-et-critiques">¶</a></h3><hr/>
 <ul style="list-style: none;">
-<li><span style="color: green">+ On il peut restituer l’état de n’importe quel fichier à n’importe quel instant en ajoutant toutes les
-différences patch nécéssaires.</span></li>
+<li><span style="color: green">+ On il peut restituer l’état de n’importe quel fichier à n’importe quel instant en ajoutant toutes les patchs nécéssaires.</span></li>
 <li><span style="color: red">- Cela ne permet pas de gérer plusieurs utilisateurs sur plusieurs machines</span></li>
 <li><span style="color: red">- Dépendance totale sur le server local (panne, corruption du disque dur, ...)</span></li>
 </ul>
@@ -7718,7 +7717,7 @@ différences patch nécéssaires.</span></li>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Comment gerer plusieurs utilisateurs sur plusieurs machines ?</p>
+<p>Comment gérer plusieurs utilisateurs sur plusieurs machines ?</p>
 </div>
 </div>
 </div>
@@ -7749,15 +7748,15 @@ central.</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="Etat-de-l'art-et-critiques">Etat de l'art et critiques<a class="anchor-link" href="#Etat-de-l'art-et-critiques">¶</a></h3><hr/>
 <ul style="list-style: none;">
-<li><span style="color: green">+ On il peut restituer l’état de n’importe quel fichier à n’importe quel instant.</span></li>
-<li><span style="color: green">+ Cela permet de gérer plusieurs utilisateurs sur plusieurs machines</span></li>
-<li><span style="color: green">+ Possibilités d'administration de la base de donnée</span></li>
-<li><span style="color: red">- Dépendance totale sur le server distant (panne, lenteur, corruption du disque dur, accès concurrents, ...)</span></li>
+<li><span class="inline" style="color: green"><span style="width: 15px; display: flex; justify-content:center">+</span> On peut restituer l’état de n’importe quel fichier à n’importe quel instant.</span></li>
+<li><span class="inline" style="color: green"><span style="width: 15px; display: flex; justify-content:center">+</span> Cela permet de gérer plusieurs utilisateurs sur plusieurs machines</span></li>
+<li><span class="inline" style="color: green"><span style="width: 15px; display: flex; justify-content:center">+</span> Possibilités d'administration de la base de donnée</span></li>
+<li><span class="inline" style="color: red"><span style="width: 15px; display: flex; justify-content:center">-</span> Dépendance totale sur le server distant (panne, lenteur, corruption du disque dur, accès concurrents, ...)</span></li>
 </ul>
 </div>
 </div>
 </div>
-</div>
+</div><div class="fragment">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0987d370-d8fe-47f5-9720-ca12534b92d4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7768,7 +7767,7 @@ central.</p>
 </div>
 </div>
 </div>
-</div></section><section>
+</div></div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f9d52b08-4076-45db-85b7-7413df9b48da">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7856,6 +7855,17 @@ index 30cfd169..8de130c2 100644
 </div>
 </div>
 </div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4ef4a2e7">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1>PARLER DES DIFFS :)</h1>
+</div>
+</div>
+</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7ffeae12-8128-4513-a0b5-03bd1312bcec">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7983,19 +7993,41 @@ l’utilisation de BitKeeper:</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Fonctionnement-interne-de-Git">Fonctionnement interne de Git<a class="anchor-link" href="#Fonctionnement-interne-de-Git">¶</a></h2><h3 id="Point-stats">Point stats<a class="anchor-link" href="#Point-stats">¶</a></h3><p>Un idée de l'efficacité de stockage de git</p>
+<h2 id="Fonctionnement-interne-de-Git">Fonctionnement interne de Git<a class="anchor-link" href="#Fonctionnement-interne-de-Git">¶</a></h2>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=55abae23">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Point-stats">Point stats<a class="anchor-link" href="#Point-stats">¶</a></h3><p>Un idée de l'efficacité de stockage de git</p>
 <ul>
 <li>1Go de code</li>
 <li>30 000 commits dans develop</li>
+<li>Taille théorique: nb_commit x taille_projet =&gt; 30 000 Go</li>
 <li>.git de 9.6Go contenant 262 branches locales</li>
 </ul>
 <p>Il est possible de connaitre l'état du projet à tout moment, sur n'importe quel commit.
 Tout les fichiers nécessaires au bon fonctionnement de git sont dans le .git, un serveur git n'est nécessaire que pour partager le dépo et pour les commandes <code>git pull</code> <code>git push</code> et <code>git fetch</code>.</p>
-<p>Comment git est il si efficace ?</p>
 </div>
 </div>
 </div>
-</div></section><section>
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4f0aac7f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Comment git est il si efficace ?</strong></p>
+</div>
+</div>
+</div>
+</div></div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=65053e8d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8211,7 +8243,7 @@ Sauvegardons ces nouvelle modifications dans le dépo Git.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3>Les Blob</h3>
+<h3>Les SHA</h3>
 <div class="info-box">
     L'identifiant d'un blob est un SHA-1 généré à partir d'un hash de:
     <ul>
@@ -8227,6 +8259,17 @@ Sauvegardons ces nouvelle modifications dans le dépo Git.
 <span class="inline pl-2">└── <p class="c-folder">3c</p></span>
 <span class="inline pl-3">└── <p class="c-file">d77f0710fee3ea2ef3b7477277106fdd7ee1ec</p><p>────────────&gt; SHA: 3cd77f0710fee3ea2ef3b7477277106fdd7ee1ec</p></span>
 </div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=04f80069">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1>Parler des SHA</h1>
 </div>
 </div>
 </div>
@@ -8301,29 +8344,12 @@ Sauvegardons ces nouvelle modifications dans le dépo Git.
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <div class="black-block flex-column">
-<span class="c-text">root</span>
+<span class="c-folder">root</span>
 <span class="inline">└──&gt; git cat-file -p f292363e8eaae01072ef08484f8b64421eceef94</span>
 <span class="inline pl-1">└──&gt;</span>
 <span class="inline pl-2 c-text">100644 blob f39bc2c368eb918f6d226a3cc7b6f1e58152f334 readme.md</span>
-<span class="inline pl-2 c-text">040000 tree eeecb95d644bc3956a3d54da27b286c7b02f1732 src</span>
-<span class="inline pl-2 c-text">040000 tree df3eb5b5dcd8d56d6b1c3688b1a768b176179cc1 asset</span>
-</div>
-</div>
-</div>
-</div>
-</div></div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a1d68f0a">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<div class="black-block flex-column">
-<span class="c-text">src</span>
-<span class="inline">└──&gt; git cat-file -p eeecb95d644bc3956a3d54da27b286c7b02f1732</span>
-<span class="inline pl-1">└──&gt;</span>
-<span class="inline pl-2 c-text">100644 blob 8454286955b4876e8d1c9635b36c2365175fc4ec config.json</span>
-<span class="inline pl-2 c-text">040000 tree 7bb0daf7063caf0492a4d95e7d7ffe031d0b368c app</span>
+<span class="inline pl-2 c-text">040000 tree eeecb95d644bc3956a3d54da27b286c7b02f1732 <span class="c-folder"> src</span></span>
+<span class="inline pl-2 c-text">040000 tree df3eb5b5dcd8d56d6b1c3688b1a768b176179cc1  <span class="c-folder"> asset</span></span>
 </div>
 </div>
 </div>
@@ -8335,17 +8361,18 @@ Sauvegardons ces nouvelle modifications dans le dépo Git.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3>Les objets Tree </h3>
+<h3>Format d'une ligne d'un Tree </h3>
 <div class="info-box">
+<span class="inline c-text"><span style="color: red">100644</span> <span style="color: green">blob</span><span style="color: teal">f39bc2c368eb918f6d226a3cc7b6f1e58152f334</span> <span style="color: purple">readme.md</span></span>
     Chaque ligne des Tree suit le format suivant:
     <span class="inline gap-1">
 <span style="color: red">Permission</span>
 <span style="color: green">Type de fichier</span>
-<span style="color: black">SHA</span>
+<span style="color: teal">SHA</span>
 <span style="color: purple">Nom du fichier/dossier</span>
 </span>
 <ul>
-<li>Permission : lecture, écriture, exécutable, lien sabolique, répertoire, sous-module....</li>
+<li>Permission : lecture, écriture, exécutable, lien symbolique, répertoire, sous-module....</li>
 <li>Type de fichier : Blob, Tree ou commit</li>
 <li>SHA du fichier</li>
 <li>Nom du fichier ou dossier</li>
@@ -8457,14 +8484,28 @@ Sauvegardons ces nouvelle modifications dans le dépo Git.
     <ul>
 <li>SHA du Tree de racine du projet</li>
 <li>SHA du commit parent</li>
-<li>L'auteur du commit (celui qui a changé les donné)</li>
-<li>Le commiteur (celui qui a commit)</li>
+<li>L'auteur du commit</li>
+<li>Le commiteur</li>
 <li>Message de commit</li>
 <li>L'utilisateur qui a signé le commit (si le commit est signé)</li>
 </ul>
     Les commits ont un seul commit parent, sauf le commit initial qui n'en a pas et les commits de merge qui en ont 2.
 </div>
 <p>Comme un commit contient la référence d'un Tree contenant l'ensemble du projet, git peux retrouver l'état du projet pour n'importe quel commit.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d5c24472">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1>Auteur VS commiteur </h1>
+Nathan part :)
+
+
 </div>
 </div>
 </div>
@@ -8516,11 +8557,22 @@ Sauvegardons ces nouvelle modifications dans le dépo Git.
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3>Comment git met à jour le working directory lors d'un changement de branche</h3>
-<p>En théorie facile, on supprime tout le working directory et on recrée tout les fichiers à partir du commit HEAD de la branch (tree + blob). Super les 5min pour changer de branche !</p>
+<p>En théorie facile, on supprime tout le working directory et on recrée tout les fichiers à partir du commit HEAD de la branch (tree + blob).</p>
 <div style="display:flex;">
 <img alt="branch" src="pictures/git-diff-part-2.png" style="border-radius: 5px; margin: auto; width:80%; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"/>
 </div>
 <p>Git ne remplace que les fichiers qui sont différent entre le HEAD actuel et le HEAD cible.</p>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=83c1b824">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1>Modal suppression Windows XP</h1>
 </div>
 </div>
 </div>
@@ -8776,6 +8828,17 @@ Pour fuisonner les diffs, git applique une série de règles simples et si aucun
 </div>
 </div>
 </div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d555a2f8">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1>Stratédie interne, fast foward</h1>
+</div>
+</div>
+</div>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0cb6f02e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8810,7 +8873,7 @@ Pour fuisonner les diffs, git applique une série de règles simples et si aucun
 <tr style="padding: 5px;">
 <td style="padding-top: 15px; padding-bottom: 15px;border-right: 1px black solid"> Réécriture d’historique </td>
 <td style="padding-top: 15px; padding-bottom: 15px;border-right: 1px black solid"> Non </td>
-<td style="padding-top: 15px; padding-bottom: 15px;"> Oui (nouveaux commits) </td>
+<td style="padding-top: 15px; padding-bottom: 15px;"> Oui </td>
 </tr>
 <tr style="padding: 5px;">
 <td style="padding-top: 15px; padding-bottom: 15px;border-right: 1px black solid"> Cas d'utilisation </td>
@@ -8829,7 +8892,7 @@ Pour fuisonner les diffs, git applique une série de règles simples et si aucun
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3> Conclusion, comment Git est il si efficace ? </h3>
+<h3> Comment Git est il si efficace ? </h3>
 <div class="info-box">
     Globalement, Git est faignant pour les taches facile
     <ul>
@@ -8839,6 +8902,20 @@ Pour fuisonner les diffs, git applique une série de règles simples et si aucun
 </ul>
 <hr/>
     Par contre, il fait très attention sur les taches risquées comme la fusion de branches.
+</div>
+</div>
+</div>
+</div>
+</div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9e7d25fa">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3>Attention les fichiers </h3>
+<div class="info-box">
+    Git lfs
 </div>
 </div>
 </div>
