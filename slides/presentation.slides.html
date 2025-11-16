@@ -8411,6 +8411,62 @@ Tous les fichiers nécessaires au bon fonctionnement de git sont dans le .git, u
 </div>
 </div>
 </div></div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=42529a1f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3> Les Identifiants </h3>
+<div class="black-block">
+<span class="c-folder">root</span>
+<span class="inline">└── <p class="c-folder">.git</p></span>
+<span class="inline pl-1">└── <p class="c-folder">objects</p></span>
+<span class="inline pl-2">└── <p class="c-folder">e5</p></span>
+<span class="inline pl-3">└── <p class="c-file">c91389320ba2309bef1fae2e2f5ef356d0edeb</p></span>
+<span class="inline pl-2">└── <p class="c-folder">8a</p></span>
+<span class="inline pl-3">└── <p class="c-file">91ff01b784372c45bc8c96288f3b2011651f49</p></span>
+</div>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=caf35974">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="info-box">
+    Les identifiants de tous les objets dans le dossier sont des SHA-1.
+    <span>Un SHA-1 fait 40 caractères hexadécimals, ce qui fait plus de 10<sup>48</sup> SHA différents disponibles.</span>
+<span class="inline"><span style="color: red; font-weight: bold">Attention</span> SHA du Blob contient le nom du dossier.</span>
+<hr/>
+    Dans les versions les plus récentes de git, on peut avoir des SHA-256 qui font 64 caractères hexadécimals.
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a737fcb7">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="info-box">
+   Un SHA-1 est généré à partir de:
+    <ul>
+<li>Type d'objet</li>
+<li>Taille</li>
+<li>Contenu</li>
+</ul>
+<span class="inline">Plusieurs entrées différentes peuvent donner le même SHA-1 (ou SHA-256) de sorti, cependant le nombre d'objet dans un dépôt git reste "faible" par rapport aux nombres de possiblités, la collision de 2 objets est donc fortement improbable (environ 1 chance sur 10<sup>37</sup> pour 1 million d'objet).
+</span></div>
+</div>
+</div>
+</div>
+</div></div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ecbe8b9d-bfae-40f0-afe1-f7acc6851cea">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8515,43 +8571,6 @@ Sauvegardons ces nouvelles modifications dans le dépôt Git.
 </div>
 </div>
 </div></div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=21d5a647">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3>Les SHA</h3>
-<div class="info-box">
-    L'identifiant d'un blob est un SHA-1 généré à partir d'un hash de:
-    <ul>
-<li>Type d'objet (blob ici)</li>
-<li>Taille</li>
-<li>Contenu</li>
-</ul>
-<span>Il fait 40 caractères hexa, ce qui fait plus de 10<sup>48</sup> SHA différents disponibles.</span>
-<span class="inline"><span style="color: red; font-weight: bold">Attention</span> SHA du Blob contient le nom du dossier.</span>
-</div>
-<div class="black-block">
-<span class="inline pl-1">└── <p class="c-folder">objects</p></span>
-<span class="inline pl-2">└── <p class="c-folder">3c</p></span>
-<span class="inline pl-3">└── <p class="c-file">d77f0710fee3ea2ef3b7477277106fdd7ee1ec</p><p>────────────&gt; SHA: 3cd77f0710fee3ea2ef3b7477277106fdd7ee1ec</p></span>
-</div>
-</div>
-</div>
-</div>
-</div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=04f80069">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1>Parler des SHA</h1>
-</div>
-</div>
-</div>
-</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f77ab6f9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8855,7 +8874,9 @@ You may be wondering what the difference is between author and committer. The au
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1>Modal suppression Windows XP</h1>
+<div style="display:flex;">
+<img alt="branch" src="pictures/delete-dialog.jpg" style="border-radius: 5px; margin: auto; width:70%; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"/>
+</div>
 </div>
 </div>
 </div>
@@ -8868,7 +8889,10 @@ You may be wondering what the difference is between author and committer. The au
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3>Comment Git sait les fichiers qui ont été modifiés ? Les SHA ! </h3>
 <div class="info-box">
-  Comme le SHA d'un Blob dépend du contenu du fichier et que le SHA d'un Tree dépend des blobs qu'il contient, si 2 Tree ont 2 SHA identiques, alors ils contiennent exactement le même contenu.
+<ul>
+<li>Si 2 Blob ont le même SHA, alors ils ont le même contenu.</li>
+<li>Si 2 Tree ont le même SHA, ils ont les mêmes enfants et tous leurs enfants sont identiques.</li>
+</ul>
 </div>
 </div>
 </div>
@@ -8970,6 +8994,7 @@ You may be wondering what the difference is between author and committer. The au
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3>Rebase </h3>
 <p>Une fois le commit de base obtenu, git calcule les diffs entre chaque commit et son précédent jusqu'à arriver au commit de base.</p>
 <div style="display:flex;">
 <img alt="branch" src="pictures/git-rebase-part-3.png" style="border-radius: 5px; margin: auto; width:80%; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"/>
@@ -9117,11 +9142,41 @@ Pour fusionner les diffs, git applique une série de règles simples et si aucun
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1>Stratégie interne, fast forward</h1>
+<h3> Stratégie du merge fast-forward </h3>
+<p>Il y a une situation ouù le commit de merge est inutile.</p>
+<div style="display:flex;">
+<img alt="branch" src="pictures/merge-ff.png" style="border-radius: 5px; margin: auto; width:80%; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"/>
 </div>
 </div>
 </div>
-</div></section><section>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b4f97334">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div style="display:flex;">
+<img alt="branch" src="pictures/merge-ff-part2.png" style="border-radius: 5px; margin: auto; width:80%; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"/>
+</div>
+</div>
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b0f31a0d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="info-box">
+<span class="inline">La stratégie fast-forward est appliquée par défaut par git si elle peut être appliquer. On peut forcer de ne pas l'appliquer avec l'option <code>--no-ff</code>.</span>
+</div>
+</div>
+</div>
+</div>
+</div></div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0cb6f02e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -9198,7 +9253,23 @@ Pour fusionner les diffs, git applique une série de règles simples et si aucun
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3>Attention aux fichiers volumineux</h3>
 <div class="info-box">
-    Git lfs
+    Une limite de git est la gestion de fichiers volumineux changeant régulièrement, surtout lorsque ces fichiers sont des exécutables, des images etc... dans les quels il est impossible de faire des diffs ou des merges lors de changement.
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=18410c76">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="info-box">
+<span class="inline">Une solution: <p class="fw-bold">git lfs.</p> </span>
+<span>Git lfs est une extension de git permettant de déléguer la gestion des fichiers volumineux à un serveur distant, votre git local stockant seulement la référence vers ce serveur.</span>
+<span>Si cette référence à changer entre 2 commits, alors git sait qu'il doit demander la nouvelle version de ces fichiers.</span>
+<span>Cela permet de garder un dossier .git de taille plus faible en local, et un clone plus rapide.</span>
 </div>
 </div>
 </div>
@@ -10056,8 +10127,8 @@ require(
             transition: "slide",
             slideNumber: "",
             plugins: [RevealNotes],
-            width: 960,
-			      height: 700,
+            width: 1600,
+			      height: 900,
 
         });
 
@@ -10070,7 +10141,7 @@ require(
         Reveal.addEventListener('slidechanged', update);
 
         function setScrollingSlide() {
-            var scroll = false
+            var scroll = true
             if (scroll === true) {
               var h = $('.reveal').height() * 0.95;
               $('section.present').find('section')
