@@ -7478,12 +7478,35 @@ main {
     .prettyprint.lang-diff.local-version > span:nth-child(n+24):nth-child(-n+29) {
         color: green;
     }
+    .prettyprint.lang-diff.local-version > span:nth-child(n+30):nth-child(-n+42) {
+        color: purple;
+    }
     .prettyprint.lang-diff.local-version > span:nth-child(n+58):nth-child(-n+70) {
         color: red;
     }
     .prettyprint.lang-diff.local-version > span:nth-child(n+71):nth-child(-n+92) {
         color: green;
     }
+
+   .prettyprint.lang-diff.contextualized-diff > span:nth-child(n+0):nth-child(-n+4) {
+        color: green;
+    }
+    .prettyprint.lang-diff.contextualized-diff > span:nth-child(n+20):nth-child(-n+23) {
+        color: red;
+    }
+    .prettyprint.lang-diff.contextualized-diff > span:nth-child(n+64):nth-child(-n+75) {
+        font-weight: bold;
+    }
+    .prettyprint.lang-diff.contextualized-diff > span:nth-child(n+108):nth-child(-n+128) {
+         font-weight: bold;
+    }
+    .prettyprint.lang-diff.contextualized-diff > span:nth-child(n+40):nth-child(-n+47) {
+        color: green;
+    }
+    .prettyprint.lang-diff.contextualized-diff > span:nth-child(n+85):nth-child(-n+91) {
+        color: red;
+    }
+
 
    .prettyprint.lang-diff.uniform-diff > span:nth-child(n+0):nth-child(-n+4) {
         color: red;
@@ -7827,50 +7850,14 @@ complètement le dépôt.</p>
 <p>Un des systèmes les plus populaires était <a href="https://www.gnu.org/software/rcs/">RCS</a>, qui est encore distribué avec de nombreux systèmes
 d’exploitation aujourd’hui.</p>
 <p>Cet outil fonctionne en conservant des ensembles de patchs</p>
-<pre class="prettyprint lang-diff local-version">
-diff --git a/foo.c b/foo.c
-index 30cfd169..8de130c2 100644
---- a/foo.c
-+++ b/foo.c
-@@ -1,5 +1,5 @@
- #include &lt;string.h&gt;
-
- int check (char *string) {
--    return !strcmp(string, "ok");
-+    return (string != NULL) &amp;&amp; !strcmp(string, "ok");
-}
-</pre>
+<div style="display:flex">
+<img alt="RCS" src="pictures/rcs.png" style="border: 3px solid #08182F; border-radius: 5px; margin: auto; width: 60%"/>
+</div>
 <p>Un patch est une représentation compacte de différences entre deux fichiers. Cela décrit comment effectuer une transformation afin de passer d'un fichier à un autre.</p>
 </div>
 </div>
 </div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=639ac4b6-c887-4cd8-8814-241621f8e825">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<ul>
-<li><em>diff --git a/foo.c b/foo.c</em> représente les changements entre l'index et la version dans l'arbre de travail.</li>
-</ul>
-</div>
-</div>
-</div>
-</div></div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5c9295e5-7a02-4fca-967b-692cbf2bbb5f">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<ul>
-<li><code>index 30cfd169..8de130c2 100644</code> représente le header. Dans notre contexte cela montre plus de détails sur notamment d'où proviennent les deux "versions" de ce même fichier ainsi que son type (fichier dit régulier, exécutable ou non, lien symbolique...)</li>
-</ul>
-</div>
-</div>
-</div>
-</div></div></section><section>
+</div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4ef4a2e7">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8060,7 +8047,7 @@ int check (char *string) {
 <span style="color: green">diff -c foo.c foo2.c</span>
 </div>
 </div>
-<pre class="prettyprint lang-diff">
+<pre class="prettyprint lang-diff contextualized-diff">
 *** foo.c       2025-11-16 14:47:55.275277732 +0100
 --- foo2.c      2025-11-16 11:47:15.454550560 +0100
 ***************
@@ -8111,6 +8098,55 @@ int check (char *string) {
 </div>
 </div>
 </div></section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d9062964-b4d2-45f0-b501-19d87be26a89">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Extension-de-la-command-Unix">Extension de la command Unix<a class="anchor-link" href="#Extension-de-la-command-Unix">¶</a></h3><pre class="prettyprint lang-diff local-version">
+diff --git a/foo.c b/foo.c
+index 30cfd169..8de130c2 100644
+--- a/foo.c
++++ b/foo.c
+@@ -1,5 +1,5 @@
+ #include &lt;string.h&gt;
+
+ int check (char *string) {
+-    return !strcmp(string, "ok");
++    return (string != NULL) &amp;&amp; !strcmp(string, "ok");
+}
+</pre>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5e326487-2357-478a-94ad-9e0b03229736">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li><em>diff --git a/foo.c b/foo.c</em> représente les changements entre l'index et la version dans l'arbre de travail.</li>
+</ul>
+</div>
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dc651dbe-6823-4d25-b656-3fec23705d65">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<ul>
+<li><code>index 30cfd169..8de130c2 100644</code> représente le header. Dans notre contexte cela montre plus de détails sur notamment d'où proviennent les deux "versions" de ce même fichier ainsi que son type (fichier dit régulier, exécutable ou non, lien symbolique...)</li>
+</ul>
+</div>
+</div>
+</div>
+</div></div></section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7ffeae12-8128-4513-a0b5-03bd1312bcec">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">

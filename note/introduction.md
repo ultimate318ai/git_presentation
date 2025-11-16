@@ -66,6 +66,10 @@ le reste → This is a difference section, or “hunk,” of which there is just
 A single patch file can contain the differences for any number of files, and `git diff` produces diffs for all altered files in the repository in a single patch (unlike the usual Unix `diff` command, which requires extra options to recursively process whole directory trees) d’une version à l’autre dans un format spécial sur disque ; il peut alors restituer l’état de n’importe quel fichier à n’importe quel instant en ajoutant toutes les
 différences.
 
+# Les Diff
+
+Changes since 1975 include improvements to the core algorithm, the addition of useful features to the command, and the design of new output formats. The basic algorithm is described in the papers An O(ND) Difference Algorithm and its Variations by Eugene W. Myers and in A File Comparison Program by Webb Miller and Myers. The algorithm was independently discovered and described in Algorithms for Approximate String Matching, by Esko Ukkonen. The first editions of the diff program were designed for line comparisons of text files expecting the newline character to delimit lines. By the 1980s, support for binary files resulted in a shift in the application's design and implementation.
+
 # Les systèmes de gestion de version centralisés
 
 Le problème majeur que les gens rencontrent est qu’ils ont besoin de collaborer avec des
