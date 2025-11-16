@@ -7947,31 +7947,10 @@ d’exploitation aujourd’hui.</p>
         sheet.insertRule(ruleRed, 0);
         sheet.insertRule(ruleGreen, 0);
     };
-
-    let globalCallack = (display) => {
-        if (display){
-           onDisplayCallback(); 
-        } else {
-           onHiddenCallback();
-        }
-    }
-    
-    document.addEventListener("keydown", (event) => {   
-        let {keyCode} = event;
-        console.log(keyCode);
-
-        if (keyCode === 65){
-            onDisplayCallback()
-        }
-        else if (keyCode === 90){
-            onHiddenCallback()
-        }
-    });
     document.addEventListener("DOMContentLoaded", () => {
         let observer = new MutationObserver((mutationList, observer) => {
              for (const mutation of mutationList) {
                  if (mutation.type === "attributes") {
-                     console.log(mutation)
                      // element is displayed
                      if (mutation.target.className === "fragment visible current-fragment"){
                          onDisplayCallback()
@@ -9612,32 +9591,51 @@ int cmd_checkout(int argc, const char **argv, const char *prefix,struct reposito
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <script>
-    let n = 0;
     const highlightIndexesList = [[0,1], [2,12], [13,31], [32,32], [0,0]]
-    document.addEventListener("keydown", (event) => {
-        if (event.keycode === 87 ){ // w pressed  
-          let sheet = Object.values(document.styleSheets).at(-1);
-          if (n < 5){
-            // remove old rule to remove orange color
-            const oldValues = highlightIndexesList[n-1]
-            if (oldValues !== undefined){
-                console.log("remove")
-                sheet.deleteRule(0)
-            }
-            const [from, to] = highlightIndexesList[n]
-              console.log(from)
-              console.log(to)
-            const rule = `.prettyprint.log2 > span:nth-child(n+${from}):nth-child(-n+${to}) {
-                color: orange;
-            }`;
-            sheet.insertRule(rule, 0);
-            n++;
-          } else {
-              n = 0;
-              sheet.deleteRule(0);
-          }
+    let logTransitions = () => {
+        let n = 0;
+        let interval = setInterval(() => {
+            let sheet = Object.values(document.styleSheets).at(-1);
+            if (n < 5){
+                // remove old rule to remove orange color
+                const oldValues = highlightIndexesList[n-1]
+                if (oldValues !== undefined){
+                    indexeList = Object.values(sheet.cssRules).map((rule, index) => {
+                        if (rule.selectorText.includes('.prettyprint.log2')){
+                            return index;
+                        }
+                        return undefined;
+                    }).filter((index) => index !== undefined)
+                    for (const index of indexeList.reverse()){
+                        sheet.deleteRule(index);
+                    }
+                }
+                const [from, to] = highlightIndexesList[n]
+                const rule = `.prettyprint.log2 > span:nth-child(n+${from}):nth-child(-n+${to}) {
+                    color: orange;
+                }`;
+                sheet.insertRule(rule, 0);
+                n++;      
+            } else {
+              clearInterval(interval);
+            }}, 2500)
         }
-    })
+    document.addEventListener("DOMContentLoaded", () => {
+        let observer = new MutationObserver((mutationList, observer) => {
+             for (const mutation of mutationList) {
+                 if (mutation.type === "attributes") {
+                     // element is displayed
+                     if (mutation.target.className === "fragment visible current-fragment"){
+                         logTransitions()
+                     }
+                }
+             }
+        });
+        const targetNode = document.querySelector("div.fragment:has(> * .log2)")
+        console.log(targetNode)
+        const config = { attributes: true, childList: true, subtree: false };
+        observer.observe(targetNode, config);
+    });
 </script>
 <pre class="prettyprint log2">
         commit ca82a6dff817ec66f44342007202690a93763949
