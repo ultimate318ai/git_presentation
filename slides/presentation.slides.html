@@ -7967,6 +7967,24 @@ d’exploitation aujourd’hui.</p>
             onHiddenCallback()
         }
     });
+    document.addEventListener("DOMContentLoaded", () => {
+        let observer = new MutationObserver((mutationList, observer) => {
+             for (const mutation of mutationList) {
+                 if (mutation.type === "attributes") {
+                     console.log(mutation)
+                     // element is displayed
+                     if (mutation.target.className === "fragment visible current-fragment"){
+                         onDisplayCallback()
+                     } else {
+                        onHiddenCallback()
+                     }
+                }
+             }
+        });
+        const targetNode = document.querySelector("div.fragment:has(> * .animation1)")
+        const config = { attributes: true, childList: true, subtree: false };
+        observer.observe(targetNode, config);
+    });
 </script>
 <div class="info-box animation1">
     Pour le reste, on utilisera comme label
